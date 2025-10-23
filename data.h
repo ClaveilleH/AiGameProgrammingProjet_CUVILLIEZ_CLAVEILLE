@@ -12,6 +12,7 @@ et pas dans tout le code
 
 
 #define MAX_HOLES 16
+#define MASK (MAX_HOLES - 1)
 #define MAX_SEEDS 96
 #define PLAYERS 1
 
@@ -23,13 +24,14 @@ typedef enum {
 } SeedType;
 
 typedef struct {
-    int R;
-    int B;
-    int T;
+    __uint8_t R;
+    __uint8_t B;
+    __uint8_t T;
+    __uint8_t __pad;
 } Hole;
 
 typedef struct {
-    Hole holes[16];
+    Hole holes[MAX_HOLES];
     int seed_count;
     int j1_score;
     int j2_score;

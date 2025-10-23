@@ -1,7 +1,8 @@
 # Makefile simple pour AIGame
 CC = gcc
 # CC = clang
-CFLAGS = -Wall -g -o3
+CFLAGS = -Wall -g -o3 -march=native
+# CFLAGS = -Wall -g --- IGNORE ---
 TARGET = aigame
 SOURCES = main.c data.c game.c
 

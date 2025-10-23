@@ -5,7 +5,66 @@ void play_game(Board* board) {
     // Game loop and logic here
 }
 
-void make_move(Board* board, int hole_index, SeedType type) {
+
+// static inline int next_red(int current_index, int i) {
+//     return (current_index + i + 1) % MAX_HOLES;
+// }
+
+// static inline int next_blue(int current_index, int i) {
+//     return (current_index + (i * 2) + 1) % MAX_HOLES;
+// }
+
+static inline __attribute__((always_inline)) int distribute_red(Board *restrict board, int hole_index, Hole *restrict hole) {
+    Hole *harr = board->holes;
+    int idx = hole_index;
+    for (int s = 0, cnt = hole->R; s < cnt; ++s) {
+        idx = (idx + 1) & MASK;
+        idx = (idx + (idx == hole_index)) & MASK;
+        harr[idx].R += 1;
+    }
+    hole->R = 0;
+    return idx; // last sown index (or origin if cnt==0)
+}
+
+static inline __attribute__((always_inline)) int distribute_blue(Board *restrict board, int hole_index, Hole *restrict hole) {
+    Hole *harr = board->holes;
+    int idx = (hole_index + 1) & MASK;
+    for (int s = 0, cnt = hole->B; s < cnt; ++s) {
+        harr[idx].B += 1;
+        idx = (idx + 2) & MASK;
+    }
+    hole->B = 0;
+    // last actually sown is idx - 2 (previous), compute properly:
+    idx = (idx - 2 + MAX_HOLES) & MASK;
+    return (hole->B == 0) ? hole_index : idx;
+}
+
+static inline __attribute__((always_inline)) int distribute_transparent_red(Board *restrict board, int hole_index, Hole *restrict hole) {
+    Hole *harr = board->holes;
+    int idx = hole_index;
+    for (int s = 0, cnt = hole->T; s < cnt; ++s) {
+        idx = (idx + 1) & MASK;
+        idx = (idx + (idx == hole_index)) & MASK;
+        harr[idx].T += 1;
+    }
+    hole->T = 0;
+    return idx;
+}
+
+static inline __attribute__((always_inline)) int distribute_transparent_blue(Board *restrict board, int hole_index, Hole *restrict hole) {
+    Hole *harr = board->holes;
+    int idx = (hole_index + 1) & MASK;
+    for (int s = 0, cnt = hole->T; s < cnt; ++s) {
+        harr[idx].T += 1;
+        idx = (idx + 2) & MASK;
+    }
+    idx = (idx - 2 + MAX_HOLES) & MASK;
+    hole->T = 0;
+    return (hole->T == 0) ? hole_index : idx;
+}
+
+
+int make_move(Board* board, int hole_index, SeedType type) {
     // Move logic here
     /*
     Differents moves:
@@ -17,39 +76,41 @@ void make_move(Board* board, int hole_index, SeedType type) {
 
 
     Hole* hole = get_hole(board, hole_index);
+    int last = hole_index;
+    // ! ATTENTION: & MASK pour faire le modulo 16, si MAX_HOLES change, il faut changer le MASK
+    
     switch (type) {
-        case R:
-            /* code for red */
-            for (int i = 0; i < hole->R; i++) {
-                // Example logic: distribute red seeds
-                board->holes[(hole_index + i + 1) % MAX_HOLES].R += 1;
-            }
-            hole->R = 0;
-            break;
-        case B:
-            /* code for blue */
-            for (int i = 0; i < hole->B; i++) {
-                // Example logic: distribute blue seeds
-                board->holes[(hole_index + (i * 2) + 1) % MAX_HOLES].B += 1;
-            }
-            hole->B = 0;
-            break;
         case TR:
             /* code for transparent red */
+            last =distribute_transparent_red(board, hole_index, hole);
+            // break; /* fallthrough */
+            //on enchaine avec les rouge
+        case R:
+            /* code for red */
+            last = distribute_red(board, last, hole);
             break;
+
         case TB:
             /* code for transparent blue */
+            last = distribute_transparent_blue(board, hole_index, hole);
+            // break; /* fallthrough */ 
+            //on enchaine avec les bleu
+        case B:
+            /* code for blue */
+            last = distribute_blue(board, last, hole);
             break;
+            
         default:
             fprintf(stderr, "Invalid seed type\n");
             exit(EXIT_FAILURE);
             break;
     }
     int captured = 0;
-    if (test_capture(board, hole_index, &captured)) {
+    if (test_capture(board, last, &captured)) {
         printf("Captured %d seeds!\n", captured);
         //! mettre a jour le score et le nombre de graines du board
     }
+    return last;
 
 }
 

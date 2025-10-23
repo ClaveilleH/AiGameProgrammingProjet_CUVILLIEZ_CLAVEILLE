@@ -26,11 +26,14 @@ int main(int argc, char* argv[]) {
             printf("Game continues...\n");
         }
 
-        make_move(&board, 0, R);
-        print_board(&board);
+        // make_move(&board, 0, R);
+        // print_board(&board);
 
 
-        make_move(&board, 0, B);
+        // make_move(&board, 0, B);
+        // print_board(&board);
+
+        make_move(&board, 1, TB);
         print_board(&board);
 
         break; // Placeholder to avoid infinite loop in this example
