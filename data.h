@@ -14,7 +14,7 @@ et pas dans tout le code
 #define MAX_HOLES 16
 #define MASK (MAX_HOLES - 1)
 #define MAX_SEEDS 96
-#define PLAYERS 1
+#define PLAYER 1
 
 typedef enum {
     R,
@@ -31,7 +31,7 @@ typedef struct {
 } Hole;
 
 typedef struct {
-    Hole holes[MAX_HOLES];
+    Hole holes[MAX_HOLES    ];
     int seed_count;
     int j1_score;
     int j2_score;
@@ -39,14 +39,26 @@ typedef struct {
 
 void init_board(Board* board);
 
-Hole* get_hole(Board* board, int index);
 
 void print_board(const Board* board);
 
+static inline Hole* get_hole(Board* board, int index) {
+    if (index < 0 || index >= 16) {
+        fprintf(stderr, "Invalid hole index\n");
+        exit(EXIT_FAILURE);
+    }
+    return &board->holes[index];
+}
 
-// Board* create_game();
-// Board* copy_game(const Board* board);
-// Hole* get_hole(Board* board, int index);
-// int get_color_count(const Hole* hole, int color);
+// static inline Hole* get_all_holes(Board* board) {
+//     return board->holes;
+// }
+
+// static inline int get_seed_count(const Board* board) {
+//     return board->seed_count;
+// }
+
+
+
 
 #endif // DATA_H

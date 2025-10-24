@@ -1,0 +1,38 @@
+#include "data.h"
+#include "game.h"
+#include "bot.h"
+
+#include <stdlib.h>
+#include <time.h>
+
+
+void bot_play(Board* board) {
+    // Simple bot logic: choose random move till a valid one is found
+    int hole_index;
+    SeedType type;
+    int valid_move = 0;
+    while (!valid_move) {
+        hole_index = rand() % MAX_HOLES/2 + PLAYER;
+        int type_choice = rand() % 4;
+        switch (type_choice) {
+            case 0:
+                type = R;
+                break;
+            case 1:
+                type = B;
+                break;
+            case 2:
+                type = TR;
+                break;
+            case 3:
+                type = TB;
+                break;
+        }
+        if (is_valid_move(board, hole_index, type)) {
+            valid_move = 1;
+        }
+    }
+    printf("Bot chooses hole %d with seed type %d\n", hole_index, type);
+    make_move(board, hole_index, type);
+    
+}

@@ -12,17 +12,6 @@ void init_board(Board* board) {
 }
 
 
-Hole* get_hole(Board* board, int index) {
-    if (index < 0 || index >= 16) {
-        fprintf(stderr, "Invalid hole index\n");
-        exit(EXIT_FAILURE);
-    }
-    return &board->holes[index];
-}
-
-
-
-
 void print_board(const Board* board) {
     printf("Board state:\n");
     for (int i = 0; i < 16; i++) {

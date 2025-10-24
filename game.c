@@ -3,18 +3,12 @@
 
 void play_game(Board* board) {
     // Game loop and logic here
+    
 }
 
-
-// static inline int next_red(int current_index, int i) {
-//     return (current_index + i + 1) % MAX_HOLES;
-// }
-
-// static inline int next_blue(int current_index, int i) {
-//     return (current_index + (i * 2) + 1) % MAX_HOLES;
-// }
-
 static inline __attribute__((always_inline)) int distribute_red(Board *restrict board, int hole_index, Hole *restrict hole) {
+    // Distribute red seeds
+    /* __attribute__((always_inline)) pour forcer l'inlining */
     Hole *harr = board->holes;
     int idx = hole_index;
     for (int s = 0, cnt = hole->R; s < cnt; ++s) {
@@ -82,7 +76,7 @@ int make_move(Board* board, int hole_index, SeedType type) {
     switch (type) {
         case TR:
             /* code for transparent red */
-            last =distribute_transparent_red(board, hole_index, hole);
+            last = distribute_transparent_red(board, hole_index, hole);
             // break; /* fallthrough */
             //on enchaine avec les rouge
         case R:
@@ -146,4 +140,22 @@ int check_winner(const Board* board, int *winner) {
         return 1;
     }
     return 0;
+}
+
+
+
+int is_valid_move(Board* board, int hole_index, SeedType type) {
+    Hole* hole = get_hole(board, hole_index);
+    switch (type) {
+        case R:
+            return hole->R > 0;
+        case B:
+            return hole->B > 0;
+        case TR:
+            return hole->T > 0;
+        case TB:
+            return hole->T > 0;
+        default:
+            return 0;
+    }
 }

@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wall -g -o3 -march=native
 # CFLAGS = -Wall -g --- IGNORE ---
 TARGET = aigame
-SOURCES = main.c data.c game.c
+SOURCES = main.c data.c game.c bot.c
 
 # Compilation
 all: $(TARGET)

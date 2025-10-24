@@ -1,23 +1,81 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <string.h>
 
 #include "data.h"
 #include "game.h"
-
-
-
-
+#include "bot.h"
+#include <time.h>
 
 Board board;
+
+int get_human_move(int *hole_index, SeedType *type) {
+    printf("Enter your move (hole index and seed type): ");
+    int idx;
+    char type_str[10]; // Buffer pour lire la chaîne complète
+
+    if (scanf("%d %s", &idx, type_str) != 2) {
+        fprintf(stderr, "Invalid input format.\n");
+        // Nettoyer le buffer d'entrée
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
+        return 1;
+    }
+
+    if (idx <= 0 || idx > MAX_HOLES) {
+        fprintf(stderr, "Invalid hole index. Must be between 0 and %d.\n", MAX_HOLES - 1);
+        return 1;
+    }
+
+    SeedType seed_type;
+    if (strcmp(type_str, "R") == 0) {
+        seed_type = R;
+    } else if (strcmp(type_str, "B") == 0) {
+        seed_type = B;
+    } else if (strcmp(type_str, "TR") == 0) {
+        seed_type = TR;
+    } else if (strcmp(type_str, "TB") == 0) {
+        seed_type = TB;
+    } else {
+        fprintf(stderr, "Invalid seed type. Use 'R', 'B', 'TR', or 'TB'.\n");
+        return 1;
+    }
+
+    *hole_index = idx - 1; // Convertir en index 0-based
+    *type = seed_type;
+    return 0;
+}
+
 
 
 int main(int argc, char* argv[]) {
     int run = 1;
+    int turn = 0; // 0 for player 1, 1 for player 2
+    int winner = -1;
+    srand(time(NULL));
+
+    
     init_board(&board);
     print_board(&board);
     while (run) {
         // Game loop
-        int winner = 0;
+        if (turn == PLAYER) {
+            printf("Player 1's turn.\n");
+            int hole_index;
+            SeedType type;
+            if (get_human_move(&hole_index, &type)) {
+                continue; // Invalid input, ask again
+            } else {
+                make_move(&board, hole_index, type);
+                print_board(&board);
+            }
+        } else {
+            printf("Player 2's turn.\n");
+            bot_play(&board);
+
+        }
+
         if (check_winner(&board, &winner)) {
             printf("Player %d wins!\n", winner);
             run = 0;
@@ -26,6 +84,7 @@ int main(int argc, char* argv[]) {
             printf("Game continues...\n");
         }
 
+
         // make_move(&board, 0, R);
         // print_board(&board);
 
@@ -33,10 +92,11 @@ int main(int argc, char* argv[]) {
         // make_move(&board, 0, B);
         // print_board(&board);
 
-        make_move(&board, 1, TB);
-        print_board(&board);
+        // make_move(&board, 1, TB);
 
-        break; // Placeholder to avoid infinite loop in this example
+        print_board(&board);
+        turn = 1 - turn;
+        // break; // Placeholder to avoid infinite loop in this example
     }
 
     return 0;
