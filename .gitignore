@@ -1,0 +1,7 @@
+aigame
+*.o
+*.d
+*.so
+*.a
+*.out
+*.exe
