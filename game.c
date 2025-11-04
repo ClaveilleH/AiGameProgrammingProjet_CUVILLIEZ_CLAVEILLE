@@ -1,5 +1,6 @@
 #include "data.h"
 #include "game.h"
+#include "logger.h"
 
 void play_game(Board* board) {
     // Game loop and logic here
@@ -101,7 +102,9 @@ int make_move(Board* board, int hole_index, SeedType type) {
     }
     int captured = 0;
     if (test_capture(board, last, &captured)) {
-        printf("Captured %d seeds!\n", captured);
+        // printf("Captured %d seeds!\n", captured);
+        COMPETE_PRINT("Captured %d seeds!\n", captured);
+        log("Captured %d seeds!", captured);
         //! mettre a jour le score et le nombre de graines du board
     }
     return last;
@@ -123,10 +126,18 @@ int test_capture(Board* board, int hole_index, int *captured) {
         test_capture(board, get_previous_hole_index(hole_index), &total_captured);
         total_captured += hole->R;
         hole->R = 0;
-
+        total_captured += hole->B;
+        hole->B = 0;
+        total_captured += hole->T;
+        hole->T = 0;
     }
 
     *captured = total_captured;
+
+    if (total_captured > 0) {
+        log("Total captured seeds: %d", total_captured);
+    }
+
     return total_captured > 0;
 }
 

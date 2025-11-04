@@ -6,17 +6,19 @@
 #include "data.h"
 #include "game.h"
 #include "bot.h"
+#include "logger.h"
 #include <time.h>
+
 
 Board board;
 
 int get_human_move(int *hole_index, SeedType *type) {
-    printf("Enter your move (hole index and seed type): ");
+    COMPETE_PRINT("Enter your move (hole index and seed type): ");
     int idx;
     char type_str[10]; // Buffer pour lire la chaîne complète
 
-    if (scanf("%d %s", &idx, type_str) != 2) {
-        fprintf(stderr, "Invalid input format.\n");
+    if (scanf("%d%s", &idx, type_str) != 2) {
+        fprintf(stderr, "Invalid input format. got %d %s\n", idx, type_str);
         // Nettoyer le buffer d'entrée
         int c;
         while ((c = getchar()) != '\n' && c != EOF);
@@ -38,9 +40,13 @@ int get_human_move(int *hole_index, SeedType *type) {
     } else if (strcmp(type_str, "TB") == 0) {
         seed_type = TB;
     } else {
-        fprintf(stderr, "Invalid seed type. Use 'R', 'B', 'TR', or 'TB'.\n");
+        fprintf(stderr, "Invalid seed type. Use 'R', 'B', 'TR', or 'TB' entered %s.\n", type_str);
         return 1;
     }
+    log("Other player chose hole %d with seed type %s", idx,
+        (seed_type == R) ? "R" : 
+        (seed_type == B) ? "B" : 
+        (seed_type == TR) ? "TR" : "TB");
 
     *hole_index = idx - 1; // Convertir en index 0-based
     *type = seed_type;
@@ -55,13 +61,29 @@ int main(int argc, char* argv[]) {
     int winner = -1;
     srand(time(NULL));
 
-    
+
+    init_logger();
+
+    // le player id est passé en argument
+    if (argc >= 2) {
+        PLAYER = atoi(argv[1]);
+    } else {
+        // Sinon on demande a l'utilisateur
+        COMPETE_PRINT("Enter your player ID (1 or 2): ");
+        if (scanf("%d", &PLAYER) != 1 || (PLAYER != 1 && PLAYER != 2)) {
+            fprintf(stderr, "Invalid player ID. Must be 0 or 1.\n");
+            return 1;
+        }
+        PLAYER -= 1; // Convert to 0-based index
+    }
+    fprintf(stderr, "Starting game as Player %d\n", PLAYER + 1);
+    log("Game started as Player %d", PLAYER + 1);
     init_board(&board);
     print_board(&board);
     while (run) {
         // Game loop
         if (turn == PLAYER) {
-            printf("Player 1's turn.\n");
+            DEBUG_PRINT("Player 1's turn.\n");
             int hole_index;
             SeedType type;
             if (get_human_move(&hole_index, &type)) {
@@ -71,17 +93,17 @@ int main(int argc, char* argv[]) {
                 print_board(&board);
             }
         } else {
-            printf("Player 2's turn.\n");
+            DEBUG_PRINT("Player 2's turn.\n");
             bot_play(&board);
 
         }
 
         if (check_winner(&board, &winner)) {
-            printf("Player %d wins!\n", winner);
+            DEBUG_PRINT("Player %d wins!\n", winner);
             run = 0;
         } else {
             // Continue game
-            printf("Game continues...\n");
+            DEBUG_PRINT("Game continues...\n");
         }
 
 
@@ -101,3 +123,11 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+
+
+
+/*
+
+make -mode
+
+*/

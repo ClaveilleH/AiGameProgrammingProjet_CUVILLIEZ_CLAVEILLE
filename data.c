@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "data.h"
 
+int PLAYER;
+
 void init_board(Board* board) {
     for (int i = 0; i < 16; i++) {
         board->holes[i].R = 2;
@@ -13,6 +15,7 @@ void init_board(Board* board) {
 
 
 void print_board(const Board* board) {
+    if (!DEBUG) return;
     printf("Board state:\n");
     for (int i = 0; i < 16; i++) {
         printf("Hole ");

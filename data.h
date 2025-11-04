@@ -14,7 +14,23 @@ et pas dans tout le code
 #define MAX_HOLES 16
 #define MASK (MAX_HOLES - 1)
 #define MAX_SEEDS 96
-#define PLAYER 1
+// #define PLAYER 1
+
+#ifdef DEBUG
+    #define DEBUG_PRINT(fmt, args...) fprintf(stderr, "DEBUG: " fmt, ## args)
+#else
+    #define DEBUG 0
+    #define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
+#endif
+
+#ifndef COMPETE
+    #define COMPETE 0
+    #define COMPETE_PRINT(fmt, args...) fprintf(stderr, fmt, ## args)
+#else
+    #define COMPETE_PRINT(fmt, args...) /* Don't do anything in compete builds */
+#endif
+
+extern int PLAYER; // global variable to hold player id
 
 typedef enum {
     R,
