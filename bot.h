@@ -5,5 +5,6 @@
 #include "game.h"
 
 void bot_play(Board* board);
+void get_move_list();
 
 #endif // BOT_H

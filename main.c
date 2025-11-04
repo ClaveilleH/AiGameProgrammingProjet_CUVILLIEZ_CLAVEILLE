@@ -61,7 +61,6 @@ int main(int argc, char* argv[]) {
     int winner = -1;
     srand(time(NULL));
 
-
     init_logger();
 
     // le player id est passé en argument
@@ -69,9 +68,9 @@ int main(int argc, char* argv[]) {
         PLAYER = atoi(argv[1]);
     } else {
         // Sinon on demande a l'utilisateur
-        COMPETE_PRINT("Enter your player ID (1 or 2): ");
+        COMPETE_PRINT("Enter bot ID (1 or 2): ");
         if (scanf("%d", &PLAYER) != 1 || (PLAYER != 1 && PLAYER != 2)) {
-            fprintf(stderr, "Invalid player ID. Must be 0 or 1.\n");
+            fprintf(stderr, "Invalid player ID. Must be 1 or 2.\n");
             return 1;
         }
         PLAYER -= 1; // Convert to 0-based index
@@ -83,7 +82,10 @@ int main(int argc, char* argv[]) {
     while (run) {
         // Game loop
         if (turn == PLAYER) {
-            DEBUG_PRINT("Player 1's turn.\n");
+            DEBUG_PRINT("Bot's turn.\n");
+            bot_play(&board);
+        } else {
+            DEBUG_PRINT("Player's turn.\n");
             int hole_index;
             SeedType type;
             if (get_human_move(&hole_index, &type)) {
@@ -92,10 +94,6 @@ int main(int argc, char* argv[]) {
                 make_move(&board, hole_index, type);
                 print_board(&board);
             }
-        } else {
-            DEBUG_PRINT("Player 2's turn.\n");
-            bot_play(&board);
-
         }
 
         if (check_winner(&board, &winner)) {
@@ -105,17 +103,6 @@ int main(int argc, char* argv[]) {
             // Continue game
             DEBUG_PRINT("Game continues...\n");
         }
-
-
-        // make_move(&board, 0, R);
-        // print_board(&board);
-
-
-        // make_move(&board, 0, B);
-        // print_board(&board);
-
-        // make_move(&board, 1, TB);
-
         print_board(&board);
         turn = 1 - turn;
         // break; // Placeholder to avoid infinite loop in this example

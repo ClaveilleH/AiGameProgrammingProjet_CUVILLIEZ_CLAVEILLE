@@ -5,3 +5,4 @@ aigame
 *.a
 *.out
 *.exe
+logs/*.log

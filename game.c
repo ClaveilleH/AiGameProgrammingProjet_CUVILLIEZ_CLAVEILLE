@@ -155,7 +155,7 @@ int check_winner(const Board* board, int *winner) {
 
 
 
-int is_valid_move(Board* board, int hole_index, SeedType type) {
+int is_valid_move(Board* board, int hole_index, SeedType type, int playerId) {
     Hole* hole = get_hole(board, hole_index);
     switch (type) {
         case R:

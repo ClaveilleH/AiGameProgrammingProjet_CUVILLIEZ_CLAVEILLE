@@ -53,6 +53,17 @@ typedef struct {
     int j2_score;
 } Board;
 
+typedef struct {
+    int hole_index;
+    SeedType type;
+} Move;
+
+// typedef struct {
+//     Move* moves;
+//     size_t count;
+//     size_t capacity;
+// } MoveList;
+
 void init_board(Board* board);
 
 

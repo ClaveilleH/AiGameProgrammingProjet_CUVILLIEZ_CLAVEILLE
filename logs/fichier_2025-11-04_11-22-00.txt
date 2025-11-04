@@ -1,0 +1,6 @@
+Fichier créé à Tue Nov  4 11:22:00 2025
+Game started as Player 2
+Other player chose hole 1 with seed type R
+Bot chooses hole 8 with seed type B
+Other player chose hole 1 with seed type R
+Bot chooses hole 3 with seed type TR

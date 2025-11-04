@@ -1,0 +1,1 @@
+Pour que le dossier de logs soit pris en compte par git, on ajoute un fichier vide dedans.
