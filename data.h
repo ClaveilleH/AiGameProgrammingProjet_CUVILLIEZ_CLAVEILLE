@@ -47,14 +47,14 @@ typedef struct {
 } Hole;
 
 typedef struct {
-    Hole holes[MAX_HOLES    ];
+    Hole holes[MAX_HOLES];
     int seed_count;
     int j1_score;
     int j2_score;
 } Board;
 
 typedef struct {
-    int hole_index;
+    __uint8_t hole_index;
     SeedType type;
 } Move;
 
@@ -77,14 +77,9 @@ static inline Hole* get_hole(Board* board, int index) {
     return &board->holes[index];
 }
 
-// static inline Hole* get_all_holes(Board* board) {
-//     return board->holes;
-// }
 
-// static inline int get_seed_count(const Board* board) {
-//     return board->seed_count;
-// }
-
+Board* dup_board(const Board* board);
+int free_board(Board* board);
 
 
 

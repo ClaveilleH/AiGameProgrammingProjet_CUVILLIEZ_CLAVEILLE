@@ -157,6 +157,10 @@ int check_winner(const Board* board, int *winner) {
 
 int is_valid_move(Board* board, int hole_index, SeedType type, int playerId) {
     Hole* hole = get_hole(board, hole_index);
+    // Check if the hole belongs to the player
+    if ((hole_index % 2) != 1 - playerId) {
+        return 0; 
+    }
     switch (type) {
         case R:
             return hole->R > 0;

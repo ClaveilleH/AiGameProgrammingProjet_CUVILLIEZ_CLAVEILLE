@@ -91,6 +91,10 @@ int main(int argc, char* argv[]) {
             if (get_human_move(&hole_index, &type)) {
                 continue; // Invalid input, ask again
             } else {
+                if (!is_valid_move(&board, hole_index, type, 1 - PLAYER)) {
+                    fprintf(stderr, "Invalid move. Try again.\n");
+                    continue; // Invalid move, ask again
+                }
                 make_move(&board, hole_index, type);
                 print_board(&board);
             }

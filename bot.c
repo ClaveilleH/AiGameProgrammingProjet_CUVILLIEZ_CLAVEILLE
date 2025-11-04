@@ -40,7 +40,7 @@ void bot_play(Board* board) {
                 type = R; // Pour eviter un warning, mais ne devrait jamais arriver
                 break;
         }
-        if (is_valid_move(board, hole_index, type)) {
+        if (is_valid_move(board, hole_index, type, PLAYER)) {
             valid_move = 1;
         }
     }

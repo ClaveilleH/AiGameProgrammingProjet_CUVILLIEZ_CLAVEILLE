@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "data.h"
 
 int PLAYER;
@@ -11,6 +12,30 @@ void init_board(Board* board) {
         board->holes[i].T = 2;
     }
     board->seed_count = 96;
+}
+
+Board* dup_board(const Board* board) {
+    /*
+    Fait une copie profonde du plateau de jeu.
+    */
+    Board* new_board = (Board*)malloc(sizeof(Board));
+    if (!new_board) {
+        fprintf(stderr, "Memory allocation failed\n");
+        exit(EXIT_FAILURE);
+    }
+    memcpy(new_board, board, sizeof(Board));
+    return new_board;
+}
+
+int free_board(Board* board) {
+    /*
+    Libère la mémoire allouée pour le plateau de jeu.
+    */
+    if (board) {
+        free(board);
+        return 0; // Succès
+    }
+    return -1; // Échec
 }
 
 
