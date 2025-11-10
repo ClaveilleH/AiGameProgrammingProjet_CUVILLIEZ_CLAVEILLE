@@ -1,0 +1,11 @@
+Fichier créé à Tue Nov  4 11:34:25 2025
+Game started as Player 2
+Bot chooses hole 8 with seed type R
+Other player chose hole 3 with seed type R
+Bot chooses hole 6 with seed type TB
+Total captured seeds: 2
+Captured 2 seeds!
+Other player chose hole 5 with seed type R
+Bot chooses hole 12 with seed type B
+Other player chose hole 7 with seed type B
+Bot chooses hole 2 with seed type TR

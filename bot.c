@@ -3,16 +3,49 @@
 #include "bot.h"
 #include "logger.h"
 
+
 #include <stdlib.h>
 #include <time.h>
 
-void get_move_list() {
-    // Function to get possible moves (not implemented)
-    int hole_index = (rand() % (MAX_HOLES / 2)) * 2 + (PLAYER);
-    printf("Possible move: hole %d\n", hole_index );
-    for (int i = 0; i < MAX_HOLES; i++) {
-        // Check each hole for possible moves
+int get_move_list(Board* board, Move* move_list) { 
+ 
+    int index = 0;
+    printf("Possible moves : \n"); 
+    // Function to get possible moves
+    for (int i = PLAYER ; i < MAX_HOLES; i+=2) { 
+        // Check each hole for possible moves 
+        Hole* hole = get_hole(board, i); 
+        int nb_graines_R = hole->R; 
+        int nb_graines_B = hole->B; 
+        int nb_graines_T = hole->T; 
+        if(nb_graines_B>0) {
+            move_list[index++] = (Move){i, B};
+            printf("Move B, hole %d\n", i ); 
+        }
+        if(nb_graines_R>0) {
+            move_list[index++] = (Move){i, R};
+            printf("Move R, hole %d\n", i ); 
+        }
+        if(nb_graines_T>0) { 
+            move_list[index++] =  (Move){i, TB};
+            printf("Move TB, hole %d\n", i ); 
+            move_list[index++] =  (Move){i, TR};
+            printf("Move TR, hole %d\n", i ); } 
+        } 
+    printf("Nb total de moves : %d\n", index);
+    return index;
     }
+
+Board* simulate_move(Board* board, Move move){
+    //On simule le plateau de jeu selon le coup choisi
+    Board* copie_board = dup_board(board);
+    if (!copie_board) {
+        fprintf(stderr, "simulate_move: erreur allocation mémoire\n");
+        exit(EXIT_FAILURE);
+    }
+    make_move(copie_board, move.hole_index, move.type);
+    return copie_board;
+
 }
 
 void bot_play(Board* board) {
