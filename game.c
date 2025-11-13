@@ -2,8 +2,9 @@
 #include "game.h"
 #include "logger.h"
 
-FILE *LOGFILE = NULL;  
-
+// #ifndef LOGFILE
+// FILE *LOGFILE = NULL;  
+// #endif
 void play_game(Board* board) {
     // Game loop and logic here
     
