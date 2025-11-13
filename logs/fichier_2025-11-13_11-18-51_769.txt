@@ -1,0 +1,5 @@
+Fichier créé à Thu Nov 13 11:18:51 2025
+Game started as Player 1
+Bot chooses hole 3 with seed type R --> 4 R
+Making move: hole 3, type R
+Number of seeds in hole 5: 7

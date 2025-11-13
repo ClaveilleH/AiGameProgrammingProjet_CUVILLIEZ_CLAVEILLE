@@ -1,0 +1,6 @@
+Fichier créé à Thu Nov 13 11:19:00 2025
+Game started as Player 1
+Bot chooses hole 3 with seed type B --> 4 B
+Making move: hole 3, type B
+Distributing blue seeds from hole 3
+Number of seeds in hole 6: 7

@@ -1,0 +1,7 @@
+Fichier créé à Thu Nov 13 11:19:27 2025
+Game started as Player 1
+Bot chooses hole 13 with seed type TB --> 14 TB
+Making move: hole 13, type TB
+Distributing transparent blue seeds from hole 13
+Distributing blue seeds from hole 13
+Number of seeds in hole 3: 7

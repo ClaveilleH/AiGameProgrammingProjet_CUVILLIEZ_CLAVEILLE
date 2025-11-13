@@ -82,5 +82,7 @@ Board* dup_board(const Board* board);
 int free_board(Board* board);
 
 
+int get_total_seeds(Hole* hole);
+
 
 #endif // DATA_H

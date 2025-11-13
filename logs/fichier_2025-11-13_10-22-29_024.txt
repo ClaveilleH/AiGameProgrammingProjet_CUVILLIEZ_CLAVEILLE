@@ -1,0 +1,9 @@
+Fichier créé à Thu Nov 13 10:22:29 2025
+Game started as Player 1
+Bot chooses hole 9 with seed type R --> 10 R
+Making move: hole 15, type TB
+Distributing transparent blue seeds from hole 15
+Distributing blue seeds from hole 15
+Distributing blue seed to hole 2
+Distributing blue seed to hole 4
+Number of seeds in hole 2: 8
