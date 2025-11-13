@@ -65,8 +65,6 @@ typedef struct {
 // } MoveList;
 
 void init_board(Board* board);
-
-
 void print_board(const Board* board);
 
 static inline Hole* get_hole(Board* board, int index) {
@@ -81,6 +79,8 @@ static inline Hole* get_hole(Board* board, int index) {
 Board* dup_board(const Board* board);
 int free_board(Board* board);
 
+
+int get_total_seeds(Hole* hole);
 
 
 #endif // DATA_H

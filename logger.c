@@ -2,20 +2,29 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <sys/time.h>
+#include <string.h>
 
 const char* LOG_DIR = "logs/";
 FILE* LOGFILE = NULL;
 
 void init_logger() {
 
-    char filename[64];
-    char filepath[128];
-    time_t now = time(NULL);
+    char filename[80];
+    char filepath[160];
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    time_t now = tv.tv_sec;
     struct tm *t = localtime(&now);
 
-    // Génération du nom : fichier_YYYY-MM-DD_HH-MM-SS.txt
-    strftime(filename, sizeof(filename), "fichier_%Y-%m-%d_%H-%M-%S.txt", t);
-    snprintf(filepath, sizeof(filepath), "%s/%s", LOG_DIR, filename);
+    // Génération du nom : fichier_YYYY-MM-DD_HH-MM-SS_mmm.txt (avec millisecondes)
+    int ms = (int)(tv.tv_usec / 1000);
+    strftime(filename, sizeof(filename), "fichier_%Y-%m-%d_%H-%M-%S", t);
+    /* ajouter les millisecondes et l'extension */
+    snprintf(filename + strlen(filename), sizeof(filename) - strlen(filename), "_%03d.txt", ms);
+    // fprintf(stderr, "_%03d.txt", ms);
+    /* Construire le chemin complet ; LOG_DIR contient un slash final dans la valeur par défaut */
+    snprintf(filepath, sizeof(filepath), "%s%s", LOG_DIR, filename);
 
     // Exemple : création du fichier
     LOGFILE = fopen(filepath, "w");
@@ -30,7 +39,10 @@ void init_logger() {
 void close_logger() {
     if (LOGFILE) {
         fclose(LOGFILE);
+        LOGFILE = NULL;
     }
+    
+
 }
 
 void log_print(const char* message) {

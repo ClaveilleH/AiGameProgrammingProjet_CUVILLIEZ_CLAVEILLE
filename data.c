@@ -12,6 +12,9 @@ void init_board(Board* board) {
         board->holes[i].T = 2;
     }
     board->seed_count = 96;
+    board->j1_score = 0;
+    board->j2_score = 0;
+    
 }
 
 Board* dup_board(const Board* board) {
@@ -39,8 +42,14 @@ int free_board(Board* board) {
 }
 
 
+int get_total_seeds(Hole* hole) {
+    DEBUG_PRINT("Calculating total seeds: R=%d, B=%d, T=%d\n", hole->R, hole->B, hole->T);
+    return (hole->R) + (hole->B) + (hole->T);
+}
+
 void print_board(const Board* board) {
     if (!DEBUG) return;
+    printf("Score - Player 1: %d, Player 2: %d\n", board->j1_score, board->j2_score);
     printf("Board state:\n");
     for (int i = 0; i < 16; i++) {
         printf("Hole ");

@@ -1,5 +1,0 @@
-Fichier créé à Tue Nov  4 12:13:27 2025
-Game started as Player 1
-Bot chooses hole 8 with seed type TB
-Total captured seeds: 2
-Captured 2 seeds!
