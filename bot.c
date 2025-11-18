@@ -54,7 +54,7 @@ void bot_play(Board* board) {
     SeedType type;
     int valid_move = 0;
     while (!valid_move) {
-        hole_index = (rand() % (MAX_HOLES / 2)) * 2 + (1 - PLAYER);
+        hole_index = (rand() % (MAX_HOLES / 2)) * 2 + ( PLAYER);
         int type_choice = rand() % 4;
         switch (type_choice) {
             case 0:
@@ -75,6 +75,7 @@ void bot_play(Board* board) {
         }
         if (is_valid_move(board, hole_index, type, PLAYER)) {
             valid_move = 1;
+            DEBUG_PRINT("not a valid move\n");
         }
     }
     if (COMPETE) {
@@ -82,17 +83,24 @@ void bot_play(Board* board) {
             (type == R) ? "R" : 
             (type == B) ? "B" : 
             (type == TR) ? "TR" : "TB");
+        // fflush(stdout);
+        fflush(stdout);
     } else {
         COMPETE_PRINT("Bot(%d) chooses hole %d with seed type %d\n", PLAYER, hole_index, type);
 
-        printf(">>%d %s\n", hole_index + 1, 
+        printf("%d %s\n", hole_index + 1, 
             (type == R) ? "R" : 
             (type == B) ? "B" : 
             (type == TR) ? "TR" : "TB");
     }
-    log("Bot chooses hole %d with seed type %s", hole_index, (type == R) ? "R" : 
+    log("Bot chooses hole %d with seed type %s --> %d %s", hole_index, (type == R) ? "R" : 
+        (type == B) ? "B" : 
+        (type == TR) ? "TR" : "TB", 
+        hole_index + 1, (type == R) ? "R" : 
         (type == B) ? "B" : 
         (type == TR) ? "TR" : "TB");
+
+    // make_move(board, 15, 3);
     make_move(board, hole_index, type);
     
 }

@@ -1,0 +1,5 @@
+Fichier créé à Thu Nov 13 11:32:44 2025
+Game started as Player 2
+Other player chose hole 1 with seed type R
+Making move: hole 0, type R
+Number of seeds in hole 2: 7

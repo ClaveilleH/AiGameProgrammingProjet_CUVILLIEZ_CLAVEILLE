@@ -1,0 +1,24 @@
+Fichier créé à Thu Nov 13 10:59:34 2025
+Game started as Player 1
+Bot chooses hole 7 with seed type R --> 8 R
+Making move: hole 7, type R
+Number of seeds in hole 9: 7
+Other player chose hole 2 with seed type R
+Other player chose hole 2 with seed type R
+Other player chose hole 1 with seed type R
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Bot chooses hole 5 with seed type TR --> 6 TR
+Making move: hole 5, type TR
+Number of seeds in hole 9: 8
+Other player chose hole 2 with seed type B
+Other player chose hole 2 with seed type B
+Other player chose hole 1 with seed type B
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Bot chooses hole 7 with seed type TB --> 8 TB
+Making move: hole 7, type TB
+Distributing transparent blue seeds from hole 7
+Distributing blue seeds from hole 7
+Number of seeds in hole 15: 7

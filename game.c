@@ -2,8 +2,9 @@
 #include "game.h"
 #include "logger.h"
 
-FILE *LOGFILE = NULL;  
-
+// #ifndef LOGFILE
+// FILE *LOGFILE = NULL;  
+// #endif
 void play_game(Board* board) {
     // Game loop and logic here
     
@@ -29,11 +30,13 @@ static inline __attribute__((always_inline)) int distribute_blue(Board *restrict
     for (int s = 0, cnt = hole->B; s < cnt; ++s) {
         harr[idx].B += 1;
         idx = (idx + 2) & MASK;
+        // log("Distributing blue seed to hole %d", idx);
     }
     hole->B = 0;
     // last actually sown is idx - 2 (previous), compute properly:
     idx = (idx - 2 + MAX_HOLES) & MASK;
-    return (hole->B == 0) ? hole_index : idx;
+    return idx;
+    // return (hole->B == 0) ? hole_index : idx;
 }
 
 static inline __attribute__((always_inline)) int distribute_transparent_red(Board *restrict board, int hole_index, Hole *restrict hole) {
@@ -57,7 +60,8 @@ static inline __attribute__((always_inline)) int distribute_transparent_blue(Boa
     }
     idx = (idx - 2 + MAX_HOLES) & MASK;
     hole->T = 0;
-    return (hole->T == 0) ? hole_index : idx;
+    return idx;
+    // return (hole->T == 0) ? hole_index : idx;
 }
 
 
@@ -70,8 +74,11 @@ int make_move(Board* board, int hole_index, SeedType type) {
                 TR
                 TB 
     */
-
-
+    DEBUG_PRINT("Making move: hole %d, type %d\n", hole_index, type);
+    log("Making move: hole %d, type %s", hole_index, 
+        (type == R) ? "R" : 
+        (type == B) ? "B" : 
+        (type == TR) ? "TR" : "TB");
     Hole* hole = get_hole(board, hole_index);
     int last = hole_index;
     // ! ATTENTION: & MASK pour faire le modulo 16, si MAX_HOLES change, il faut changer le MASK
@@ -79,6 +86,7 @@ int make_move(Board* board, int hole_index, SeedType type) {
     switch (type) {
         case TR:
             /* code for transparent red */
+            // log("Distributing transparent red seeds from hole %d", hole_index);
             last = distribute_transparent_red(board, hole_index, hole);
             // break; /* fallthrough */
             //on enchaine avec les rouge
@@ -89,11 +97,13 @@ int make_move(Board* board, int hole_index, SeedType type) {
 
         case TB:
             /* code for transparent blue */
+            log("Distributing transparent blue seeds from hole %d", hole_index);
             last = distribute_transparent_blue(board, hole_index, hole);
             // break; /* fallthrough */ 
             //on enchaine avec les bleu
         case B:
             /* code for blue */
+            log("Distributing blue seeds from hole %d", hole_index);
             last = distribute_blue(board, last, hole);
             break;
             
@@ -122,9 +132,13 @@ int test_capture(Board* board, int hole_index, int *captured) {
     Hole* hole = get_hole(board, hole_index);
     int total_captured = 0;
     
-    int nb_graines = hole->R + hole->B + hole->T;
+    int nb_graines = get_total_seeds(hole);
+    DEBUG_PRINT("Number of seeds in hole %d: %d\n", hole_index, nb_graines);
+    log("Number of seeds in hole %d: %d", hole_index, nb_graines);
     // Example logic: capture if there are more than 3 seeds of any color
     if (nb_graines == 3 || nb_graines == 2) {
+        DEBUG_PRINT("Capturing seeds from hole %d\n", hole_index);
+        log("Capturing seeds from hole %d", hole_index);
         test_capture(board, get_previous_hole_index(hole_index), &total_captured);
         total_captured += hole->R;
         hole->R = 0;
@@ -160,7 +174,8 @@ int check_winner(const Board* board, int *winner) {
 int is_valid_move(Board* board, int hole_index, SeedType type, int playerId) {
     Hole* hole = get_hole(board, hole_index);
     // Check if the hole belongs to the player
-    if ((hole_index % 2) != 1 - playerId) {
+    DEBUG_PRINT("Checking validity of move: hole %d, type %d, player %d (%d) \n", hole_index, type, playerId, playerId+1);
+    if ((hole_index % 2) != playerId) {
         return 0; 
     }
     switch (type) {

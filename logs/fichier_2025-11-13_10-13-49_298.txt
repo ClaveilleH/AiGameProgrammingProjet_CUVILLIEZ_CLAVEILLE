@@ -1,0 +1,8 @@
+Fichier créé à Thu Nov 13 10:13:49 2025
+Game started as Player 1
+Bot chooses hole 15 with seed type TB --> 16 TB
+Number of seeds in hole 15: 2
+Capturing seeds from hole 15
+Number of seeds in hole 14: 6
+Total captured seeds: 2
+Captured 2 seeds!

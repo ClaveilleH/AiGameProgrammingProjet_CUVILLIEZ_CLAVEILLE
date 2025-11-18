@@ -39,6 +39,11 @@ int free_board(Board* board) {
 }
 
 
+int get_total_seeds(Hole* hole) {
+    printf("Calculating total seeds: R=%d, B=%d, T=%d\n", hole->R, hole->B, hole->T);
+    return (hole->R) + (hole->B) + (hole->T);
+}
+
 void print_board(const Board* board) {
     if (!DEBUG) return;
     printf("Board state:\n");
