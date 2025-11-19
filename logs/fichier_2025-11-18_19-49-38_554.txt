@@ -1,0 +1,2924 @@
+Fichier créé à Tue Nov 18 19:49:38 2025
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 2: 6
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 5
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 5
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 8
+Making move: hole 14, type R
+Number of seeds in hole 0: 5
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 2: 8
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 5: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 7: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 5
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 8
+Making move: hole 12, type TR
+Number of seeds in hole 0: 5
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 8
+Making move: hole 14, type R
+Number of seeds in hole 0: 5
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 8
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 8
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 8
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 9: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 8
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 12: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 11: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 14: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 3
+Capturing seeds from hole 0
+Number of seeds in hole 15: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 3
+Capturing seeds from hole 0
+Number of seeds in hole 15: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 8
+Making move: hole 14, type R
+Number of seeds in hole 0: 3
+Capturing seeds from hole 0
+Number of seeds in hole 15: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 8
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 8
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 8
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 10: 7
+Making move: hole 2, type TR
+Number of seeds in hole 7: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 7: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 9: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 3
+Capturing seeds from hole 0
+Number of seeds in hole 15: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 8
+Making move: hole 12, type TR
+Number of seeds in hole 0: 3
+Capturing seeds from hole 0
+Number of seeds in hole 15: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 8
+Making move: hole 14, type R
+Number of seeds in hole 0: 3
+Capturing seeds from hole 0
+Number of seeds in hole 15: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 8
+Making move: hole 14, type TR
+Number of seeds in hole 2: 8
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 8
+Making move: hole 0, type R
+Number of seeds in hole 2: 5
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 4: 6
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 5
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 5
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 8
+Making move: hole 0, type R
+Number of seeds in hole 2: 5
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 8
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 4: 8
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 7: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 9: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 5
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 8
+Making move: hole 14, type TR
+Number of seeds in hole 2: 5
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 8
+Making move: hole 0, type R
+Number of seeds in hole 2: 3
+Capturing seeds from hole 2
+Number of seeds in hole 1: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 8
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 8
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 8
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 11: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 8
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 14: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 13: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 0: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 3
+Capturing seeds from hole 2
+Number of seeds in hole 1: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 3
+Capturing seeds from hole 2
+Number of seeds in hole 1: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 8
+Making move: hole 0, type R
+Number of seeds in hole 2: 3
+Capturing seeds from hole 2
+Number of seeds in hole 1: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 8
+Making move: hole 0, type TR
+Number of seeds in hole 4: 8
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 8
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 8
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 12: 7
+Making move: hole 4, type TR
+Number of seeds in hole 9: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 9: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 11: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 3
+Capturing seeds from hole 2
+Number of seeds in hole 1: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 8
+Making move: hole 14, type TR
+Number of seeds in hole 2: 3
+Capturing seeds from hole 2
+Number of seeds in hole 1: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 5
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 8
+Making move: hole 2, type R
+Number of seeds in hole 4: 5
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 6: 6
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 5
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 8
+Making move: hole 0, type TR
+Number of seeds in hole 4: 5
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 8
+Making move: hole 2, type R
+Number of seeds in hole 4: 5
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 8
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 6: 8
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 9: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 11: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 5
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 3
+Capturing seeds from hole 4
+Number of seeds in hole 3: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 8
+Making move: hole 2, type R
+Number of seeds in hole 4: 3
+Capturing seeds from hole 4
+Number of seeds in hole 3: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 8
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 8
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 8
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 13: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 8
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 0: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 15: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 2: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 3
+Capturing seeds from hole 4
+Number of seeds in hole 3: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 8
+Making move: hole 0, type TR
+Number of seeds in hole 4: 3
+Capturing seeds from hole 4
+Number of seeds in hole 3: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 8
+Making move: hole 2, type R
+Number of seeds in hole 4: 3
+Capturing seeds from hole 4
+Number of seeds in hole 3: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 8
+Making move: hole 2, type TR
+Number of seeds in hole 6: 8
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 8
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 8
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 14: 7
+Making move: hole 6, type TR
+Number of seeds in hole 11: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 11: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 13: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 3
+Capturing seeds from hole 4
+Number of seeds in hole 3: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 5
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 5
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 8
+Making move: hole 4, type R
+Number of seeds in hole 6: 5
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 8: 6
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 5
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 8
+Making move: hole 2, type TR
+Number of seeds in hole 6: 5
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 8
+Making move: hole 4, type R
+Number of seeds in hole 6: 5
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 8
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 8: 8
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 11: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 13: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 3
+Capturing seeds from hole 6
+Number of seeds in hole 5: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 3
+Capturing seeds from hole 6
+Number of seeds in hole 5: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 8
+Making move: hole 4, type R
+Number of seeds in hole 6: 3
+Capturing seeds from hole 6
+Number of seeds in hole 5: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 8
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 8
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 8
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 15: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 8
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 2: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 1: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 4: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 3
+Capturing seeds from hole 6
+Number of seeds in hole 5: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 8
+Making move: hole 2, type TR
+Number of seeds in hole 6: 3
+Capturing seeds from hole 6
+Number of seeds in hole 5: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 8
+Making move: hole 4, type R
+Number of seeds in hole 6: 3
+Capturing seeds from hole 6
+Number of seeds in hole 5: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 8
+Making move: hole 4, type TR
+Number of seeds in hole 8: 8
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 8
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 8
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 0: 7
+Making move: hole 8, type TR
+Number of seeds in hole 13: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 13: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 15: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 5
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 5
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 8
+Making move: hole 6, type R
+Number of seeds in hole 8: 5
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 10: 6
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 5
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 8
+Making move: hole 4, type TR
+Number of seeds in hole 8: 5
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 8
+Making move: hole 6, type R
+Number of seeds in hole 8: 5
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 8
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 10: 8
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 13: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 15: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 3
+Capturing seeds from hole 8
+Number of seeds in hole 7: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 3
+Capturing seeds from hole 8
+Number of seeds in hole 7: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 8
+Making move: hole 6, type R
+Number of seeds in hole 8: 3
+Capturing seeds from hole 8
+Number of seeds in hole 7: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 8
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 8
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 8
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 1: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 8
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 4: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 3: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 6: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 3
+Capturing seeds from hole 8
+Number of seeds in hole 7: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 8
+Making move: hole 4, type TR
+Number of seeds in hole 8: 3
+Capturing seeds from hole 8
+Number of seeds in hole 7: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 8
+Making move: hole 6, type R
+Number of seeds in hole 8: 3
+Capturing seeds from hole 8
+Number of seeds in hole 7: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 8
+Making move: hole 6, type TR
+Number of seeds in hole 10: 8
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 8
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 8
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 2: 7
+Making move: hole 10, type TR
+Number of seeds in hole 15: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 15: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 1: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 5
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 5
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 8
+Making move: hole 8, type R
+Number of seeds in hole 10: 5
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 12: 6
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 5
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 8
+Making move: hole 6, type TR
+Number of seeds in hole 10: 5
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 8
+Making move: hole 8, type R
+Number of seeds in hole 10: 5
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 8
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 12: 8
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 15: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 1: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 5: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 8: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 3
+Capturing seeds from hole 10
+Number of seeds in hole 9: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 3
+Capturing seeds from hole 10
+Number of seeds in hole 9: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 8
+Making move: hole 8, type R
+Number of seeds in hole 10: 3
+Capturing seeds from hole 10
+Number of seeds in hole 9: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 8
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 8
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 8
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 3: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 8
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 6: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 3
+Capturing seeds from hole 10
+Number of seeds in hole 9: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 8
+Making move: hole 6, type TR
+Number of seeds in hole 10: 3
+Capturing seeds from hole 10
+Number of seeds in hole 9: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 8
+Making move: hole 8, type R
+Number of seeds in hole 10: 3
+Capturing seeds from hole 10
+Number of seeds in hole 9: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 8
+Making move: hole 8, type TR
+Number of seeds in hole 12: 8
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 8
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 8
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 4: 7
+Making move: hole 12, type TR
+Number of seeds in hole 1: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 1: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 3: 7
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 5
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 5
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 8
+Making move: hole 10, type R
+Number of seeds in hole 12: 5
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 14: 6
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 5
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 8
+Making move: hole 8, type TR
+Number of seeds in hole 12: 5
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 8
+Making move: hole 10, type R
+Number of seeds in hole 12: 5
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 8
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 14: 8
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 1: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 3: 7
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 5: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 8
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 8: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 7: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 10: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 3
+Capturing seeds from hole 12
+Number of seeds in hole 11: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 7
+Making move: hole 8, type TR
+Number of seeds in hole 12: 3
+Capturing seeds from hole 12
+Number of seeds in hole 11: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 8
+Making move: hole 10, type R
+Number of seeds in hole 12: 3
+Capturing seeds from hole 12
+Number of seeds in hole 11: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 8
+Making move: hole 10, type TR
+Number of seeds in hole 14: 7
+Making move: hole 12, type R
+Number of seeds in hole 14: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 8
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 8
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 3: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 5: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 3
+Capturing seeds from hole 12
+Number of seeds in hole 11: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 8
+Making move: hole 8, type TR
+Number of seeds in hole 12: 3
+Capturing seeds from hole 12
+Number of seeds in hole 11: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 8
+Making move: hole 10, type R
+Number of seeds in hole 12: 3
+Capturing seeds from hole 12
+Number of seeds in hole 11: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 8
+Making move: hole 10, type TR
+Number of seeds in hole 14: 8
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 8
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 8
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 6: 7
+Making move: hole 14, type TR
+Number of seeds in hole 3: 7
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 5
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 5
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 8
+Making move: hole 12, type R
+Number of seeds in hole 14: 5
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 0: 6
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 3: 7
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 5: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 5
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 8
+Making move: hole 10, type TR
+Number of seeds in hole 14: 5
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 8
+Making move: hole 12, type R
+Number of seeds in hole 14: 5
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 7
+Making move: hole 12, type TR
+Number of seeds in hole 0: 8
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 7
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 14, type TR
+Number of seeds in hole 0: 8
+Making move: hole 14, type TB
+Distributing transparent blue seeds from hole 14
+Distributing blue seeds from hole 14
+Number of seeds in hole 4: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 8
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 6: 7
+Making move: hole 0, type TR
+Number of seeds in hole 4: 8
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 7: 7
+Making move: hole 2, type R
+Number of seeds in hole 4: 8
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 10: 7
+Making move: hole 2, type TR
+Number of seeds in hole 6: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 9: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 12: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 3
+Capturing seeds from hole 14
+Number of seeds in hole 13: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 7
+Making move: hole 10, type TR
+Number of seeds in hole 14: 3
+Capturing seeds from hole 14
+Number of seeds in hole 13: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 8
+Making move: hole 12, type R
+Number of seeds in hole 14: 3
+Capturing seeds from hole 14
+Number of seeds in hole 13: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 8
+Making move: hole 12, type TR
+Number of seeds in hole 0: 7
+Making move: hole 14, type R
+Number of seeds in hole 0: 7
+Making move: hole 14, type TR
+Number of seeds in hole 2: 7
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
+Making move: hole 0, type R
+Number of seeds in hole 2: 8
+Making move: hole 0, type TB
+Distributing transparent blue seeds from hole 0
+Distributing blue seeds from hole 0
+Number of seeds in hole 8: 7
+Making move: hole 0, type TR
+Number of seeds in hole 5: 7
+Making move: hole 2, type B
+Distributing blue seeds from hole 2
+Number of seeds in hole 5: 7
+Making move: hole 2, type R
+Number of seeds in hole 5: 7
+Making move: hole 2, type TB
+Distributing transparent blue seeds from hole 2
+Distributing blue seeds from hole 2
+Number of seeds in hole 8: 7
+Making move: hole 2, type TR
+Number of seeds in hole 7: 7
+Making move: hole 4, type B
+Distributing blue seeds from hole 4
+Number of seeds in hole 7: 7
+Making move: hole 4, type R
+Number of seeds in hole 6: 7
+Making move: hole 4, type TB
+Distributing transparent blue seeds from hole 4
+Distributing blue seeds from hole 4
+Number of seeds in hole 10: 7
+Making move: hole 4, type TR
+Number of seeds in hole 8: 7
+Making move: hole 6, type B
+Distributing blue seeds from hole 6
+Number of seeds in hole 9: 7
+Making move: hole 6, type R
+Number of seeds in hole 8: 7
+Making move: hole 6, type TB
+Distributing transparent blue seeds from hole 6
+Distributing blue seeds from hole 6
+Number of seeds in hole 12: 7
+Making move: hole 6, type TR
+Number of seeds in hole 10: 7
+Making move: hole 8, type B
+Distributing blue seeds from hole 8
+Number of seeds in hole 11: 7
+Making move: hole 8, type R
+Number of seeds in hole 10: 7
+Making move: hole 8, type TB
+Distributing transparent blue seeds from hole 8
+Distributing blue seeds from hole 8
+Number of seeds in hole 14: 3
+Capturing seeds from hole 14
+Number of seeds in hole 13: 6
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 8, type TR
+Number of seeds in hole 12: 7
+Making move: hole 10, type B
+Distributing blue seeds from hole 10
+Number of seeds in hole 13: 7
+Making move: hole 10, type R
+Number of seeds in hole 12: 7
+Making move: hole 10, type TB
+Distributing transparent blue seeds from hole 10
+Distributing blue seeds from hole 10
+Number of seeds in hole 0: 8
+Making move: hole 10, type TR
+Number of seeds in hole 14: 3
+Capturing seeds from hole 14
+Number of seeds in hole 13: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 12, type B
+Distributing blue seeds from hole 12
+Number of seeds in hole 15: 8
+Making move: hole 12, type R
+Number of seeds in hole 14: 3
+Capturing seeds from hole 14
+Number of seeds in hole 13: 7
+Total captured seeds: 3
+Captured 3 seeds!
+Making move: hole 12, type TB
+Distributing transparent blue seeds from hole 12
+Distributing blue seeds from hole 12
+Number of seeds in hole 2: 8
+Making move: hole 12, type TR
+Number of seeds in hole 0: 8
+Making move: hole 14, type B
+Distributing blue seeds from hole 14
+Number of seeds in hole 1: 8
+Making move: hole 0, type B
+Distributing blue seeds from hole 0
+Number of seeds in hole 3: 7
