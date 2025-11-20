@@ -11,8 +11,8 @@ int check_draw_position(Board* board, int player);
 
 int h(Board* board, int player);
 Move decisionMinMax ( Board* board, int player, int pmax );
-int MinMaxValue (Board* board, int player, int isMax, int pmax);
-Move DecisionAlphaBeta ( Board* board, int player, int pmax );
-int AlphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax);
+int minMaxValue (Board* board, int player, int isMax, int pmax);
+Move decisionAlphaBeta ( Board* board, int player, int pmax );
+int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax);
 
 #endif // EVALUATE_H

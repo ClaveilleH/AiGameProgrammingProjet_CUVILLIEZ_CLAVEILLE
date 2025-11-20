@@ -114,6 +114,12 @@ int make_move(Board* board, int hole_index, SeedType type) {
     }
     int captured = 0;
     if (test_capture(board, last, &captured)) {
+        if (PLAYER == 1) {
+            board->j1_score += captured;
+        } else {
+            board->j2_score += captured;
+        }
+        board->seed_count -= captured;
         // printf("Captured %d seeds!\n", captured);
         COMPETE_PRINT("Captured %d seeds!\n", captured);
         log("Captured %d seeds!", captured);
@@ -169,6 +175,16 @@ int check_winner(const Board* board, int *winner) {
     return 0;
 }
 
+int check_draw(const Board* board) {
+    // Draw checking logic here
+    if (board->seed_count < 10) {
+        return 1; // Draw
+    }
+    if (board->j1_score >= 40 && board->j2_score >= 40) {
+        return 1; // Draw
+    }
+    return 0; // No draw
+}
 
 
 int is_valid_move(Board* board, int hole_index, SeedType type, int playerId) {
