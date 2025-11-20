@@ -1,0 +1,120 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+#include "data.h"
+#include "game.h"
+// #include "bot.h"
+#include "evaluate.h"
+#include "weights.h"
+// #include "logger.h"
+
+
+void _print_board(const Board* board) {
+    printf("Score - Player 1: %d, Player 2: %d\n", board->j1_score, board->j2_score);
+    printf("Board state:\n");
+    for (int i = 0; i < 16; i++) {
+        printf("Hole ");
+        if (i < 10) {
+            printf(" ");
+        }
+        printf("%d: R=", i);
+        if (board->holes[i].R < 10) {
+            printf(" ");
+        }
+        printf("%d, B=", board->holes[i].R);
+        if (board->holes[i].B < 10) {
+            printf(" ");
+        }
+        printf("%d, T=", board->holes[i].B);
+        if (board->holes[i].T < 10) {
+            printf(" ");
+        }
+        printf("%d\n", board->holes[i].T);
+        // printf("Hole %d: R=%d, B=%d, T=%d\n", i, board->holes[i].R, board->holes[i].B, board->holes[i].T);
+    }
+    printf("Total seed count: %d\n", board->seed_count);
+}
+
+void print_move(Move move) {
+    const char* type_str;
+    
+    switch(move.type) {
+        case R:  type_str = "R"; break;
+        case B:  type_str = "B"; break;
+        case TR: type_str = "TR"; break;
+        case TB: type_str = "TB"; break;
+        default: type_str = "UNKNOWN"; break;
+    }
+    
+    printf("Move: hole %d, type %s\n", move.hole_index, type_str);
+    fflush(stdout);  // Force l'affichage immédiat
+}
+
+
+void testH1(void) {
+    // Placeholder for test 1
+    printf("Running Test 1...\n");
+    Board board;
+    init_board(&board);
+    printf("DEBUG value : %d\n", DEBUG);
+    _print_board(&board);
+    int value = h(&board, 0);
+    printf("Heuristic value for player 0: %d\n", value);
+    value = h(&board, 1);
+    printf("Heuristic value for player 1: %d\n", value);
+}
+
+void testH2(void) {
+    // Placeholder for test 2
+    printf("Running Test 2...\n");
+    Board board;
+    init_board(&board);
+    // Modify board state for testing
+    board.j1_score = 30;
+    board.j2_score = 20;
+    board.holes[0].R = 5;
+    board.holes[1].B = 3;
+    _print_board(&board);
+    int value = h(&board, 0);
+    printf("Heuristic value for player 0: %d\n", value);
+    value = h(&board, 1);
+    printf("Heuristic value for player 1: %d\n", value);
+}
+
+void testH3(void) {
+    // Placeholder for test 3
+    printf("Running Test 3...\n");
+    Board board;
+    init_board(&board);
+    make_move(&board, 0, TR);
+    _print_board(&board);
+    int value = h(&board, 0);
+    printf("Heuristic value for player 0: %d\n", value);
+    value = h(&board, 1);
+    printf("Heuristic value for player 1: %d\n", value);
+    Move bestMove = decisionMinMax(&board, 0, 3);
+    // Move bestMove = decisionAlphaBeta(&board, 0, 3);
+    printf("Best move for player 0: hole %d, type %s\n", bestMove.hole_index, 
+        (bestMove.type == R) ? "R" : 
+        (bestMove.type == B) ? "B" : 
+        (bestMove.type == TR) ? "TR" : "TB");
+    // print_move(bestMove);
+    bestMove = decisionMinMax(&board, 1, 3);
+    // bestMove = decisionAlphaBeta(&board, 1, 3);
+    printf("Best move for player 1: hole %d, type %s\n", bestMove.hole_index, 
+        (bestMove.type == R) ? "R" : 
+        (bestMove.type == B) ? "B" : 
+        (bestMove.type == TR) ? "TR" : "TB");
+    make_move(&board, bestMove.hole_index, bestMove.type);
+    _print_board(&board);
+}
+
+int main(int argc, char* argv[]) {
+    // testH1();
+    // printf("----------------------------------------------------\n");
+    // testH2();
+    printf("----------------------------------------------------\n");
+    testH3();
+    return 0;
+}

@@ -4,6 +4,7 @@ CC = gcc
 
 # Mode de compilation (release par défaut, debug optionnel)
 MODE ?= release
+TEST_SOURCES = data.c game.c bot.c logger.c evaluate.c
 
 # Flags selon le mode
 ifeq ($(MODE),debug)
@@ -16,7 +17,7 @@ else
 endif
 
 TARGET = aigame
-SOURCES = main.c data.c game.c bot.c logger.c
+SOURCES = main.c data.c game.c bot.c logger.c evaluate.c
 
 # Compilation
 all: $(TARGET)
@@ -36,7 +37,21 @@ run: $(TARGET)
 # Reconstruction
 rebuild: clean all
 
-.PHONY: all clean run rebuild
+# Cible pour les tests
+test: tests.c $(TEST_SOURCES)
+	@echo "Compiling tests..."
+	$(CC) $(CFLAGS) -march=native -DCOMPETE=1 -o test_aigame tests.c $(TEST_SOURCES)
+
+dtest: tests.c $(TEST_SOURCES)
+	@echo "Compiling tests..."
+	$(CC) $(CFLAGS) -DDEBUG=1 -o test_aigame tests.c $(TEST_SOURCES)
+
+# Exécuter les tests
+run-test: test
+	./test_aigame
+
+
+.PHONY: all clean run rebuild test dtest run-test
 
 
 # make MODE=debug rebuild run 

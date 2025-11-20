@@ -8,7 +8,7 @@
 #include "bot.h"
 #include "logger.h"
 #include <time.h>
-
+// #include <sys/time.h>
 
 Board board;
 int run;
@@ -77,6 +77,11 @@ int main(int argc, char* argv[]) {
     // le player id est passé en argument
     if (argc >= 2) {
         PLAYER = atoi(argv[1]);
+        if (PLAYER != 1 && PLAYER != 2) {
+            fprintf(stderr, "Invalid player ID. Must be 1 or 2.\n");
+            return 1;
+        }
+        PLAYER -= 1; // Convert to 0-based index
     } else {
         // Sinon on demande a l'utilisateur
         COMPETE_PRINT("Enter bot ID (1 or 2): ");
@@ -95,11 +100,13 @@ int main(int argc, char* argv[]) {
         if (turn == PLAYER) {
             DEBUG_PRINT("Bot's turn.\n");
             bot_play(&board);
+            // print_board(&board);
         } else {
             DEBUG_PRINT("Player's turn.\n");
             int hole_index;
             SeedType type;
             if (get_human_move(&hole_index, &type)) {
+                DEBUG_PRINT("not a valid input\n");
                 continue; // Invalid input, ask again
             } else {
                 if (!is_valid_move(&board, hole_index, type, 1 - PLAYER)) {
@@ -114,6 +121,10 @@ int main(int argc, char* argv[]) {
         if (check_winner(&board, &winner)) {
             DEBUG_PRINT("Player %d wins!\n", winner);
             log("Player %d wins!", winner);
+            run = 0;
+        } if (check_draw(&board)) {
+            DEBUG_PRINT("Game ends in a draw!\n");
+            log("Game ends in a draw!");
             run = 0;
         } else {
             // Continue game
