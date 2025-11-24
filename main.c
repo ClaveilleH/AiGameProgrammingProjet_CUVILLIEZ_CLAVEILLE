@@ -12,13 +12,8 @@
 
 Board board;
 int run;
-int run;
 
 int get_human_move(int *hole_index, SeedType *type) {
-    /*
-    Lit et parse le coup de l'autre joueur depuis l'entrée standard.
-    q pour quitter
-    */
     /*
     Lit et parse le coup de l'autre joueur depuis l'entrée standard.
     q pour quitter
@@ -28,13 +23,7 @@ int get_human_move(int *hole_index, SeedType *type) {
     char type_str[10]; // Buffer pour lire la chaîne complète
 
     if (scanf("%d%s", &idx, type_str) != 2) {
-        if (scanf("%s", type_str)) {;}
-        if (strcmp(type_str, "q") == 0) {
-            fprintf(stderr, "Player chose to quit the game.\n");
-            run = 0;
-            return 1;
-        }
-        fprintf(stderr, "(%d)Invalid input format. got %d, %s\n", PLAYER, idx, type_str);
+        fprintf(stderr, "Invalid input format. got %d %s\n", idx, type_str);
         // Nettoyer le buffer d'entrée
         int c;
         while ((c = getchar()) != '\n' && c != EOF);
@@ -72,7 +61,7 @@ int get_human_move(int *hole_index, SeedType *type) {
 
 
 int main(int argc, char* argv[]) {
-    run = 1;
+    int run = 1;
     int turn = 0; // 0 for player 1, 1 for player 2
     int winner = -1;
     srand(time(NULL));
@@ -139,8 +128,7 @@ int main(int argc, char* argv[]) {
         turn = 1 - turn;
         // break; // Placeholder to avoid infinite loop in this example
     }
-    // free_board(&board);
-    close_logger();
+
     return 0;
 }
 
@@ -148,6 +136,6 @@ int main(int argc, char* argv[]) {
 
 /*
 
-make MODE=debug 
-valgrind -s --leak-check=full --show-leak-kinds=all ./aigame
+make -mode
+
 */

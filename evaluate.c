@@ -4,6 +4,8 @@
 #include "game.h"
 #include "bot.h"
 #include "evaluate.h"
+#include "logger.h"
+
 #include "weights.h"
 
 #include <stdlib.h>
@@ -15,6 +17,8 @@
 int check_winning_position(Board* board, int player) {
     int winner;
     if (check_winner(board, &winner)) {
+        printf("nb : %d", board->j1_score);
+        printf("nb : %d", board->j2_score);
         return (winner == player); // gagnant ?
     }
     return 0; 
@@ -28,9 +32,10 @@ int check_loosing_position(Board* board, int player) {
     return 0;
 }
 
-int check_draw_position(Board* board, int player) {
+int check_draw_position(Board* board) {
     return check_draw(board);
 }
+
 
 
 //probablement à changer ??
@@ -92,7 +97,7 @@ Move decisionMinMax ( Board* board, int player, int pmax ){
     
     */
     Move moves[MAX_HOLES/2*4];
-    int n_moves = get_move_list(board, moves);
+    int n_moves = get_move_list(board, moves, player);
 
     int bestVal;
     Move bestMove = moves[0];
@@ -141,11 +146,11 @@ int minMaxValue (Board* board, int player, int isMax, int pmax) {
     // pmax is the maximal depth
     if (check_winning_position(board, player)) return VAL_MAX;
     if (check_loosing_position (board, player)) return(-VAL_MAX);
-    if (check_draw_position(board, player)) return(0);
+    if (check_draw_position(board)) return(0);
     if (pmax==0)  return h(board, player);
 
     Move moves[MAX_HOLES/2*4];
-    int n_moves = get_move_list(board, moves);
+    int n_moves = get_move_list(board, moves, player);
 
     int bestVal = isMax ? -VAL_MAX : VAL_MAX;
 
@@ -168,7 +173,7 @@ int minMaxValue (Board* board, int player, int isMax, int pmax) {
 Move decisionAlphaBeta ( Board* board, int player, int pmax ){
     // Decide the best move to play for player with the board
     Move moves[MAX_HOLES/2*4];
-    int n_moves = get_move_list(board, moves);
+    int n_moves = get_move_list(board, moves, player);
 
     int alpha = -VAL_MAX;
     int beta = VAL_MAX;
@@ -192,11 +197,11 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
     // pmax is the maximal depth
     if (check_winning_position(board, player)) return VAL_MAX;
     if (check_loosing_position (board, player)) return(-VAL_MAX);
-    if (check_draw_position(board, player)) return(0);
+    if (check_draw_position(board)) return(0);
     if (pmax==0)  return h(board, player);
 
     Move moves[MAX_HOLES/2*4];
-    int n_moves = get_move_list(board, moves);
+    int n_moves = get_move_list(board, moves, player);
 
     if (isMax){
         for (int i = 0; i < n_moves; i++){

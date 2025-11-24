@@ -9,12 +9,12 @@
 #include <time.h>
 #include <sys/time.h>
 
-int get_move_list(Board* board, Move* move_list) { 
+int get_move_list(Board* board, Move* move_list, int player) { 
  
     int index = 0;
     DEBUG_PRINT("Possible moves : \n"); 
     // Function to get possible moves
-    for (int i = PLAYER ; i < MAX_HOLES; i+=2) { 
+    for (int i = player ; i < MAX_HOLES; i+=2) { 
         // Check each hole for possible moves 
         Hole* hole = get_hole(board, i); 
         int nb_graines_R = hole->R; 

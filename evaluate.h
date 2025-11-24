@@ -4,10 +4,11 @@
 #include "data.h"
 
 
-
 int check_winning_position(Board* board, int player);
-int check_losing_position(Board* board, int player);
-int check_draw_position(Board* board, int player);
+int check_loosing_position(Board* board, int player);
+int check_draw_position(Board* board);
+int h(Board* board, int player);
+
 
 int h(Board* board, int player);
 Move decisionMinMax ( Board* board, int player, int pmax );
