@@ -129,12 +129,25 @@ void test_move_list(void) {
     bot_play(&board);
 }
 
+void testH4(){
+    Board board;
+    init_board(&board);
+    make_move(&board, 0, TR);
+    printf("value h player 0: %d\n", h(&board,0));
+    // printf("value h player 1: %d\n", h(&board,1));
+    make_move(&board, 13, B);
+    printf("value h player 0 after move: %d\n", h(&board,0));
+    printf("value h player 1 after move: %d\n", h(&board,1));
+    _print_board(&board);
+}
+
 int main(int argc, char* argv[]) {
     // testH1();
     // printf("----------------------------------------------------\n");
     // testH2();
     // printf("----------------------------------------------------\n");
     // testH3();
-    test_move_list();
+    // test_move_list();
+    testH4();
     return 0;
 }

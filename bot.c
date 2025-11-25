@@ -73,7 +73,7 @@ void bot_play(Board* board) {
         (bestMove.type == B) ? "B" : 
         (bestMove.type == TR) ? "TR" : "TB");
         
-    make_move(board, bestMove.hole_index, bestMove.type);
+    make_move(board, bestMove.hole_index, bestMove.type, PLAYER);
 
     printf("%d %s\n", bestMove.hole_index + 1, 
         (bestMove.type == R) ? "R" : 

@@ -107,7 +107,7 @@ int main(int argc, char* argv[]) {
                     fprintf(stderr, "Invalid move. Try again.\n");
                     continue; // Invalid move, ask again
                 }
-                make_move(&board, hole_index, type);
+                make_move(&board, hole_index, type, 1 - PLAYER);
                 // print_board(&board);
             }
         }

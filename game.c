@@ -62,7 +62,7 @@ static inline __attribute__((always_inline)) int distribute_transparent_blue(Boa
 }
 
 
-int make_move(Board* board, int hole_index, SeedType type) {
+int make_move(Board* board, int hole_index, SeedType type, int playerId) {
     // Move logic here
     /*
     Differents moves:
@@ -105,7 +105,7 @@ int make_move(Board* board, int hole_index, SeedType type) {
     }
     int captured = 0;
     if (test_capture(board, last, &captured)) {
-        if (PLAYER == 1) {
+        if (playerId == 0) {
             board->j1_score += captured;
         } else {
             board->j2_score += captured;

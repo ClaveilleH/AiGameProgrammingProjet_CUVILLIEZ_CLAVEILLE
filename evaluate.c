@@ -42,7 +42,11 @@ int check_draw_position(Board* board) {
 int h(Board* board, int player) {
     // Example placeholder: difference in score
     int sum = 0;
-    sum += (get_score(board, player) - get_score(board, 1 - player)) * SCORE_DIF_W;
+    int score_dif = get_score(board, PLAYER) - get_score(board, 1 - PLAYER);
+    // printf("PLAYER %d score: %d, OPP score: %d, dif: %d\n", PLAYER, get_score(board, PLAYER), get_score(board, 1 - PLAYER), score_dif);
+
+    sum += score_dif * SCORE_DIF_W;
+
     return sum;
 
     // favorise un plateau ou il y a moins de graines
@@ -103,7 +107,7 @@ Move decisionMinMax ( Board* board, int player, int pmax ){
         // Pour chaque move possible du joueur 
         for (int i = 0; i < n_moves; i++){
             Board new_board = *board;
-            make_move(&new_board, moves[i].hole_index, moves[i].type);
+            make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             // fprintf(stderr, "Evaluating move %d/%d: hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
             int value = minMaxValue(&new_board, player, 0, pmax - 1);
 
@@ -131,7 +135,7 @@ Move decisionMinMax ( Board* board, int player, int pmax ){
         // Pour chaque move possible du joueur 
         for (int i = 0; i < n_moves; i++){
             Board new_board = *board;
-            make_move(&new_board, moves[i].hole_index, moves[i].type);
+            make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             fprintf(stderr, "Evaluating move %d/%d: hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
             // int value = minMaxValue(&new_board, player, 0, pmax - 1);
             int value = minMaxValue(&new_board, (1 -player), 0, pmax - 1);
@@ -166,7 +170,7 @@ int minMaxValue (Board* board, int player, int isMax, int pmax) {
     // Pour chaque move possible du joueur 
     for (int i = 0; i < n_moves; i++){
         Board new_board = *board;
-        make_move(&new_board, moves[i].hole_index, moves[i].type);
+        make_move(&new_board, moves[i].hole_index, moves[i].type, player);
 
         int value = minMaxValue(&new_board, (1 - player), (1 - isMax), (pmax - 1));
         if (isMax)
@@ -195,7 +199,7 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
         moveList->next = malloc(sizeof(MoveList));
         moveList->next->moves = NULL;
         moveList->next->next = NULL;
-        make_move(&new_board, moves[i].hole_index, moves[i].type);
+        make_move(&new_board, moves[i].hole_index, moves[i].type, player);
         int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 0, pmax-1, moveList->next);
         // int val = alphaBetaValue(&new_board, player, alpha, beta, 0, pmax-1, moveList->next);
         if (val>alpha) {
@@ -238,7 +242,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
     if (isMax){
         for (int i = 0; i < n_moves; i++){
             Board new_board = *board;// copie par valeur
-            make_move(&new_board, moves[i].hole_index, moves[i].type);
+            make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             fprintf(stderr, "      max(%d/%d): hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
             int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList->next);
             if (val > alpha) {
@@ -255,9 +259,12 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
     else{
         for (int i = 0; i < n_moves; i++){
             Board new_board = *board;
-            make_move(&new_board, moves[i].hole_index, moves[i].type);
-            fprintf(stderr, "      min(%d/%d): hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
+            make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList->next);
+            fprintf(stderr, "      min(%d/%d): %d, %s -> %d\n", i+1, n_moves, moves[i].hole_index, 
+                (moves[i].type == R) ? "R" : 
+                (moves[i].type == B) ? "B" : 
+                (moves[i].type == TR) ? "TR" : "TB", val);
             if (val < beta) {beta = val;
                 beta = val;
                 // currentMoveList->moves = &moves[i];
