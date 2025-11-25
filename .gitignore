@@ -6,5 +6,6 @@ aigame
 *.out
 *.exe
 logs/*.txt
+logs/*.log
 .DS_Store
 .vscode/
