@@ -1,8 +1,0 @@
-Fichier créé à Thu Nov 13 11:33:11 2025
-Game started as Player 2
-Other player chose hole 1 with seed type R
-Making move: hole 0, type R
-Number of seeds in hole 2: 7
-Bot chooses hole 13 with seed type TR --> 14 TR
-Making move: hole 13, type TR
-Number of seeds in hole 1: 8

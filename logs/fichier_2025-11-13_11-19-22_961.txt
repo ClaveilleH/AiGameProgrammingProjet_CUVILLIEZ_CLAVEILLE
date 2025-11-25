@@ -1,5 +1,0 @@
-Fichier créé à Thu Nov 13 11:19:22 2025
-Game started as Player 1
-Bot chooses hole 7 with seed type R --> 8 R
-Making move: hole 7, type R
-Number of seeds in hole 9: 7

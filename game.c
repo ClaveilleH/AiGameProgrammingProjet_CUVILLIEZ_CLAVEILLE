@@ -109,7 +109,7 @@ int make_move(Board* board, int hole_index, SeedType type) {
         }
         board->seed_count -= captured;
         // printf("Captured %d seeds!\n", captured);
-        COMPETE_PRINT("Captured %d seeds!\n", captured);
+        // COMPETE_PRINT("Captured %d seeds!\n", captured);
         log("Captured %d seeds!", captured);
         //! mettre a jour le score et le nombre de graines du board
     }
@@ -174,7 +174,8 @@ int check_draw(const Board* board) {
 int is_valid_move(Board* board, int hole_index, SeedType type, int playerId) {
     Hole* hole = get_hole(board, hole_index);
     // Check if the hole belongs to the player
-    if ((hole_index % 2) != 1 - playerId) {
+    if ((hole_index % 2) != playerId) {
+        fprintf(stderr, "Hole %d does not belong to player %d\n", hole_index, playerId);
         return 0; 
     }
     switch (type) {

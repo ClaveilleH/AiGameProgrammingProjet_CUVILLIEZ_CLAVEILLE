@@ -1,8 +1,0 @@
-Fichier créé à Thu Nov 13 10:13:40 2025
-Game started as Player 1
-Bot chooses hole 5 with seed type TB --> 6 TB
-Number of seeds in hole 5: 2
-Capturing seeds from hole 5
-Number of seeds in hole 4: 6
-Total captured seeds: 2
-Captured 2 seeds!

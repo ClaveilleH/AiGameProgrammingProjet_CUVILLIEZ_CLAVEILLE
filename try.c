@@ -12,8 +12,8 @@
 #include "arbre.h"
 
 
-Board board;
-int PLAYER = 0;
+// Board board;
+// int PLAYER = 0;
 
 
 int main() {
@@ -28,9 +28,17 @@ int main() {
     h = 2;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
     h = 3;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
     h = 4;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
+    h = 5;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
     h = 6; board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
+    h = 7;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
     h = 8;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
+    h = 9;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
+    h = 10;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
+    h = 11;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
     h = 12;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
+    h = 13;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
+    // h = 14;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
+    // h = 15;  board.holes[h].R = board.holes[h].B = board.holes[h].T = 0;
   
     printf("INIT j1=%d j2=%d\n", board.j1_score, board.j2_score);
 
@@ -40,7 +48,7 @@ int main() {
     printf("AFTER move j1=%d j2=%d\n", nb.j1_score, nb.j2_score);
 
     int node_counter = 0;
-    int pmax = 16;
+    int pmax = 3;
     int player = 0;
 
     // Construire l'arbre

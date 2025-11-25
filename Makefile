@@ -28,7 +28,7 @@ $(TARGET): $(SOURCES)
 
 # Nettoyage
 clean:
-	rm -f $(TARGET) *.o
+	rm -f $(TARGET) try_aigame *.o
 
 # Exécution
 run: $(TARGET)
@@ -36,6 +36,13 @@ run: $(TARGET)
 
 # Reconstruction
 rebuild: clean all
+
+# Cible pour try (compile try.c comme main.c)
+try: try.c data.c game.c bot.c logger.c evaluate.c arbre.c
+	@echo "Compiling try in $(MODE) mode..."
+	$(CC) $(CFLAGS) -o try_aigame try.c data.c game.c bot.c logger.c evaluate.c arbre.c genererDot.c
+	./try_aigame
+	dot -Tpng graphe.dot -o graphe2.png
 
 # Cible pour les tests
 test: tests.c $(TEST_SOURCES)
@@ -51,8 +58,4 @@ run-test: test
 	./test_aigame
 
 
-.PHONY: all clean run rebuild test dtest run-test
-
-
-# make MODE=debug rebuild run 
-# make MODE=compete
+.PHONY: all clean run rebuild try test dtest run-test

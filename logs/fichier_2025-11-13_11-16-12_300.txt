@@ -1,5 +1,0 @@
-Fichier créé à Thu Nov 13 11:16:12 2025
-Game started as Player 1
-Bot chooses hole 11 with seed type TR --> 12 TR
-Making move: hole 11, type TR
-Number of seeds in hole 15: 7

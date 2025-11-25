@@ -38,14 +38,24 @@ int get_move_list(Board* board, Move* move_list, int player) {
     return index;
 }
 
+int estimation_nb_moves(Board* board) {
+    // Estimate the number of possible moves for player
+    int count = 0;
+    count += board->seed_count / 2 * 4; // Rough estimate based on seed count
+}
+
 void bot_play(Board* board) {
     // Fonction principale du bot qui choisit et joue un coup
     Move bestMove;
     struct timeval debut, fin;
     gettimeofday(&debut, NULL);
 
-    // bestMove = decisionMinMax(board, PLAYER, 3);
-    bestMove = decisionAlphaBeta(board, PLAYER, 3);
+    // bestMove = decisionMinMax(board, PLAYER, 4);
+    bestMove = decisionAlphaBeta(board, PLAYER, 5);
+    fprintf(stderr, "Hole index: %d, Seed type: %s\n", bestMove.hole_index, 
+        (bestMove.type == R) ? "R" : 
+        (bestMove.type == B) ? "B" : 
+        (bestMove.type == TR) ? "TR" : "TB");
     if (!is_valid_move(board, bestMove.hole_index, bestMove.type, PLAYER)) {
         fprintf(stderr, "Bot selected an invalid move. Skipping turn.\n"); // Debug message
         exit(EXIT_FAILURE);
@@ -57,6 +67,8 @@ void bot_play(Board* board) {
         (bestMove.type == B) ? "B" : 
         (bestMove.type == TR) ? "TR" : "TB");
     make_move(board, bestMove.hole_index, bestMove.type);
+
+
     printf("%d %s\n", bestMove.hole_index + 1, 
         (bestMove.type == R) ? "R" : 
         (bestMove.type == B) ? "B" : 

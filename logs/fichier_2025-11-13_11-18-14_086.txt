@@ -1,8 +1,0 @@
-Fichier créé à Thu Nov 13 11:18:14 2025
-Game started as Player 1
-Bot chooses hole 15 with seed type TB --> 16 TB
-Making move: hole 15, type TB
-Distributing transparent blue seeds from hole 15
-Distributing blue seeds from hole 15
-Number of seeds in hole 5: 7
-Other player chose hole 8 with seed type R

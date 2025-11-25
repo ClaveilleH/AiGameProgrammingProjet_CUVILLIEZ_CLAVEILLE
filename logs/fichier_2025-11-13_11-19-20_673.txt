@@ -1,7 +1,0 @@
-Fichier créé à Thu Nov 13 11:19:20 2025
-Game started as Player 1
-Bot chooses hole 3 with seed type TB --> 4 TB
-Making move: hole 3, type TB
-Distributing transparent blue seeds from hole 3
-Distributing blue seeds from hole 3
-Number of seeds in hole 9: 7
