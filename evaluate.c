@@ -14,6 +14,9 @@
 #define VAL_MAX 100000
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
+// #define HEURISTIC h
+#define HEURISTIC heuristic_evaluation
+
 int check_winning_position(Board* board, int player) {
     int winner;
     if (check_winner(board, &winner)) {
@@ -37,6 +40,78 @@ int check_draw_position(Board* board) {
 }
 
 
+int heuristic_evaluation(Board* board, int player) {
+    // l'heuristique d'évaluation basée sur ce qu'a compris chatgpt de la these
+    int sum = 0;
+    int h1 = 0; // plus a gauche, pas utile on remplace par Nombre total de coups possibles
+    int h2 = 0;
+    int h3 = 0;
+    int h4 = 0;
+    int h5 = 0;
+    int h6 = 0;
+
+    /*====H1====*/
+    // Nombre total de coups possibles
+    // nombre de coups possibles pour moi−nombre de coups possibles pour l’adversaire
+    // fprintf(stderr, "H1\n");
+    Move move[MAX_HOLES/2*4];
+    int my_moves = get_move_list(board, move, player);
+    int opp_moves = get_move_list(board, move, 1 - player);
+    h1 = my_moves - opp_moves;
+
+    /*====H2====*/
+    // (mes graines)−(graines adverses)
+    // fprintf(stderr, "H2\n");
+    int my_seeds = 0;
+    int opp_seeds = 0;
+    for (int i = 0; i < MAX_HOLES; i++) {
+        Hole* hole = &board->holes[i];
+        if (i % 2 == player) { // Trous du joueur
+            my_seeds += hole->R + hole->B + hole->T;
+        } else { // Trous de l'adversaire
+            opp_seeds += hole->R + hole->B + hole->T;
+        }
+    }
+    h2 = my_seeds - opp_seeds;
+
+    /*====H3====*/
+    // mes trous non vides − ceux de l’adversaire
+    // fprintf(stderr, "H3\n");
+    int my_non_empty = 0;
+    int opp_non_empty = 0;
+    for (int i = 0; i < MAX_HOLES; i++) {
+        Hole* hole = &board->holes[i];
+        if (i % 2 == player) { // Trous du joueur
+            if (get_total_seeds(hole) > 0) {
+                my_non_empty++;
+            }
+        } else { // Trous de l'adversaire
+            if (get_total_seeds(hole) > 0) {
+                opp_non_empty++;
+            }
+        }
+    }
+    h3 = my_non_empty - opp_non_empty;
+
+    /*====H4====*/
+    // mes captures − captures adverses
+
+    /*====H5====*/
+    // 
+
+    /*====H6====*/
+    // potentiel de capture de l’adversaire au prochain coup
+
+
+
+    sum += h1 * H1_W;
+    sum += h2 * H2_W;
+    sum += h3 * H3_W;
+    sum += h4 * H4_W;
+    sum += h5 * H5_W;
+    sum += h6 * H6_W;
+    return sum;
+}
 
 //probablement à changer ??
 int h(Board* board, int player) {
@@ -87,6 +162,7 @@ int h(Board* board, int player) {
     // }
     return sum;
 }
+
 
 
 Move decisionMinMax ( Board* board, int player, int pmax ){
@@ -160,7 +236,7 @@ int minMaxValue (Board* board, int player, int isMax, int pmax) {
     if (check_winning_position(board, player)) return VAL_MAX;
     if (check_loosing_position (board, player)) return(-VAL_MAX);
     if (check_draw_position(board)) return(0);
-    if (pmax==0)  return h(board, player);
+    if (pmax==0)  return HEURISTIC(board, player);
 
     Move moves[MAX_HOLES/2*4];
     int n_moves = get_move_list(board, moves, player);
@@ -219,7 +295,8 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
             current = current->next;
         } 
         fprintf(stderr, "\n");
-        // free(moveList->next);
+        free(moveList->next);
+        free(moveList);
     }
     fprintf(stderr, "Best move chosen: hole %d, type %d with value %d\n\n", bestMove.hole_index, bestMove.type, alpha);
     fflush(stderr);
@@ -233,7 +310,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
     if (check_winning_position(board, player)) return VAL_MAX;
     if (check_loosing_position (board, player)) return(-VAL_MAX);
     if (check_draw_position(board)) return(0);
-    if (pmax==0)  return h(board, player);
+    if (pmax==0)  return HEURISTIC(board, player);
 
     Move moves[MAX_HOLES/2*4];
     int n_moves = get_move_list(board, moves, player);
@@ -244,15 +321,28 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
             Board new_board = *board;// copie par valeur
             make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             fprintf(stderr, "      max(%d/%d): hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
-            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList->next);
+            /* Pass next element only if currentMoveList is non-NULL */
+            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList ? currentMoveList->next : NULL);
             if (val > alpha) {
                 alpha = val;
-                // currentMoveList->moves = &moves[i];
-                currentMoveList->moves = malloc(sizeof(Move));
-                *(currentMoveList->moves) = moves[i];
+                /* Only record move if we have a MoveList node to write into */
+                if (currentMoveList) {
+                    if (currentMoveList->moves == NULL) {
+                        currentMoveList->moves = malloc(sizeof(Move));
+                    }
+                    *(currentMoveList->moves) = moves[i];
+                }
             }
             if (alpha >= beta) break; // Beta cut
         }
+        if (currentMoveList) {
+            if (currentMoveList->moves) {
+                // free(currentMoveList->moves);
+                currentMoveList->moves = NULL;
+            }
+        }
+        // free(currentMoveList->next);
+        // free(currentMoveList);
         return alpha;
     }
     // Min 
@@ -260,19 +350,32 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
         for (int i = 0; i < n_moves; i++){
             Board new_board = *board;
             make_move(&new_board, moves[i].hole_index, moves[i].type, player);
-            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList->next);
+            /* Pass next element only if currentMoveList is non-NULL */
+            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList ? currentMoveList->next : NULL);
             fprintf(stderr, "      min(%d/%d): %d, %s -> %d\n", i+1, n_moves, moves[i].hole_index, 
                 (moves[i].type == R) ? "R" : 
                 (moves[i].type == B) ? "B" : 
                 (moves[i].type == TR) ? "TR" : "TB", val);
-            if (val < beta) {beta = val;
+            if (val < beta) {
                 beta = val;
-                // currentMoveList->moves = &moves[i];
-                currentMoveList->moves = malloc(sizeof(Move));
-                *(currentMoveList->moves) = moves[i];
+                /* Only record move if we have a MoveList node to write into */
+                if (currentMoveList) {
+                    if (currentMoveList->moves == NULL) {
+                        currentMoveList->moves = malloc(sizeof(Move));
+                    }
+                    *(currentMoveList->moves) = moves[i];
+                }
             }
             if (alpha >= beta) break; // Alpha cut
         }
+        if (currentMoveList) {
+            if (currentMoveList->moves) {
+                free(currentMoveList->moves);
+                currentMoveList->moves = NULL;
+            }
+        }
+        // free(currentMoveList->next);
+        // free(currentMoveList);
         return beta;
     }
 }

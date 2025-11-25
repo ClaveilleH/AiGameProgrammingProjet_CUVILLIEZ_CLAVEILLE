@@ -23,7 +23,13 @@ int get_human_move(int *hole_index, SeedType *type) {
     char type_str[10]; // Buffer pour lire la chaîne complète
 
     if (scanf("%d%s", &idx, type_str) != 2) {
-        fprintf(stderr, "Invalid input format. got %d %s\n", idx, type_str);
+        if (scanf("%s", type_str)) {;}
+        if (strcmp(type_str, "q") == 0) {
+            fprintf(stderr, "Player chose to quit the game.\n");
+            run = 0;
+            return 1;
+        }
+        fprintf(stderr, "(%d)Invalid input format. got %d, %s\n", PLAYER, idx, type_str);
         // Nettoyer le buffer d'entrée
         int c;
         while ((c = getchar()) != '\n' && c != EOF);
@@ -61,7 +67,7 @@ int get_human_move(int *hole_index, SeedType *type) {
 
 
 int main(int argc, char* argv[]) {
-    int run = 1;
+    run = 1;
     int turn = 0; // 0 for player 1, 1 for player 2
     int winner = -1;
     srand(time(NULL));
@@ -128,7 +134,7 @@ int main(int argc, char* argv[]) {
         turn = 1 - turn;
         // break; // Placeholder to avoid infinite loop in this example
     }
-
+    close_logger();
     return 0;
 }
 
