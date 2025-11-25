@@ -58,11 +58,10 @@ typedef struct {
     SeedType type;
 } Move;
 
-// typedef struct {
-//     Move* moves;
-//     size_t count;
-//     size_t capacity;
-// } MoveList;
+typedef struct MoveList {
+    Move* moves;
+    struct MoveList* next;
+} MoveList;
 
 void init_board(Board* board);
 void print_board(const Board* board);

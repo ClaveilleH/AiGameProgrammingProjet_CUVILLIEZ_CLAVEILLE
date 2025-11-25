@@ -107,11 +107,19 @@ Move decisionMinMax ( Board* board, int player, int pmax ){
             // fprintf(stderr, "Evaluating move %d/%d: hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
             int value = minMaxValue(&new_board, player, 0, pmax - 1);
 
-            fprintf(stderr, "(%d/%d): %d,%s > %d\n", i+1, n_moves, moves[i].hole_index, 
+            fprintf(stderr, "(%d/%d): %d,%s > %d : ", i+1, n_moves, moves[i].hole_index, 
                 (moves[i].type == R) ? "R" : 
                 (moves[i].type == B) ? "B" : 
                 (moves[i].type == TR) ? "TR" : "TB", value);
-
+            MoveList* current = NULL;
+            while (current != NULL && current->moves != NULL) {
+                fprintf(stderr, "[%d,%s] ", current->moves->hole_index, 
+                    (current->moves->type == R) ? "R" : 
+                    (current->moves->type == B) ? "B" : 
+                    (current->moves->type == TR) ? "TR" : "TB");
+                current = current->next;
+            } 
+            fprintf(stderr, "\n");
             // DEBUG_PRINT("Move %d: value = %d\n", i, value);
             if (value > bestVal) {
                 bestVal = value;
@@ -179,28 +187,43 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
     int alpha = -VAL_MAX;
     int beta = VAL_MAX;
     Move bestMove = moves[0];
-
+    MoveList* moveList = NULL;
     for (int i = 0; i < n_moves; i++) {
         Board new_board = *board;
+        moveList = malloc(sizeof(MoveList));
+        moveList->moves = &moves[i];
+        moveList->next = malloc(sizeof(MoveList));
+        moveList->next->moves = NULL;
+        moveList->next->next = NULL;
         make_move(&new_board, moves[i].hole_index, moves[i].type);
-        // int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 0, pmax-1);
-        int val = alphaBetaValue(&new_board, player, alpha, beta, 0, pmax-1);
+        int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 0, pmax-1, moveList->next);
+        // int val = alphaBetaValue(&new_board, player, alpha, beta, 0, pmax-1, moveList->next);
         if (val>alpha) {
             alpha = val  ;   
             bestMove = moves[i];   
         }
-        fprintf(stderr, "(%d/%d): %d,%s > %d\n", i+1, n_moves, moves[i].hole_index, 
+        fprintf(stderr, "(%d/%d): %d,%s > %d : ", i+1, n_moves, moves[i].hole_index, 
             (moves[i].type == R) ? "R" : 
             (moves[i].type == B) ? "B" : 
             (moves[i].type == TR) ? "TR" : "TB", val);
-    } 
+        MoveList* current = moveList;
+        while (current != NULL && current->moves != NULL) {
+            fprintf(stderr, "[%d,%s] ", current->moves->hole_index, 
+                (current->moves->type == R) ? "R" : 
+                (current->moves->type == B) ? "B" : 
+                (current->moves->type == TR) ? "TR" : "TB");
+            current = current->next;
+        } 
+        fprintf(stderr, "\n");
+        // free(moveList->next);
+    }
     fprintf(stderr, "Best move chosen: hole %d, type %d with value %d\n\n", bestMove.hole_index, bestMove.type, alpha);
     fflush(stderr);
     return bestMove;
 }
 
 
-int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax){
+int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax, MoveList* moveList) {
     // Compute the value e for the player J depending on e.pmax is the maximal depth
     // pmax is the maximal depth
     if (check_winning_position(board, player)) return VAL_MAX;
@@ -210,14 +233,20 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
 
     Move moves[MAX_HOLES/2*4];
     int n_moves = get_move_list(board, moves, player);
-
+    MoveList* currentMoveList = moveList;
+    
     if (isMax){
         for (int i = 0; i < n_moves; i++){
             Board new_board = *board;// copie par valeur
             make_move(&new_board, moves[i].hole_index, moves[i].type);
-
-            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1);
-            if (val > alpha) alpha = val;
+            fprintf(stderr, "      max(%d/%d): hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
+            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList->next);
+            if (val > alpha) {
+                alpha = val;
+                // currentMoveList->moves = &moves[i];
+                currentMoveList->moves = malloc(sizeof(Move));
+                *(currentMoveList->moves) = moves[i];
+            }
             if (alpha >= beta) break; // Beta cut
         }
         return alpha;
@@ -227,8 +256,14 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
         for (int i = 0; i < n_moves; i++){
             Board new_board = *board;
             make_move(&new_board, moves[i].hole_index, moves[i].type);
-            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1);
-            if (val < beta) beta = val;
+            fprintf(stderr, "      min(%d/%d): hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
+            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList->next);
+            if (val < beta) {beta = val;
+                beta = val;
+                // currentMoveList->moves = &moves[i];
+                currentMoveList->moves = malloc(sizeof(Move));
+                *(currentMoveList->moves) = moves[i];
+            }
             if (alpha >= beta) break; // Alpha cut
         }
         return beta;

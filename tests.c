@@ -126,6 +126,7 @@ void test_move_list(void) {
     for (int i = 0; i < n_moves; i++) {
         print_move(moves[i]);
     }
+    bot_play(&board);
 }
 
 int main(int argc, char* argv[]) {
