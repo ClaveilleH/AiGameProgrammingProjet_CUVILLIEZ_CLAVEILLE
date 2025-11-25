@@ -47,6 +47,17 @@ int get_total_seeds(Hole* hole) {
     return (hole->R) + (hole->B) + (hole->T);
 }
 
+int get_score(Board* board, int playerId) {
+    if (playerId == 0) {
+        return board->j1_score;
+    } else if (playerId == 1) {
+        return board->j2_score;
+    } else {
+        fprintf(stderr, "Invalid player ID: %d\n", playerId);
+        return -1; // Indicate an error
+    }
+}
+
 void print_board(const Board* board) {
     if (!DEBUG) return;
     printf("Score - Player 1: %d, Player 2: %d\n", board->j1_score, board->j2_score);

@@ -3,6 +3,7 @@
 
 
 #include "data.h"
+#include "bot.h"
 #include "game.h"
 // #include "bot.h"
 #include "evaluate.h"
@@ -110,11 +111,29 @@ void testH3(void) {
     _print_board(&board);
 }
 
+void test_move_list(void) {
+    Board board;
+    init_board(&board);
+    board.holes[0].R = 0;
+    board.holes[0].B = 0;
+    // board.holes[0].R = 3;
+    // board.holes[1].B = 2;
+    // board.holes[2].T = 1;
+    _print_board(&board);
+    Move moves[MAX_HOLES/2*4];
+    int n_moves = get_move_list(&board, moves, 0);
+    printf("Possible moves for player 0:\n");
+    for (int i = 0; i < n_moves; i++) {
+        print_move(moves[i]);
+    }
+}
+
 int main(int argc, char* argv[]) {
     // testH1();
     // printf("----------------------------------------------------\n");
     // testH2();
-    printf("----------------------------------------------------\n");
-    testH3();
+    // printf("----------------------------------------------------\n");
+    // testH3();
+    test_move_list();
     return 0;
 }

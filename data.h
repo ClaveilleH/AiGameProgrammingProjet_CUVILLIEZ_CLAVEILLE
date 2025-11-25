@@ -81,6 +81,6 @@ int free_board(Board* board);
 
 
 int get_total_seeds(Hole* hole);
-
+int get_score(Board* board, int playerId);
 
 #endif // DATA_H

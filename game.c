@@ -31,7 +31,9 @@ static inline __attribute__((always_inline)) int distribute_blue(Board *restrict
     hole->B = 0;
     // last actually sown is idx - 2 (previous), compute properly:
     idx = (idx - 2 + MAX_HOLES) & MASK;
-    return (hole->B == 0) ? hole_index : idx;
+    // fprintf(stderr, "returned idx: %d\n", (hole->B == 0) ? hole_index : idx);
+    // return (hole->B == 0) ? hole_index : idx;
+    return idx;
 }
 
 static inline __attribute__((always_inline)) int distribute_transparent_red(Board *restrict board, int hole_index, Hole *restrict hole) {
@@ -54,8 +56,9 @@ static inline __attribute__((always_inline)) int distribute_transparent_blue(Boa
         idx = (idx + 2) & MASK;
     }
     idx = (idx - 2 + MAX_HOLES) & MASK;
-    hole->T = 0;
-    return (hole->T == 0) ? hole_index : idx;
+    return idx;
+    // hole->T = 0;
+    // return (hole->T == 0) ? hole_index : idx;
 }
 
 
@@ -113,6 +116,8 @@ int make_move(Board* board, int hole_index, SeedType type) {
         log("Captured %d seeds!", captured);
         //! mettre a jour le score et le nombre de graines du board
     }
+    // fprintf(stderr, "Move completed. Last seed sown at hole %d\n", last);
+    // fprintf(stderr, "Total seeds captured this move: %d\n", captured);
     return last;
 
 }
@@ -128,6 +133,7 @@ int test_capture(Board* board, int hole_index, int *captured) {
     
     int nb_graines = hole->R + hole->B + hole->T;
     // Example logic: capture if there are more than 3 seeds of any color
+    // printf("Testing capture at hole %d with %d seeds (R=%d, B=%d, T=%d)\n", hole_index, nb_graines, hole->R, hole->B, hole->T);
     if (nb_graines == 3 || nb_graines == 2) {
         test_capture(board, get_previous_hole_index(hole_index), &total_captured);
         total_captured += hole->R;
@@ -180,13 +186,13 @@ int is_valid_move(Board* board, int hole_index, SeedType type, int playerId) {
     }
     switch (type) {
         case R:
-            return hole->R > 0;
+            return hole->R != 0;
         case B:
-            return hole->B > 0;
+            return hole->B != 0;
         case TR:
-            return hole->T > 0;
+            return hole->T != 0;
         case TB:
-            return hole->T > 0;
+            return hole->T != 0;
         default:
             return 0;
     }

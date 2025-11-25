@@ -108,7 +108,7 @@ int main(int argc, char* argv[]) {
                     continue; // Invalid move, ask again
                 }
                 make_move(&board, hole_index, type);
-                print_board(&board);
+                // print_board(&board);
             }
         }
 

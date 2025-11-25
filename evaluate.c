@@ -42,14 +42,9 @@ int check_draw_position(Board* board) {
 int h(Board* board, int player) {
     // Example placeholder: difference in score
     int sum = 0;
-    if (player) {
-        sum += (board->j1_score - board->j2_score) * SCORE_DIF_W;
-        DEBUG_PRINT("Value for score difference (player 1): %d\n", (board->j1_score - board->j2_score) * SCORE_DIF_W);
-    } else {
-        sum += (board->j2_score - board->j1_score) * SCORE_DIF_W;
-        DEBUG_PRINT("Value for score difference (player 2): %d\n", (board->j2_score - board->j1_score) * SCORE_DIF_W);
-    }
-    
+    sum += (get_score(board, player) - get_score(board, 1 - player)) * SCORE_DIF_W;
+    return sum;
+
     // favorise un plateau ou il y a moins de graines
     if (0) {
         for (int i = 0; i < MAX_HOLES; i++) { // On compte les graines dans les trous 
@@ -57,20 +52,20 @@ int h(Board* board, int player) {
             sum -= (hole->R + hole->B + hole->T) * TOTAL_SEED_W; // Total seeds in holes
         }
     }
-    DEBUG_PRINT("Value after total seeds (player): %d\n", sum);
+    // DEBUG_PRINT("Value after total seeds (player): %d\n", sum);
     int total_seeds_player = 0;
     for (int i = player; i < MAX_HOLES; i +=2) {
         Hole* hole = &board->holes[i];
         total_seeds_player += (hole->R + hole->B + hole->T);
     }
-    DEBUG_PRINT("Total seeds for player %d: %d\n", player, total_seeds_player);
+    // DEBUG_PRINT("Total seeds for player %d: %d\n", player, total_seeds_player);
     sum += total_seeds_player * TOTAL_SEED_PLAYER_W; // Favoriser les trous du joueur
     int total_seeds_opponent = 0;
     for (int i = 1 - player; i < MAX_HOLES; i +=2) {
         Hole* hole = &board->holes[i];
         total_seeds_opponent += (hole->R + hole->B + hole->T);
     }
-    DEBUG_PRINT("Total seeds for opponent of player %d: %d\n", player, total_seeds_opponent);
+    // DEBUG_PRINT("Total seeds for opponent of player %d: %d\n", player, total_seeds_opponent);
     sum -= total_seeds_opponent * TOTAL_SEED_OPP_W; // Désavantager les trous de l'adversaire
 
 
@@ -109,10 +104,15 @@ Move decisionMinMax ( Board* board, int player, int pmax ){
         for (int i = 0; i < n_moves; i++){
             Board new_board = *board;
             make_move(&new_board, moves[i].hole_index, moves[i].type);
-
+            // fprintf(stderr, "Evaluating move %d/%d: hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
             int value = minMaxValue(&new_board, player, 0, pmax - 1);
 
-            DEBUG_PRINT("Move %d: value = %d\n", i, value);
+            fprintf(stderr, "(%d/%d): %d,%s > %d\n", i+1, n_moves, moves[i].hole_index, 
+                (moves[i].type == R) ? "R" : 
+                (moves[i].type == B) ? "B" : 
+                (moves[i].type == TR) ? "TR" : "TB", value);
+
+            // DEBUG_PRINT("Move %d: value = %d\n", i, value);
             if (value > bestVal) {
                 bestVal = value;
                 bestMove = moves[i];
@@ -124,10 +124,11 @@ Move decisionMinMax ( Board* board, int player, int pmax ){
         for (int i = 0; i < n_moves; i++){
             Board new_board = *board;
             make_move(&new_board, moves[i].hole_index, moves[i].type);
+            fprintf(stderr, "Evaluating move %d/%d: hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
+            // int value = minMaxValue(&new_board, player, 0, pmax - 1);
+            int value = minMaxValue(&new_board, (1 -player), 0, pmax - 1);
 
-            int value = minMaxValue(&new_board, player, 0, pmax - 1);
-
-            DEBUG_PRINT("Move %d: value = %d\n", i, value);
+            // DEBUG_PRINT("Move %d: value = %d\n", i, value);
             if (value < bestVal) {
                 bestVal = value;
                 bestMove = moves[i];
@@ -135,7 +136,7 @@ Move decisionMinMax ( Board* board, int player, int pmax ){
         }
 
     }
-    
+    fprintf(stderr, "Best move chosen : hole %d, type %d with value %d\n", bestMove.hole_index, bestMove.type, bestVal);
     return bestMove;
 }
 
@@ -159,7 +160,7 @@ int minMaxValue (Board* board, int player, int isMax, int pmax) {
         Board new_board = *board;
         make_move(&new_board, moves[i].hole_index, moves[i].type);
 
-        int value = minMaxValue(&new_board, 1 - player, 1 - isMax, pmax - 1);
+        int value = minMaxValue(&new_board, (1 - player), (1 - isMax), (pmax - 1));
         if (isMax)
             bestVal = (value > bestVal) ? value : bestVal;
         else
@@ -182,12 +183,19 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
     for (int i = 0; i < n_moves; i++) {
         Board new_board = *board;
         make_move(&new_board, moves[i].hole_index, moves[i].type);
-        int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 0, pmax-1);
+        // int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 0, pmax-1);
+        int val = alphaBetaValue(&new_board, player, alpha, beta, 0, pmax-1);
         if (val>alpha) {
             alpha = val  ;   
             bestMove = moves[i];   
         }
+        fprintf(stderr, "(%d/%d): %d,%s > %d\n", i+1, n_moves, moves[i].hole_index, 
+            (moves[i].type == R) ? "R" : 
+            (moves[i].type == B) ? "B" : 
+            (moves[i].type == TR) ? "TR" : "TB", val);
     } 
+    fprintf(stderr, "Best move chosen: hole %d, type %d with value %d\n\n", bestMove.hole_index, bestMove.type, alpha);
+    fflush(stderr);
     return bestMove;
 }
 

@@ -12,7 +12,7 @@
 int get_move_list(Board* board, Move* move_list, int player) { 
  
     int index = 0;
-    DEBUG_PRINT("Possible moves : \n"); 
+    // DEBUG_PRINT("Possible moves : \n"); 
     // Function to get possible moves
     for (int i = player ; i < MAX_HOLES; i+=2) { 
         // Check each hole for possible moves 
@@ -22,19 +22,21 @@ int get_move_list(Board* board, Move* move_list, int player) {
         int nb_graines_T = hole->T; 
         if(nb_graines_B>0) {
             move_list[index++] = (Move){i, B};
-            DEBUG_PRINT("Move B, hole %d\n", i ); 
+            // DEBUG_PRINT("Move B, hole %d\n", i ); 
         }
         if(nb_graines_R>0) {
             move_list[index++] = (Move){i, R};
-            DEBUG_PRINT("Move R, hole %d\n", i ); 
+            // DEBUG_PRINT("Move R, hole %d\n", i ); 
         }
         if(nb_graines_T>0) { 
             move_list[index++] =  (Move){i, TB};
-            DEBUG_PRINT("Move TB, hole %d\n", i ); 
+            // DEBUG_PRINT("Move TB, hole %d\n", i ); 
             move_list[index++] =  (Move){i, TR};
-            DEBUG_PRINT("Move TR, hole %d\n", i ); } 
-        } 
-    DEBUG_PRINT("Nb total de moves : %d\n", index);
+            // DEBUG_PRINT("Move TR, hole %d\n", i ); 
+        }
+
+    } 
+    // DEBUG_PRINT("Nb total de moves : %d\n", index);
     return index;
 }
 
@@ -42,6 +44,7 @@ int estimation_nb_moves(Board* board) {
     // Estimate the number of possible moves for player
     int count = 0;
     count += board->seed_count / 2 * 4; // Rough estimate based on seed count
+    return count;
 }
 
 void bot_play(Board* board) {
@@ -49,9 +52,12 @@ void bot_play(Board* board) {
     Move bestMove;
     struct timeval debut, fin;
     gettimeofday(&debut, NULL);
+    // exit(0);
 
-    // bestMove = decisionMinMax(board, PLAYER, 4);
-    bestMove = decisionAlphaBeta(board, PLAYER, 5);
+    int profondeur = 2;
+    // bestMove = decisionMinMax(board, PLAYER, profondeur);
+    // fprintf(stderr, "---------------------------------------\n");
+    bestMove = decisionAlphaBeta(board, PLAYER, profondeur);
     fprintf(stderr, "Hole index: %d, Seed type: %s\n", bestMove.hole_index, 
         (bestMove.type == R) ? "R" : 
         (bestMove.type == B) ? "B" : 
@@ -66,8 +72,8 @@ void bot_play(Board* board) {
         (bestMove.type == R) ? "R" : 
         (bestMove.type == B) ? "B" : 
         (bestMove.type == TR) ? "TR" : "TB");
+        
     make_move(board, bestMove.hole_index, bestMove.type);
-
 
     printf("%d %s\n", bestMove.hole_index + 1, 
         (bestMove.type == R) ? "R" : 
@@ -78,7 +84,7 @@ void bot_play(Board* board) {
     gettimeofday(&fin, NULL);
     double temps_ms = (fin.tv_sec - debut.tv_sec) * 1000.0 +
                       (fin.tv_usec - debut.tv_usec) / 1000.0;
-    DEBUG_PRINT("Bot move took %.2f ms\n", temps_ms);
+    // DEBUG_PRINT("Bot move took %.2f ms\n", temps_ms);
     fprintf(stderr, "Bot move took %.2f ms\n", temps_ms);
 
     return; // -----------------------------------------------------------------
