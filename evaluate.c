@@ -84,6 +84,59 @@ int h(Board* board, int player) {
     return sum;
 }
 
+int h1(Board* board, int player) {
+    //Hoard as many counters as possible in one pit (player side)
+    int max_nb_seeds_hole = 0;
+    for (int i = player ; i < MAX_HOLES; i+=2) { 
+        // Check each hole for the maximum of seeds 
+        Hole* hole = &board->holes[i]; 
+        int tmp = hole->R + hole->B + hole->T;
+        if (max_nb_seeds_hole < tmp) max_nb_seeds_hole = tmp;
+    }
+    return max_nb_seeds_hole;
+}
+
+int h2(Board* board, int player) {
+    //Keep as many counters on the players own side
+    int total_seeds_player = 0;
+    for (int i = player; i < MAX_HOLES; i +=2) {
+        Hole* hole = &board->holes[i];
+        total_seeds_player += (hole->R + hole->B + hole->T);
+    }
+    return total_seeds_player;   
+}
+
+
+int h3(Board* board, int player) {
+    //Have as many moves as possible from which to choose.
+    Move moves[MAX_HOLES/2*4];
+    int n_moves = get_move_list(board, moves, player);
+    return n_moves;
+}
+
+int h4(Board* board, int player) {
+    //Maximize the amount of counters in a players own store.
+    int sum = 0;
+    sum = (get_score(board, PLAYER) - get_score(board, 1 - PLAYER));
+    return sum;
+}
+
+
+int h5(Board* board, int player) {
+    //Keep the opponents score to a minimum
+    return get_score(board, 1 - PLAYER);
+}
+
+int evaluate(Board* board, int player) {
+    int value = 0;
+    value = h1(board, player)*W1;
+    value += h2(board, player)*W2;
+    value += h3(board, player)*W3;
+    value += h4(board, player)*W4;
+    value -= h5(board, player)*W5;
+
+    return value;
+}
 
 Move decisionMinMax ( Board* board, int player, int pmax ){
     /*
@@ -148,7 +201,7 @@ int minMaxValue (Board* board, int player, int isMax, int pmax) {
     if (check_winning_position(board, player)) return VAL_MAX;
     if (check_loosing_position (board, player)) return(-VAL_MAX);
     if (check_draw_position(board)) return(0);
-    if (pmax==0)  return h(board, player);
+    if (pmax==0)  return evaluate(board, player);
 
     Move moves[MAX_HOLES/2*4];
     int n_moves = get_move_list(board, moves, player);
