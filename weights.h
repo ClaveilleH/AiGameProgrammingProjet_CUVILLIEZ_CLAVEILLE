@@ -11,5 +11,12 @@
 #define W4 1
 #define W5 0.565937
 
+#define H1_W 19
+#define H2_W 19
+#define H3_W 37
+#define H4_W 100
+#define H5_W 41
+#define H6_W 56
+
 
 #endif // WEIGHTS_H

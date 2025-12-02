@@ -19,6 +19,6 @@ int h(Board* board, int player);
 Move decisionMinMax ( Board* board, int player, int pmax );
 int minMaxValue (Board* board, int player, int isMax, int pmax);
 Move decisionAlphaBeta ( Board* board, int player, int pmax );
-int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax);
+int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax, MoveList* moveList);
 
 #endif // EVALUATE_H

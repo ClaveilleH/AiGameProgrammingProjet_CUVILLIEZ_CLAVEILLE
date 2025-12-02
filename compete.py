@@ -44,12 +44,23 @@ def play_match(agent1_path, agent2_path):
         try:
             move2 = agent2.stdout.readline().strip()
             print(f"Agent2 move: {move2}")  # debug
-        except Exception:
-            print("Agent2 failed to respond.")
+            # Détection de sortie corrompue/invalide
+            if "Invalid" in move2 or any(ord(c) > 127 for c in move2):
+                print(f"Agent2 produced invalid/corrupted output: {move2}")
+                agent1.kill()
+                agent2.kill()
+                return -1
+        except Exception as e:
+            print(f"Agent2 failed to respond: {e}")
+            agent1.kill()
+            agent2.kill()
             move2 = "INVALID"
+            return -1
 
         if not move2:
-            # agent1 ne répond pas
+            # agent2 ne répond pas
+            agent1.kill()
+            agent2.kill()
             return -1
 
         # --- joueur 2 ---
@@ -58,12 +69,23 @@ def play_match(agent1_path, agent2_path):
         try:
             move1 = agent1.stdout.readline().strip()
             print(f"Agent1 move: {move1}")  # debug
-        except Exception:
-            print("Agent1 failed to respond.")
+            # Détection de sortie corrompue/invalide
+            if "Invalid" in move1 or any(ord(c) > 127 for c in move1):
+                print(f"Agent1 produced invalid/corrupted output: {move1}")
+                agent1.kill()
+                agent2.kill()
+                return 1
+        except Exception as e:
+            print(f"Agent1 failed to respond: {e}")
+            agent1.kill()
+            agent2.kill()
             move1 = "INVALID"
+            return 1
 
         if not move1:
-            # agent2 ne répond pas
+            # agent1 ne répond pas
+            agent1.kill()
+            agent2.kill()
             return 1
 
         # ici tu peux vérifier si un coup est invalide / état de victoire
@@ -72,7 +94,16 @@ def play_match(agent1_path, agent2_path):
         last_move_p1, last_move_p2 = move1, move2
 
     # --- fin de partie fictive (à remplacer par ta vraie logique) ---
-    return random.choice([1, 0, -1])
+    result = random.choice([1, 0, -1])
+    
+    # Cleanup: kill both processes at the end
+    try:
+        agent1.kill()
+        agent2.kill()
+    except:
+        pass
+    
+    return result
 # -----------------------------------------------------------------
 
 def main():

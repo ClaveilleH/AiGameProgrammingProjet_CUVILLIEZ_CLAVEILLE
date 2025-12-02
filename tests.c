@@ -182,6 +182,19 @@ void test_move_list(void) {
     for (int i = 0; i < n_moves; i++) {
         print_move(moves[i]);
     }
+    bot_play(&board);
+}
+
+void testH4(){
+    Board board;
+    init_board(&board);
+    make_move(&board, 0, TR);
+    printf("value h player 0: %d\n", h(&board,0));
+    // printf("value h player 1: %d\n", h(&board,1));
+    make_move(&board, 13, B);
+    printf("value h player 0 after move: %d\n", h(&board,0));
+    printf("value h player 1 after move: %d\n", h(&board,1));
+    _print_board(&board);
 }
 
 int main(int argc, char* argv[]) {
