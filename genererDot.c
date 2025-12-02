@@ -93,3 +93,38 @@ void generer_dot_arbre(Noeud* node) {
 
     node->node_id = node_id; // on stocke l'ID DOT pour les flèches
 }
+
+void generer_dot_arbre_v2(Noeud* node) {
+    if (!node) return;
+
+    // Création du label affiché dans le nœud
+    char label[64];
+
+    if (node->move.hole_index >= 0)
+        snprintf(label, sizeof(label), "v=%d\n(h=%d,t=%d)", 
+                 node->value, node->move.hole_index, node->move.type);
+    else
+        snprintf(label, sizeof(label), "v=%d\n(root)", node->value);
+
+    // Création du noeud DOT et récupération de son ID
+    int node_id = noeudPersonnalisable(
+        label,
+        "ellipse",
+        node->isMax ? "lightblue" : "pink",
+        "filled"
+    );
+
+    // Mémorisation de l’ID DOT
+    node->node_id = node_id;
+
+    // Dessiner les enfants
+    for (int i = 0; i < node->nChildren; i++) {
+        Noeud* child = node->children[i];
+
+        // Récursion : génère les enfants d'abord
+        generer_dot_arbre(child);
+
+        // Puis relie le noeud courant à l'enfant
+        fleche_move(node_id, child->node_id, child->move);
+    }
+}

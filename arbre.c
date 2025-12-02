@@ -33,6 +33,105 @@ Noeud* create_noeud(int node_id, Board board, Move move, int player, int isMax) 
     node->nChildren = 0;
     return node;
 }
+//nouvelle version 
+Noeud* create_children(Noeud* node, int player) {
+    Move moves[MAX_HOLES/2 * 4];
+    int n_moves = get_move_list(&node->board, moves, player);
+    node->nChildren = n_moves;
+    if (n_moves > 0)
+        node->children = malloc(n_moves * sizeof(Noeud*));
+    else {
+        node->children = NULL;
+        return node;
+    }
+
+    for (int i = 0; i < n_moves; ++i) {
+        Board child_board = copy_board(&node->board);
+        make_move(&child_board, moves[i].hole_index, moves[i].type);
+
+        // Créer le noeud enfant
+        Noeud* child = (Noeud*) malloc(sizeof(Noeud));
+        child->board = child_board;
+        child->move = moves[i];
+        child->player = 1 - player;
+        child->isMax = (player == PLAYER) ? 0 : 1; // max → min → max → …
+        child->value = 0;
+        child->children = NULL;
+        child->nChildren = 0;
+
+        node->children[i] = child;
+    }
+
+    return node;
+}
+
+
+int minimax(Noeud* node, int player, int pmax){
+    if (pmax == 0 ||
+        check_winning_position(&node->board, player) ||
+        check_loosing_position(&node->board, player) ||
+        check_draw_position(&node->board)) {
+        node->value = evaluate(&node->board, player);
+        return node->value;
+    }
+    create_children(node, player);
+    int bestVal;
+    //si PLAYER on maximise
+    if (player == PLAYER){
+        bestVal =  -VAL_MAX;
+        for (int i = 0; i < node->nChildren; ++i){
+            int val = minimax(node->children[i], 1-player, pmax-1);
+            if (val>bestVal) bestVal = val;
+        }
+    }
+    else{
+        bestVal =  +VAL_MAX;
+        for (int i = 0; i < node->nChildren; ++i){
+            int val = minimax(node->children[i], 1-player, pmax-1);
+            if (val<bestVal) bestVal = val;
+        }
+    }
+    node->value = bestVal;
+    return bestVal;
+}
+
+
+int alpha_beta_minimax(Noeud* node, int alpha, int beta, int player, int pmax){
+    if (pmax == 0 ||
+        check_winning_position(&node->board, player) ||
+        check_loosing_position(&node->board, player) ||
+        check_draw_position(&node->board)) {
+        node->value = evaluate(&node->board, player);
+        return node->value;
+    }
+    create_children(node, player);
+    int bestVal;
+    //si PLAYER on maximise
+    if (player == PLAYER){
+        bestVal =  -VAL_MAX;
+        for (int i = 0; i < node->nChildren; ++i){
+            int val = alpha_beta_minimax(node->children[i], alpha, beta, 1-player, pmax-1);
+            if (val > bestVal) bestVal = val;
+            if (bestVal > alpha) alpha = bestVal;
+            if (alpha >= beta) break; //pruning
+        }
+        return bestVal;
+    }
+    else{
+        bestVal = +VAL_MAX;
+        for (int i = 0; i < node->nChildren; ++i){
+            int val = alpha_beta_minimax(node->children[i], alpha, beta, 1-player, pmax-1);
+            if (val < bestVal) bestVal = val;
+            if (bestVal < beta) beta = bestVal;
+            if (alpha >= beta) break; //pruning
+        }
+        return bestVal;
+    }
+}
+
+
+
+//ancienne version
 
 Noeud* build_tree(const Board* board, int player, int isMax, int pmax, int* node_counter) {
     Board node_board = copy_board(board);
