@@ -56,8 +56,8 @@ static inline __attribute__((always_inline)) int distribute_transparent_blue(Boa
         idx = (idx + 2) & MASK;
     }
     idx = (idx - 2 + MAX_HOLES) & MASK;
+    hole->T = 0;
     return idx;
-    // hole->T = 0;
     // return (hole->T == 0) ? hole_index : idx;
 }
 
