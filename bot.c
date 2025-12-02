@@ -54,24 +54,24 @@ void bot_play(Board* board) {
     gettimeofday(&debut, NULL);
     // exit(0);
 
-    int profondeur = 3;
+    int profondeur = 5;
     // bestMove = decisionMinMax(board, PLAYER, profondeur);
     // fprintf(stderr, "---------------------------------------\n");
     bestMove = decisionAlphaBeta(board, PLAYER, profondeur);
-    fprintf(stderr, "Hole index: %d, Seed type: %s\n", bestMove.hole_index, 
-        (bestMove.type == R) ? "R" : 
-        (bestMove.type == B) ? "B" : 
-        (bestMove.type == TR) ? "TR" : "TB");
+    // fprintf(stderr, "Hole index: %d, Seed type: %s\n", bestMove.hole_index, 
+    //     (bestMove.type == R) ? "R" : 
+    //     (bestMove.type == B) ? "B" : 
+    //     (bestMove.type == TR) ? "TR" : "TB");
     if (!is_valid_move(board, bestMove.hole_index, bestMove.type, PLAYER)) {
         fprintf(stderr, "Bot selected an invalid move. Skipping turn.\n"); // Debug message
         exit(EXIT_FAILURE);
         return;
     }
-    fprintf(stderr, "Bot selected move: hole %d, type %d\n", bestMove.hole_index, bestMove.type); // Debug message
-    log("Bot selected move: hole %d, type %s", bestMove.hole_index, 
-        (bestMove.type == R) ? "R" : 
-        (bestMove.type == B) ? "B" : 
-        (bestMove.type == TR) ? "TR" : "TB");
+    // fprintf(stderr, "Bot selected move: hole %d, type %d\n", bestMove.hole_index, bestMove.type); // Debug message
+    // log("Bot selected move: hole %d, type %s", bestMove.hole_index, 
+        // (bestMove.type == R) ? "R" : 
+        // (bestMove.type == B) ? "B" : 
+        // (bestMove.type == TR) ? "TR" : "TB");
         
     make_move(board, bestMove.hole_index, bestMove.type, PLAYER);
 

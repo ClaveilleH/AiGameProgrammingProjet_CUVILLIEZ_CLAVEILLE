@@ -14,8 +14,8 @@
 #define VAL_MAX 100000
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
-// #define HEURISTIC h
-#define HEURISTIC heuristic_evaluation
+#define HEURISTIC h
+// #define HEURISTIC heuristic_evaluation
 
 int check_winning_position(Board* board, int player) {
     int winner;
@@ -267,39 +267,97 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
     int alpha = -VAL_MAX;
     int beta = VAL_MAX;
     Move bestMove = moves[0];
+    MoveList* bestMoveList = NULL;
     MoveList* moveList = NULL;
     for (int i = 0; i < n_moves; i++) {
         Board new_board = *board;
         moveList = malloc(sizeof(MoveList));
         moveList->moves = &moves[i];
-        moveList->next = malloc(sizeof(MoveList));
-        moveList->next->moves = NULL;
-        moveList->next->next = NULL;
+        moveList->next = NULL;
+        
+        /* Create chain of pmax nodes for the principal variation */
+        MoveList* current = moveList;
+        for (int depth = 0; depth < pmax; depth++) {
+            current->next = malloc(sizeof(MoveList));
+            current->next->moves = NULL;
+            current->next->next = NULL;
+            current = current->next;
+        }
+        
         make_move(&new_board, moves[i].hole_index, moves[i].type, player);
         int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 0, pmax-1, moveList->next);
         // int val = alphaBetaValue(&new_board, player, alpha, beta, 0, pmax-1, moveList->next);
         if (val>alpha) {
             alpha = val  ;   
-            bestMove = moves[i];   
+            bestMove = moves[i];
+            /* Free the previous bestMoveList if it exists (replaced by new best) */
+            if (bestMoveList != NULL) {
+                MoveList* temp = bestMoveList;
+                while (temp != NULL) {
+                    MoveList* next = temp->next;
+                    if (temp->moves != NULL && !(temp->moves >= moves && temp->moves < moves + n_moves)) {
+                        /* Free only if it's not pointing to stack array */
+                        free(temp->moves);
+                    }
+                    free(temp);
+                    temp = next;
+                }
+            }
+            bestMoveList = moveList; /* Keep this moveList as the best */
+        } else {
+            /* This moveList is not the best, free the entire chain */
+            MoveList* temp = moveList;
+            while (temp != NULL) {
+                MoveList* next = temp->next;
+                if (temp->moves != NULL && !(temp->moves >= moves && temp->moves < moves + n_moves)) {
+                    /* Free only if it's not pointing to stack array */
+                    free(temp->moves);
+                }
+                free(temp);
+                temp = next;
+            }
         }
-        fprintf(stderr, "(%d/%d): %d,%s > %d : ", i+1, n_moves, moves[i].hole_index, 
-            (moves[i].type == R) ? "R" : 
-            (moves[i].type == B) ? "B" : 
-            (moves[i].type == TR) ? "TR" : "TB", val);
-        MoveList* current = moveList;
+        moveList = NULL;
+    }
+    DEBUG_PRINT("Best move chosen: hole %d, type %s with value %d\n", bestMove.hole_index, 
+        (bestMove.type == R) ? "R" : 
+        (bestMove.type == B) ? "B" : 
+        (bestMove.type == TR) ? "TR" : "TB", alpha);
+    log("Best move chosen: [%d,%s] with value %d", bestMove.hole_index + 1, 
+        (bestMove.type == R) ? "R" : 
+        (bestMove.type == B) ? "B" : 
+        (bestMove.type == TR) ? "TR" : "TB", alpha);
+    // fprintf(stderr, "Best move chosen: hole %d, type %d with value %d\n", bestMove.hole_index, bestMove.type, alpha);
+    // fprintf(stderr, "Best move chosen: hole %d, type %d with value %d\n\n", bestMove.hole_index, bestMove.type, alpha);
+    if (DEBUG) {
+        fprintf(stderr, "Nexts bests moves : ");
+        MoveList* current = bestMoveList;
         while (current != NULL && current->moves != NULL) {
             fprintf(stderr, "[%d,%s] ", current->moves->hole_index, 
                 (current->moves->type == R) ? "R" : 
                 (current->moves->type == B) ? "B" : 
                 (current->moves->type == TR) ? "TR" : "TB");
             current = current->next;
-        } 
+        }
         fprintf(stderr, "\n");
-        free(moveList->next);
-        free(moveList);
+        fflush(stderr);
     }
-    fprintf(stderr, "Best move chosen: hole %d, type %d with value %d\n\n", bestMove.hole_index, bestMove.type, alpha);
-    fflush(stderr);
+    
+    
+    /* Free the bestMoveList now that we've finished using it */
+    if (bestMoveList != NULL) {
+        MoveList* temp = bestMoveList;
+        while (temp != NULL) {
+            MoveList* next = temp->next;
+            if (temp->moves != NULL && !(temp->moves >= moves && temp->moves < moves + n_moves)) {
+                /* Free only if it's not pointing to stack array */
+                free(temp->moves);
+            }
+            free(temp);
+            temp = next;
+        }
+    }
+    
     return bestMove;
 }
 
@@ -320,7 +378,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
         for (int i = 0; i < n_moves; i++){
             Board new_board = *board;// copie par valeur
             make_move(&new_board, moves[i].hole_index, moves[i].type, player);
-            fprintf(stderr, "      max(%d/%d): hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
+            // fprintf(stderr, "      max(%d/%d): hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
             /* Pass next element only if currentMoveList is non-NULL */
             int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList ? currentMoveList->next : NULL);
             if (val > alpha) {
@@ -337,7 +395,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
         }
         if (currentMoveList) {
             if (currentMoveList->moves) {
-                // free(currentMoveList->moves);
+                free(currentMoveList->moves);
                 currentMoveList->moves = NULL;
             }
         }
@@ -352,10 +410,10 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
             make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             /* Pass next element only if currentMoveList is non-NULL */
             int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList ? currentMoveList->next : NULL);
-            fprintf(stderr, "      min(%d/%d): %d, %s -> %d\n", i+1, n_moves, moves[i].hole_index, 
-                (moves[i].type == R) ? "R" : 
-                (moves[i].type == B) ? "B" : 
-                (moves[i].type == TR) ? "TR" : "TB", val);
+            // fprintf(stderr, "      min(%d/%d): %d, %s -> %d\n", i+1, n_moves, moves[i].hole_index, 
+            //     (moves[i].type == R) ? "R" : 
+            //     (moves[i].type == B) ? "B" : 
+            //     (moves[i].type == TR) ? "TR" : "TB", val);
             if (val < beta) {
                 beta = val;
                 /* Only record move if we have a MoveList node to write into */
