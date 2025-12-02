@@ -186,7 +186,6 @@ int h2(Board* board, int player) {
     return total_seeds_player;   
 }
 
-
 int h3(Board* board, int player) {
     //Have as many moves as possible from which to choose.
     Move moves[MAX_HOLES/2*4];
@@ -200,7 +199,6 @@ int h4(Board* board, int player) {
     sum = (get_score(board, PLAYER) - get_score(board, 1 - PLAYER));
     return sum;
 }
-
 
 int h5(Board* board, int player) {
     //Keep the opponents score to a minimum
