@@ -117,21 +117,33 @@ int main(int argc, char* argv[]) {
                 // print_board(&board);
             }
         }
-
-        if (check_winner(&board, &winner)) {
-            DEBUG_PRINT("Player %d wins!\n", winner);
-            log("Player %d wins!", winner);
+        int end ;
+        end = check_end_game(&board, &winner);
+        if (end) {
+            if (winner == -1) {
+                log("Game ends in a draw!");
+                DEBUG_PRINT("Game ends in a draw!\n");
+            } else {
+                log("Player %d wins!", winner + 1);
+                DEBUG_PRINT("Player %d wins!\n", winner + 1);
+            }
             run = 0;
-        } if (check_draw(&board)) {
-            DEBUG_PRINT("Game ends in a draw!\n");
-            log("Game ends in a draw!");
-            run = 0;
-        } else {
-            // Continue game
-            DEBUG_PRINT("Game continues...\n");
         }
+        // if (check_winner(&board, &winner)) {
+        //     DEBUG_PRINT("Player %d wins!\n", winner);
+        //     log("Player %d wins!", winner);
+        //     run = 0;
+        // } if (check_draw(&board)) {
+        //     DEBUG_PRINT("Game ends in a draw!\n");
+        //     log("Game ends in a draw!");
+        //     run = 0;
+        // } else {
+        //     // Continue game
+        //     DEBUG_PRINT("Game continues...\n");
+        // }
         print_board(&board);
         turn = 1 - turn;
+        // if (winner != -1) {
         // break; // Placeholder to avoid infinite loop in this example
     }
     close_logger();

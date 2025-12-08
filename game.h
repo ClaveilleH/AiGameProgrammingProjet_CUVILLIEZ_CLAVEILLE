@@ -8,6 +8,7 @@ int make_move(Board* board, int hole_index, SeedType type, int playerId);
 int test_capture(Board* board, int hole_index, int *captured);
 int check_winner(const Board* board, int *winner);
 int check_draw(const Board* board);
+int check_end_game(Board* board, int *winner);
 int is_valid_move(Board* board, int hole_index, SeedType type, int playerId);
 
 // ! DETECT ILLEGAL MOVES ?

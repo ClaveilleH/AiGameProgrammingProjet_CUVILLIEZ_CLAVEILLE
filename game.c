@@ -1,6 +1,7 @@
 #include "data.h"
 #include "game.h"
 #include "logger.h"
+#include "bot.h" // pour le nb de coups
 
 void play_game(Board* board) {
     // Game loop and logic here
@@ -120,6 +121,59 @@ int make_move(Board* board, int hole_index, SeedType type, int playerId) {
     // fprintf(stderr, "Total seeds captured this move: %d\n", captured);
     return last;
 
+}
+
+int check_end_game(Board* board, int *winner) {
+    // si un joueur a 49 ou plus de graines, il gagne
+    // si moins de 10 graines restent sur le board on verifie qui a le plus de graines
+    // on process si un joueur est affamé
+    if (board->j1_score >= 49) {
+        *winner = 0;
+        return 1;
+    } else if (board->j2_score >= 49) {
+        *winner = 1;
+        return 1;
+    }
+    if (board->seed_count < 10) {
+        if (board->j1_score > board->j2_score) {
+            *winner = 0;
+        } else if (board->j2_score > board->j1_score) {
+            *winner = 1;
+        } else {
+            *winner = -1; // Draw
+        }
+        return 1;
+    }
+    // Utiliser des tableaux temporaires au lieu de NULL pour éviter le segfault
+    Move temp_moves_p1[MAX_HOLES/2*4];
+    Move temp_moves_p2[MAX_HOLES/2*4];
+    int player1_moves = get_move_list(board, temp_moves_p1, 0);
+    int player2_moves = get_move_list(board, temp_moves_p2, 1);
+    int score1 = board->j1_score;
+    int score2 = board->j2_score;
+    if (player1_moves == 0) {
+        score1 += board->seed_count;
+        // board->seed_count = 0;
+        if (score1 > score2) {
+            *winner = 0;
+        } else if (score2 > score1) {
+            *winner = 1;
+        } else {
+            *winner = -1; // Draw
+        }
+    }
+    if (player2_moves == 0) {
+        score2 += board->seed_count;
+        // board->seed_count = 0;
+        if (score1 > score2) {
+            *winner = 0;
+        } else if (score2 > score1) {
+            *winner = 1;
+        } else {
+            *winner = -1; // Draw
+        }
+    }
+    return 0;
 }
 
 static inline int get_previous_hole_index(int current_index) {
