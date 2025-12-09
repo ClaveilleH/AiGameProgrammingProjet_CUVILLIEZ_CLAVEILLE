@@ -14,14 +14,14 @@
 #define VAL_MAX 100000
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
-#define HEURISTIC h
+#define HEURISTIC evaluate
 // #define HEURISTIC heuristic_evaluation
 
 int check_winning_position(Board* board, int player) {
     int winner;
     if (check_winner(board, &winner)) {
-        printf("nb : %d", board->j1_score);
-        printf("nb : %d", board->j2_score);
+        //printf("nb : %d", board->j1_score);
+        //printf("nb : %d", board->j2_score);
         return (winner == player); // gagnant ?
     }
     return 0; 
@@ -104,12 +104,12 @@ int heuristic_evaluation(Board* board, int player) {
 
 
 
-    sum += h1 * H1_W;
-    sum += h2 * H2_W;
-    sum += h3 * H3_W;
-    sum += h4 * H4_W;
-    sum += h5 * H5_W;
-    sum += h6 * H6_W;
+    sum += h1 * weights.H1_W;
+    sum += h2 * weights.H2_W;
+    sum += h3 * weights.H3_W;
+    sum += h4 * weights.H4_W;
+    sum += h5 * weights.H5_W;
+    sum += h6 * weights.H6_W;
     return sum;
 }
 
@@ -120,15 +120,14 @@ int h(Board* board, int player) {
     int score_dif = get_score(board, PLAYER) - get_score(board, 1 - PLAYER);
     // printf("PLAYER %d score: %d, OPP score: %d, dif: %d\n", PLAYER, get_score(board, PLAYER), get_score(board, 1 - PLAYER), score_dif);
 
-    sum += score_dif * SCORE_DIF_W;
-
+    sum += score_dif * weights.SCORE_DIF_W;
     return sum;
 
     // favorise un plateau ou il y a moins de graines
     if (0) {
         for (int i = 0; i < MAX_HOLES; i++) { // On compte les graines dans les trous 
             Hole* hole = &board->holes[i];
-            sum -= (hole->R + hole->B + hole->T) * TOTAL_SEED_W; // Total seeds in holes
+            sum -= (hole->R + hole->B + hole->T) * weights.TOTAL_SEED_W; // Total seeds in holes
         }
     }
     // DEBUG_PRINT("Value after total seeds (player): %d\n", sum);
@@ -138,14 +137,14 @@ int h(Board* board, int player) {
         total_seeds_player += (hole->R + hole->B + hole->T);
     }
     // DEBUG_PRINT("Total seeds for player %d: %d\n", player, total_seeds_player);
-    sum += total_seeds_player * TOTAL_SEED_PLAYER_W; // Favoriser les trous du joueur
+    sum += total_seeds_player * weights.TOTAL_SEED_PLAYER_W; // Favoriser les trous du joueur
     int total_seeds_opponent = 0;
     for (int i = 1 - player; i < MAX_HOLES; i +=2) {
         Hole* hole = &board->holes[i];
         total_seeds_opponent += (hole->R + hole->B + hole->T);
     }
     // DEBUG_PRINT("Total seeds for opponent of player %d: %d\n", player, total_seeds_opponent);
-    sum -= total_seeds_opponent * TOTAL_SEED_OPP_W; // Désavantager les trous de l'adversaire
+    sum -= total_seeds_opponent * weights.TOTAL_SEED_OPP_W; // Désavantager les trous de l'adversaire
 
 
 
@@ -244,11 +243,11 @@ int h7(Board* board, int player) {
 
 int evaluate(Board* board, int player) {
     int value = 0;
-    value = h1(board, player)*W1;
-    value += h2(board, player)*W2;
-    value += h3(board, player)*W3;
-    value += h4(board, player)*W4;
-    value -= h5(board, player)*W5;
+    value = h1(board, player)*weights.H1_W;;
+    value += h2(board, player)*weights.H2_W;;
+    value += h3(board, player)*weights.H3_W;;
+    value += h4(board, player)*weights.H4_W;;
+    value -= h5(board, player)*weights.H5_W;;
 
     return value;
 }

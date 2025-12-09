@@ -1,0 +1,13 @@
+botA,botB,scoreA,scoreB,winner
+weights1.cfg,weights2.cfg,,,
+weights1.cfg,weights3.cfg,41,47,-1
+weights1.cfg,weights4.cfg,41,47,-1
+weights2.cfg,weights1.cfg,51,22,1
+weights2.cfg,weights3.cfg,,,
+weights2.cfg,weights4.cfg,,,
+weights3.cfg,weights1.cfg,49,0,1
+weights3.cfg,weights2.cfg,50,2,1
+weights3.cfg,weights4.cfg,50,38,1
+weights4.cfg,weights1.cfg,49,0,1
+weights4.cfg,weights2.cfg,50,2,1
+weights4.cfg,weights3.cfg,50,38,1

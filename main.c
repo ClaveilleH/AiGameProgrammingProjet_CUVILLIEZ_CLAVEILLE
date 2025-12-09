@@ -1,147 +1,113 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <string.h>
+#include <time.h>
 
 #include "data.h"
 #include "game.h"
 #include "bot.h"
 #include "logger.h"
-#include <time.h>
-// #include <sys/time.h>
+#include "weights.h"
 
 Board board;
-int run;
-
-int get_human_move(int *hole_index, SeedType *type) {
-    /*
-    Lit et parse le coup de l'autre joueur depuis l'entrée standard.
-    q pour quitter
-    */
-    COMPETE_PRINT("Enter your move (hole index and seed type): ");
-    int idx;
-    char type_str[10]; // Buffer pour lire la chaîne complète
-
-    if (scanf("%d%s", &idx, type_str) != 2) {
-        if (scanf("%s", type_str)) {;}
-        if (strcmp(type_str, "q") == 0) {
-            fprintf(stderr, "Player chose to quit the game.\n");
-            run = 0;
-            return 1;
-        }
-        fprintf(stderr, "(%d)Invalid input format. got %d, %s\n", PLAYER, idx, type_str);
-        // Nettoyer le buffer d'entrée
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF);
-        return 1;
-    }
-
-    if (idx <= 0 || idx > MAX_HOLES) {
-        fprintf(stderr, "Invalid hole index. Must be between 0 and %d.\n", MAX_HOLES - 1);
-        return 1;
-    }
-
-    SeedType seed_type;
-    if (strcmp(type_str, "R") == 0) {
-        seed_type = R;
-    } else if (strcmp(type_str, "B") == 0) {
-        seed_type = B;
-    } else if (strcmp(type_str, "TR") == 0) {
-        seed_type = TR;
-    } else if (strcmp(type_str, "TB") == 0) {
-        seed_type = TB;
-    } else {
-        fprintf(stderr, "Invalid seed type. Use 'R', 'B', 'TR', or 'TB' entered %s.\n", type_str);
-        return 1;
-    }
-    log("Other player chose hole %d with seed type %s", idx,
-        (seed_type == R) ? "R" : 
-        (seed_type == B) ? "B" : 
-        (seed_type == TR) ? "TR" : "TB");
-
-    *hole_index = idx - 1; // Convertir en index 0-based
-    *type = seed_type;
-    return 0;
-}
-
-
+int run = 1;
+int PLAYER = 0; // Joueur courant
 
 int main(int argc, char* argv[]) {
-    run = 1;
-    int turn = 0; // 0 for player 1, 1 for player 2
-    int winner = -1;
     srand(time(NULL));
-
     init_logger();
+    init_board(&board);
+    print_board(&board);
 
-    // le player id est passé en argument
-    if (argc >= 2) {
+    int autoplay_mode = 0;
+    char* weights_bot1 = NULL;
+    char* weights_bot2 = NULL;
+
+    // ===== Analyse des arguments =====
+    if (argc >= 2 && strcmp(argv[1], "autoplay") == 0) {
+        autoplay_mode = 1;
+        if (argc >= 3) weights_bot1 = argv[2];
+        if (argc >= 4) weights_bot2 = argv[3];
+    } else if (argc >= 2) {
         PLAYER = atoi(argv[1]);
         if (PLAYER != 1 && PLAYER != 2) {
             fprintf(stderr, "Invalid player ID. Must be 1 or 2.\n");
             return 1;
         }
-        PLAYER -= 1; // Convert to 0-based index
+        PLAYER -= 1; // Convertir en index 0-based
+        if (argc >= 3) weights_bot1 = argv[2];
+        load_weights_from_file(weights_bot1);
     } else {
-        // Sinon on demande a l'utilisateur
-        COMPETE_PRINT("Enter bot ID (1 or 2): ");
-        if (scanf("%d", &PLAYER) != 1 || (PLAYER != 1 && PLAYER != 2)) {
-            fprintf(stderr, "Invalid player ID. Must be 1 or 2.\n");
-            return 1;
-        }
-        PLAYER -= 1; // Convert to 0-based index
+        fprintf(stderr, "Usage: %s <1|2|autoplay> [weights1.cfg] [weights2.cfg]\n", argv[0]);
+        return 1;
     }
-    fprintf(stderr, "Starting game as Player %d\n", PLAYER + 1);
-    log("Game started as Player %d", PLAYER + 1);
-    init_board(&board);
-    print_board(&board);
-    while (run) {
-        // Game loop
-        if (turn == PLAYER) {
-            DEBUG_PRINT("Bot's turn.\n");
+
+    // ===== Mode autoplay pour deux bots =====
+    if (autoplay_mode) {
+        int turn = 0;
+        int winner = -1;
+        while (run) {
+            PLAYER = turn;
+            if (turn == 0 && weights_bot1){
+            printf("bot 1\n");
+            load_weights_from_file(weights_bot1);}
+
+            if (turn == 1 && weights_bot2){
+                printf("bot 2\n");
+                load_weights_from_file(weights_bot2);
+            } 
+
             bot_play(&board);
-            // print_board(&board);
-        } else {
-            DEBUG_PRINT("Player's turn.\n");
-            int hole_index;
-            SeedType type;
-            if (get_human_move(&hole_index, &type)) {
-                DEBUG_PRINT("not a valid input\n");
-                continue; // Invalid input, ask again
+
+            print_board(&board);
+
+            if (check_winner(&board, &winner)) {
+                printf("Player %d wins!\n", winner);
+                run = 0;
+            } else if (check_draw(&board)) {
+                printf("Game ends in a draw!\n");
+                run = 0;
             } else {
-                if (!is_valid_move(&board, hole_index, type, 1 - PLAYER)) {
-                    fprintf(stderr, "Invalid move. Try again.\n");
-                    continue; // Invalid move, ask again
-                }
-                make_move(&board, hole_index, type, 1 - PLAYER);
-                // print_board(&board);
+                turn = 1 - turn; // changer de joueur
             }
         }
 
+        printf("FINAL: j1_score=%d j2_score=%d winner=%d\n", board.j1_score, board.j2_score, winner);
+        close_logger();
+        return 0;
+    }
+
+    // ===== Mode joueur humain vs bot =====
+    int winner = -1;
+    int turn = 0;
+    while (run) {
+        if (turn == PLAYER) {
+            bot_play(&board);
+        } else {
+            int hole_index;
+            SeedType type;
+            // Lire le coup du joueur humain
+            COMPETE_PRINT("Enter your move (hole index and seed type): ");
+            if (scanf("%d%s", &hole_index, &type) != 2) {
+                fprintf(stderr, "Invalid input\n");
+                continue;
+            }
+            make_move(&board, hole_index-1, type, 1-PLAYER);
+        }
+
+        print_board(&board);
+
         if (check_winner(&board, &winner)) {
-            DEBUG_PRINT("Player %d wins!\n", winner);
-            log("Player %d wins!", winner);
+            printf("Player %d wins!\n", winner);
             run = 0;
-        } if (check_draw(&board)) {
-            DEBUG_PRINT("Game ends in a draw!\n");
-            log("Game ends in a draw!");
+        } else if (check_draw(&board)) {
+            printf("Game ends in a draw!\n");
             run = 0;
         } else {
-            // Continue game
-            DEBUG_PRINT("Game continues...\n");
+            turn = 1 - turn;
         }
-        print_board(&board);
-        turn = 1 - turn;
-        // break; // Placeholder to avoid infinite loop in this example
     }
+
     close_logger();
     return 0;
 }
-
-
-
-/*
-
-make -mode
-
-*/
