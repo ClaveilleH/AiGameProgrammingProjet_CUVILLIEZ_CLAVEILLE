@@ -51,6 +51,8 @@ typedef struct {
     int seed_count;
     int j1_score;
     int j2_score;
+    int nb_coups_player1;
+    int nb_coups_player2;
 } Board;
 
 typedef struct {
@@ -81,5 +83,6 @@ int free_board(Board* board);
 
 int get_total_seeds(Hole* hole);
 int get_score(Board* board, int playerId);
+int get_nb_coups(Board* board, int playerId);
 
 #endif // DATA_H

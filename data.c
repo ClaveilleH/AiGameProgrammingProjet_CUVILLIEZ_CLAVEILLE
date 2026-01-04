@@ -43,7 +43,7 @@ int free_board(Board* board) {
 
 
 int get_total_seeds(Hole* hole) {
-    DEBUG_PRINT("Calculating total seeds: R=%d, B=%d, T=%d\n", hole->R, hole->B, hole->T);
+    // DEBUG_PRINT("Calculating total seeds: R=%d, B=%d, T=%d\n", hole->R, hole->B, hole->T);
     return (hole->R) + (hole->B) + (hole->T);
 }
 
@@ -52,6 +52,17 @@ int get_score(Board* board, int playerId) {
         return board->j1_score;
     } else if (playerId == 1) {
         return board->j2_score;
+    } else {
+        fprintf(stderr, "Invalid player ID: %d\n", playerId);
+        return -1; // Indicate an error
+    }
+}
+
+int get_nb_coups(Board* board, int playerId) {
+    if (playerId == 0) {
+        return board->nb_coups_player1;
+    } else if (playerId == 1) {
+        return board->nb_coups_player2;
     } else {
         fprintf(stderr, "Invalid player ID: %d\n", playerId);
         return -1; // Indicate an error

@@ -64,7 +64,26 @@ int get_human_move(int *hole_index, SeedType *type) {
     return 0;
 }
 
-
+int sim_end_game(Board* board) {
+    /*
+    Transforme le plateau pour simuler une fin de partie.
+    */
+    for (int i = 0; i < MAX_HOLES; i++) {
+        board->holes[i].R = 0;
+        board->holes[i].B = 0;
+        board->holes[i].T = 0;
+    }
+    board->seed_count = 15;
+    board->j1_score = 45;
+    board->j2_score = 46;
+    board->holes[0].R = 2;
+    board->holes[1].B = 1;
+    board->holes[1].T = 3;
+    board->holes[2].T = 2;
+    board->holes[10].R = 1;
+    board->holes[13].B = 1;
+    return 0;
+}
 
 int main(int argc, char* argv[]) {
     run = 1;
@@ -94,6 +113,7 @@ int main(int argc, char* argv[]) {
     fprintf(stderr, "Starting game as Player %d\n", PLAYER + 1);
     log("Game started as Player %d", PLAYER + 1);
     init_board(&board);
+    sim_end_game(&board); // For testing end game scenarios
     print_board(&board);
     while (run) {
         // Game loop
@@ -122,10 +142,12 @@ int main(int argc, char* argv[]) {
         if (end) {
             if (winner == -1) {
                 log("Game ends in a draw!");
-                DEBUG_PRINT("Game ends in a draw!\n");
+                // DEBUG_PRINT("Game ends in a draw!\n");
+                fprintf(stderr, "Game ends in a draw!\n");
             } else {
                 log("Player %d wins!", winner + 1);
-                DEBUG_PRINT("Player %d wins!\n", winner + 1);
+                // DEBUG_PRINT("Player %d wins!\n", winner + 1);
+                fprintf(stderr, "Player %d wins!\n", winner + 1);
             }
             run = 0;
         }

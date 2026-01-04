@@ -64,6 +64,10 @@ void bot_play(Board* board) {
     //     (bestMove.type == TR) ? "TR" : "TB");
     if (!is_valid_move(board, bestMove.hole_index, bestMove.type, PLAYER)) {
         fprintf(stderr, "Bot selected an invalid move. Skipping turn.\n"); // Debug message
+        log("Bot selected an invalid move: hole %d, type %s", bestMove.hole_index, 
+            (bestMove.type == R) ? "R" : 
+            (bestMove.type == B) ? "B" : 
+            (bestMove.type == TR) ? "TR" : "TB");
         exit(EXIT_FAILURE);
         return;
     }

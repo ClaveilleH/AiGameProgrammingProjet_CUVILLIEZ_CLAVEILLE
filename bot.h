@@ -7,5 +7,6 @@
 void bot_play(Board* board);
 int get_move_list(Board* board, Move* move_list, int player);
 Board* simulate_move(Board* board, Move move);
+int calculate_max_depth(Board* board, double eval_time, double dispo_time);
 
 #endif // BOT_H

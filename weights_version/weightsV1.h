@@ -7,7 +7,7 @@
 #define SCORE_DIF_W 5
 #define PRECENTAGE_PLAYER_W 2
 // le pourcentage de graines qui se trouvent sur le coté du joueur
-#define PRECENTAGE_TAKABLE_W 3
+#define PRECENTAGE_TAKABLE_W 0
 // 100 moins le pourcentage de trous avec 1 ou 2 graines du coté du joueur
 
 

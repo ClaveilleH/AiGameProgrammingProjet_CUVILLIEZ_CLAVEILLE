@@ -37,12 +37,13 @@ void init_logger() {
 }
 
 void close_logger() {
+    fprintf(LOGFILE, "Fermeture du fichier de log.\n");
+    fflush(LOGFILE);
     if (LOGFILE) {
         fclose(LOGFILE);
         LOGFILE = NULL;
     }
-    
-
+    fprintf(stderr, "Fichier de log fermé.\n");
 }
 
 void log_print(const char* message) {
