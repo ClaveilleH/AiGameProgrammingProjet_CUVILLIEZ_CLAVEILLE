@@ -9,12 +9,31 @@
 #include <time.h>
 #include <sys/time.h>
 
+int coups = 0;
+
+int compute_depth(Board* board) {
+    int total_seeds = 0;
+    for (int i = 0; i < MAX_HOLES; i++) {
+        Hole* h = &board->holes[i];
+        total_seeds += h->R + h->B + h->T;
+    }
+
+    if (total_seeds > 30) return 2;
+    else if (total_seeds > 20) return 3;
+    else if (total_seeds > 15) return 4;
+    else if (total_seeds > 12) return 5;
+    else if (total_seeds > 10) return 7;
+    else if (total_seeds > 8) return 8;
+    else return 9;
+}
+
+
 int get_move_list(Board* board, Move* move_list, int player) { 
- 
+    int internal_player = player % 2;
     int index = 0;
     // DEBUG_PRINT("Possible moves : \n"); 
     // Function to get possible moves
-    for (int i = player ; i < MAX_HOLES; i+=2) { 
+    for (int i = internal_player ; i < MAX_HOLES; i+=2) { 
         // Check each hole for possible moves 
         Hole* hole = get_hole(board, i); 
         int nb_graines_R = hole->R; 
@@ -48,13 +67,14 @@ int estimation_nb_moves(Board* board) {
 }
 
 void bot_play(Board* board) {
+    coups ++;
     // Fonction principale du bot qui choisit et joue un coup
     Move bestMove;
     struct timeval debut, fin;
     gettimeofday(&debut, NULL);
     // exit(0);
 
-    int profondeur = 6;
+    int profondeur = compute_depth(board);;
     // bestMove = decisionMinMax(board, PLAYER, profondeur);
     // fprintf(stderr, "---------------------------------------\n");
     bestMove = decisionAlphaBeta(board, PLAYER, profondeur);
@@ -62,6 +82,7 @@ void bot_play(Board* board) {
     //     (bestMove.type == R) ? "R" : 
     //     (bestMove.type == B) ? "B" : 
     //     (bestMove.type == TR) ? "TR" : "TB");
+
     if (!is_valid_move(board, bestMove.hole_index, bestMove.type, PLAYER)) {
         fprintf(stderr, "Bot selected an invalid move. Skipping turn.\n"); // Debug message
         exit(EXIT_FAILURE);

@@ -14,9 +14,9 @@
 #define VAL_MAX 100000
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
-// #define HEURISTIC evaluate
+#define HEURISTIC evaluate
 // #define HEURISTIC h
-#define HEURISTIC heuristic_evaluation
+//#define HEURISTIC heuristic_evaluation
 
 int check_winning_position(Board* board, int player) {
     int winner;
@@ -164,103 +164,119 @@ int h(Board* board, int player) {
 }
 
 
+// maximum seeds in a single hole
 int h1(Board* board, int player) {
-    //Hoard as many counters as possible in one pit (player side)
-    int max_nb_seeds_hole = 0;
-    for (int i = player ; i < MAX_HOLES; i+=2) { 
-        // Check each hole for the maximum of seeds 
-        Hole* hole = &board->holes[i]; 
-        int tmp = hole->R + hole->B + hole->T;
-        if (max_nb_seeds_hole < tmp) max_nb_seeds_hole = tmp;
+    int max_seeds = 0;
+    for (int i = player; i < MAX_HOLES; i += 2) {
+        int total = board->holes[i].R + board->holes[i].B + board->holes[i].T;
+        if (total > max_seeds) max_seeds = total;
     }
-    return max_nb_seeds_hole;
+    return max_seeds;
 }
 
+// total seeds on player's side
 int h2(Board* board, int player) {
-    //Keep as many counters on the players own side
-    int total_seeds_player = 0;
-    for (int i = player; i < MAX_HOLES; i +=2) {
-        Hole* hole = &board->holes[i];
-        total_seeds_player += (hole->R + hole->B + hole->T);
-    }
-    return total_seeds_player;   
+    int total = 0;
+    for (int i = player; i < MAX_HOLES; i += 2)
+        total += board->holes[i].R + board->holes[i].B + board->holes[i].T;
+    return total;
 }
 
+// number of available moves
 int h3(Board* board, int player) {
-    //Have as many moves as possible from which to choose.
-    Move moves[MAX_HOLES/2*4];
-    int n_moves = get_move_list(board, moves, player);
-    return n_moves;
+    Move moves[MAX_HOLES / 2 * 4];
+    return get_move_list(board, moves, player);
 }
 
+// score advantage (player vs opponent)
 int h4(Board* board, int player) {
-    //Maximize the amount of counters in a players own store.
-    int sum = 0;
-    sum = (get_score(board, PLAYER) - get_score(board, 1 - PLAYER));
-    return sum;
+    return get_score(board, player) - get_score(board, 1 - player);
 }
 
+// opponent's score to minimize
 int h5(Board* board, int player) {
-    //Keep the opponents score to a minimum
-    return get_score(board, 1 - PLAYER);
+    return get_score(board, 1 - player);
 }
 
+// avoid leaving 1 or 2 seeds in holes  = vulnerable holes
 int h6(Board* board, int player) {
-    //éviter de laisser les trous du PLAYER avec 1 ou 2 graines
-    int total_seeds_player = 0;
-    for (int i = player; i < MAX_HOLES; i +=2) {
-        Hole* hole = &board->holes[i];
-        total_seeds_player += (hole->R + hole->B + hole->T);
+    for (int i = player; i < MAX_HOLES; i += 2) {
+        int total = board->holes[i].R + board->holes[i].B + board->holes[i].T;
+        if (total == 1 || total == 2) return 0; // vulnerable
     }
-    if (total_seeds_player == 1 || total_seeds_player == 2) return 0;
-    else return 1;
+    return 1; // safe
 }
 
+// starve the opponent 
 int h7(Board* board, int player) {
-    //Affamer l'adversaire
-    int total_seeds_player = 0;
-    for (int i = 1-player; i < MAX_HOLES; i +=2) { //ici on regarde les trous de l'adversaire
-        Hole* hole = &board->holes[i];
-        total_seeds_player += (hole->R + hole->B + hole->T);
-    }
-    return total_seeds_player;  //il faudrait un poids négatif? 
+    int total = 0;
+    for (int i = 1 - player; i < MAX_HOLES; i += 2)
+        total += board->holes[i].R + board->holes[i].B + board->holes[i].T;
+    return -total;
 }
-// ROUGE
-// utiliser le rouge seulement quand on veut capturer
-// éviter la "famine"
-// effacer les trous à 1 ou 2 graines du plateau pour éviter des captures adverses
 
-// BLEU
-// viser une capture sur une case précise de l’adversaire
-// ne pas modifier tes propres trous
-//affamer l’adversaire (le bleu ne nourrit que lui-même)
+// possibility to capture
+int h8(Board* board, int player) {
+    int potential = 0;
+    Move moves[MAX_HOLES / 2 * 4];
+    int n_moves = get_move_list(board, moves, player);
 
-//TRANSPARENT
-//premières graines distribuer
-//garder au maximum dans ses trous
+    for (int i = 0; i < n_moves; i++) {
+        Board tmp = *board;
+        make_move(&tmp, moves[i].hole_index, moves[i].type, player);
+        potential += get_score(&tmp, player) - get_score(board, player);
+    }
+    return potential;
+}
 
-//objectif principal affamer l'adversaire, jouer d'abord bleu puis rouge
-// ne pas laisser nos trous avec 1 ou 2 graines
+
+// keep red seeds and give blue to the oponent
+int h9(Board* board, int player) {
+    int score = 0;
+    for (int i = player; i < MAX_HOLES; i += 2) score += board->holes[i].R;
+    for (int i = 1 - player; i < MAX_HOLES; i += 2) score += board->holes[i].B;
+    return score;
+}
+
+// fewer moves for the opponent
+int h10(Board* board, int player) {
+    Move moves[MAX_HOLES / 2 * 4];
+    int n_moves = get_move_list(board, moves, 1 - player);
+    return -n_moves;
+}
+
 
 int evaluate(Board* board, int player) {
     int value = 0;
-    value = h1(board, player)*weights.H1_W;;
-    value += h2(board, player)*weights.H2_W;;
-    value += h3(board, player)*weights.H3_W;;
-    value += h4(board, player)*weights.H4_W;;
-    value -= h5(board, player)*weights.H5_W;;
+
+    value += h1(board, player) * weights.H1_W;
+    value += h2(board, player) * weights.H2_W;
+    value += h3(board, player) * weights.H3_W;
+    value += h4(board, player) * weights.H4_W;
+    value -= h5(board, player) * weights.H5_W;
+
+    value += h6(board, player) * weights.H6_W;
+    value += h7(board, player) * weights.H7_W;
+    value += h8(board, player) * weights.H8_W;
+    value += h9(board, player) * weights.H9_W;
+    value += h10(board, player) * weights.H10_W;
+    //value += h11(board, player) * weights.H11_W;
+    //value += h12(board, player) * weights.H12_W;
 
     return value;
 }
 
+
+
 Move decisionMinMax ( Board* board, int player, int pmax ){
+    player = player % 2;
     /*
     Decide the best move of J in position e
     :pmax: maximal depth
     */
     Move moves[MAX_HOLES/2*4];
     int n_moves = get_move_list(board, moves, player);
-
+    
     int bestVal;
     Move bestMove = moves[0];
 
@@ -318,6 +334,8 @@ Move decisionMinMax ( Board* board, int player, int pmax ){
 
 
 int minMaxValue (Board* board, int player, int isMax, int pmax) {
+    player = player % 2;
+
     // Compute the value of  for the player depending whether e IsMax or not
     // pmax is the maximal depth
     if (check_winning_position(board, player)) return VAL_MAX;
@@ -348,10 +366,11 @@ int minMaxValue (Board* board, int player, int isMax, int pmax) {
 
 
 Move decisionAlphaBeta ( Board* board, int player, int pmax ){
+    player = player % 2;
+
     // Decide the best move to play for player with the board
     Move moves[MAX_HOLES/2*4];
     int n_moves = get_move_list(board, moves, player);
-
     int alpha = -VAL_MAX;
     int beta = VAL_MAX;
     Move bestMove = moves[0];
@@ -451,6 +470,8 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
 
 
 int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax, MoveList* moveList) {
+    player = player % 2;
+
     // Compute the value e for the player J depending on e.pmax is the maximal depth
     // pmax is the maximal depth
     if (check_winning_position(board, player)) return VAL_MAX;
@@ -460,6 +481,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
 
     Move moves[MAX_HOLES/2*4];
     int n_moves = get_move_list(board, moves, player);
+
     MoveList* currentMoveList = moveList;
     
     if (isMax){

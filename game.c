@@ -3,6 +3,7 @@
 #include "logger.h"
 #include "bot.h" // pour le nb de coups
 
+
 void play_game(Board* board) {
     // Game loop and logic here
     
@@ -128,21 +129,33 @@ int check_end_game(Board* board, int *winner) {
     // si moins de 10 graines restent sur le board on verifie qui a le plus de graines
     // on process si un joueur est affamé
     if (board->j1_score >= 49) {
-        *winner = 0;
+        *winner = 1;
         return 1;
     } else if (board->j2_score >= 49) {
-        *winner = 1;
+        *winner = 2;
         return 1;
     }
     if (board->seed_count < 10) {
         if (board->j1_score > board->j2_score) {
-            *winner = 0;
-        } else if (board->j2_score > board->j1_score) {
             *winner = 1;
+        } else if (board->j2_score > board->j1_score) {
+            *winner = 2;
         } else {
             *winner = -1; // Draw
         }
         return 1;
+    }
+
+    if (coups >= 400){
+        if (board->j1_score > board->j2_score) {
+            *winner = 1;
+        } else if (board->j2_score > board->j1_score) {
+            *winner = 2;
+        } else {
+            *winner = -1; // Draw
+        }
+        return 1;
+
     }
     // Utiliser des tableaux temporaires au lieu de NULL pour éviter le segfault
     Move temp_moves_p1[MAX_HOLES/2*4];
@@ -151,27 +164,33 @@ int check_end_game(Board* board, int *winner) {
     int player2_moves = get_move_list(board, temp_moves_p2, 1);
     int score1 = board->j1_score;
     int score2 = board->j2_score;
-    if (player1_moves == 0) {
+    if (player1_moves == 0) { // A VERIFIER
+    printf("J1 affamé");
         score1 += board->seed_count;
+        board->j1_score = score1;
         // board->seed_count = 0;
         if (score1 > score2) {
-            *winner = 0;
-        } else if (score2 > score1) {
             *winner = 1;
+        } else if (score2 > score1) {
+            *winner = 2;
         } else {
             *winner = -1; // Draw
         }
+        return 1;
     }
     if (player2_moves == 0) {
+    printf("J2 affamé");
         score2 += board->seed_count;
+        board->j2_score = score2;
         // board->seed_count = 0;
         if (score1 > score2) {
-            *winner = 0;
-        } else if (score2 > score1) {
             *winner = 1;
+        } else if (score2 > score1) {
+            *winner = 2;
         } else {
             *winner = -1; // Draw
         }
+        return 1; 
     }
     return 0;
 }

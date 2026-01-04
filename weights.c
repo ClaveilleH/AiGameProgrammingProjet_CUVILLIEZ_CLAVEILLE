@@ -27,6 +27,12 @@ static void parse_line(char *line) {
         else if (strcmp(key, "H4_W")==0) weights.H4_W = val;
         else if (strcmp(key, "H5_W")==0) weights.H5_W = val;
         else if (strcmp(key, "H6_W")==0) weights.H6_W = val;
+        else if (strcmp(key, "H7_W")==0) weights.H7_W = val;
+        else if (strcmp(key, "H8_W")==0) weights.H8_W = val;
+        else if (strcmp(key, "H9_W")==0) weights.H9_W = val;
+        else if (strcmp(key, "H10_W")==0) weights.H10_W = val;
+        else if (strcmp(key, "H11_W")==0) weights.H11_W = val;
+        else if (strcmp(key, "H12_W")==0) weights.H12_W = val;
         else if (strcmp(key, "W1")==0) weights.W1 = val;
         else if (strcmp(key, "W2")==0) weights.W2 = val;
         else if (strcmp(key, "W3")==0) weights.W3 = val;

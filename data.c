@@ -3,7 +3,7 @@
 #include <string.h>
 #include "data.h"
 
-int PLAYER;
+
 
 void init_board(Board* board) {
     for (int i = 0; i < 16; i++) {

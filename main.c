@@ -9,6 +9,7 @@
 #include "logger.h"
 #include "weights.h"
 
+
 Board board;
 int run = 1;
 int PLAYER = 0; // Joueur courant
@@ -47,29 +48,35 @@ int main(int argc, char* argv[]) {
         int turn = 0;
         int winner = -1;
         while (run) {
-            PLAYER = turn;
-            if (turn == 0 && weights_bot1){
-            printf("bot 1\n");
-            load_weights_from_file(weights_bot1);}
-
-            if (turn == 1 && weights_bot2){
-                printf("bot 2\n");
-                load_weights_from_file(weights_bot2);
-            } 
-
-            bot_play(&board);
-
-            print_board(&board);
-
-            if (check_winner(&board, &winner)) {
+            if (check_end_game(&board, &winner)){
                 printf("Player %d wins!\n", winner);
                 run = 0;
-            } else if (check_draw(&board)) {
-                printf("Game ends in a draw!\n");
-                run = 0;
-            } else {
-                turn = 1 - turn; // changer de joueur
             }
+            else{
+                PLAYER = turn;
+                if (turn == 0 && weights_bot1){
+                printf("bot 1\n");
+                load_weights_from_file(weights_bot1);}
+
+                if (turn == 1 && weights_bot2){
+                    printf("bot 2\n");
+                    load_weights_from_file(weights_bot2);
+                } 
+
+                bot_play(&board);
+                print_board(&board);
+
+                if (check_winner(&board, &winner)) {
+                    printf("Player %d wins!\n", winner);
+                    run = 0;
+                } else if (check_draw(&board)) {
+                    printf("Game ends in a draw!\n");
+                    run = 0;
+                } else {
+                    turn = 1 - turn; // changer de joueur
+                }
+            } 
+            
         }
 
         printf("FINAL: j1_score=%d j2_score=%d winner=%d\n", board.j1_score, board.j2_score, winner);
