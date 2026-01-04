@@ -24,7 +24,7 @@ all: $(TARGET)
 
 $(TARGET): $(SOURCES)
 	@echo "Compiling in $(MODE) mode..."
-	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES) -lm
 
 # Nettoyage
 clean:
@@ -40,14 +40,14 @@ rebuild: clean all
 # Cible pour try (compile try.c comme main.c)
 try: try.c data.c game.c bot.c logger.c evaluate.c arbre.c
 	@echo "Compiling try in $(MODE) mode..."
-	$(CC) $(CFLAGS) -o try_aigame try.c data.c game.c bot.c logger.c evaluate.c arbre.c genererDot.c
+	$(CC) $(CFLAGS) -o try_aigame try.c data.c game.c bot.c logger.c evaluate.c arbre.c genererDot.c -lm
 	./try_aigame
 	dot -Tpng graphe.dot -o graphe2.png
 
 # Cible pour les tests
 test: tests.c $(TEST_SOURCES)
 	@echo "Compiling tests..."
-	$(CC) $(CFLAGS) -march=native -DCOMPETE=1 -o test_aigame tests.c $(TEST_SOURCES)
+	$(CC) $(CFLAGS) -march=native -DCOMPETE=1 -o test_aigame tests.c $(TEST_SOURCES) -lm
 
 dtest: tests.c $(TEST_SOURCES)
 	@echo "Compiling tests..."

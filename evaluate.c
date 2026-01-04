@@ -414,7 +414,7 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
         (bestMove.type == R) ? "R" : 
         (bestMove.type == B) ? "B" : 
         (bestMove.type == TR) ? "TR" : "TB", alpha);
-    log("Best move chosen: [%d,%s] with value %d", bestMove.hole_index + 1, 
+    _log("Best move chosen: [%d,%s] with value %d", bestMove.hole_index + 1, 
         (bestMove.type == R) ? "R" : 
         (bestMove.type == B) ? "B" : 
         (bestMove.type == TR) ? "TR" : "TB", alpha);
@@ -471,8 +471,18 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
             return -VAL_MAX; // Lose
         }
     }
-    if (pmax==0)  return HEURISTIC(board, player);
+    // if (pmax==0)  return HEURISTIC(board, player);
+    if (pmax==0)  {
+        // on mesure le temps d'évaluation (en ms reel)
+        time_t start_time = clock();
+        int eval = HEURISTIC(board, player);
+        time_t end_time = clock();
+        double time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC * 1000.0;
+        // _log("Heuristic evaluation took %.3f ms", time_taken);
+        // fprintf(stderr, "[EVAL] evaluation took %f ms\n", time_taken);
+        return eval;
 
+    }
     Move moves[MAX_HOLES/2*4];
     int n_moves = get_move_list(board, moves, player);
     MoveList* currentMoveList = moveList;
@@ -513,7 +523,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
             make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             /* Pass next element only if currentMoveList is non-NULL */
             int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList ? currentMoveList->next : NULL);
-            if (0) log( "      min(%d/%d): %d, %s -> %d\n", i+1, n_moves, moves[i].hole_index, 
+            if (0) _log( "      min(%d/%d): %d, %s -> %d\n", i+1, n_moves, moves[i].hole_index, 
                 (moves[i].type == R) ? "R" : 
                 (moves[i].type == B) ? "B" : 
                 (moves[i].type == TR) ? "TR" : "TB", val);

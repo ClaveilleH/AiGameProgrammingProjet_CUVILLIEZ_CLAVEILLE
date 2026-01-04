@@ -32,7 +32,7 @@
 
 #define WARN_PRINT(fmt, ...) fprintf(stderr, COLOR_PURPLE "[Warning] " RESET_COLOR fmt "\n", ##__VA_ARGS__)
 
-#define log(fmt, ...) do { \
+#define _log(fmt, ...) do { \
     if (LOGFILE) { \
         fprintf(LOGFILE, fmt "\n", ##__VA_ARGS__); \
         fflush(LOGFILE); \

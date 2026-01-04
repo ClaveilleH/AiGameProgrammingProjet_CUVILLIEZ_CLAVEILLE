@@ -47,12 +47,12 @@ typedef struct {
 } Hole;
 
 typedef struct {
-    Hole holes[MAX_HOLES];
-    int seed_count;
-    int j1_score;
-    int j2_score;
-    int nb_coups_player1;
-    int nb_coups_player2;
+    Hole holes[MAX_HOLES]; 
+    int seed_count;     // total number of seeds on the board
+    int j1_score;       // score of player 1
+    int j2_score;       // score of player 2
+    int nb_coups_player1; // number of moves made by player 1
+    int nb_coups_player2; // number of moves made by player 2 (+- 1)
 } Board;
 
 typedef struct {

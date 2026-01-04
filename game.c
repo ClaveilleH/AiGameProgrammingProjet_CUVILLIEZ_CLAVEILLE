@@ -116,7 +116,7 @@ int make_move(Board* board, int hole_index, SeedType type, int playerId) {
         board->seed_count -= captured;
         // printf("Captured %d seeds!\n", captured);
         // COMPETE_PRINT("Captured %d seeds!\n", captured);
-        // log("Captured %d seeds!", captured);
+        // _log("Captured %d seeds!", captured);
         //! mettre a jour le score et le nombre de graines du board
     }
     // fprintf(stderr, "Move completed. Last seed sown at hole %d\n", last);
@@ -215,7 +215,7 @@ int test_capture(Board* board, int hole_index, int *captured) {
     *captured = total_captured;
 
     // if (total_captured > 0) {
-    //     log("Total captured seeds: %d", total_captured);
+    //     _log("Total captured seeds: %d", total_captured);
     // }
 
     return total_captured > 0;
@@ -250,32 +250,32 @@ int is_valid_move(Board* board, int hole_index, SeedType type, int playerId) {
     // Check if the hole belongs to the player
     if ((hole_index % 2) != playerId) {
         fprintf(stderr, "Hole %d does not belong to player %d\n", hole_index, playerId);
-        log("Hole %d does not belong to player %d", hole_index, playerId);
+        _log("Hole %d does not belong to player %d", hole_index, playerId);
         return 0; 
     }
     switch (type) {
         case R:
             if (hole->R == 0) {
                 fprintf(stderr, "No red seeds in hole %d\n", hole_index);
-                log("No red seeds in hole %d", hole_index);
+                _log("No red seeds in hole %d", hole_index);
             }
             return hole->R != 0;
         case B:
             if (hole->B == 0) {
                 fprintf(stderr, "No blue seeds in hole %d\n", hole_index);
-                log("No blue seeds in hole %d", hole_index);
+                _log("No blue seeds in hole %d", hole_index);
             }
             return hole->B != 0;
         case TR:
             if (hole->T == 0) {
                 fprintf(stderr, "No transparent seeds in hole %d\n", hole_index);
-                log("No transparent seeds in hole %d", hole_index);
+                _log("No transparent seeds in hole %d", hole_index);
             }
             return hole->T != 0;
         case TB:
             if (hole->T == 0) {
                 fprintf(stderr, "No transparent seeds in hole %d\n", hole_index);
-                log("No transparent seeds in hole %d", hole_index);
+                _log("No transparent seeds in hole %d", hole_index);
             }
             return hole->T != 0;
         default:

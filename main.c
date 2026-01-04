@@ -54,7 +54,7 @@ int get_human_move(int *hole_index, SeedType *type) {
         fprintf(stderr, "Invalid seed type. Use 'R', 'B', 'TR', or 'TB' entered %s.\n", type_str);
         return 1;
     }
-    log("Other player chose hole %d with seed type %s", idx,
+    _log("Other player chose hole %d with seed type %s", idx,
         (seed_type == R) ? "R" : 
         (seed_type == B) ? "B" : 
         (seed_type == TR) ? "TR" : "TB");
@@ -111,9 +111,9 @@ int main(int argc, char* argv[]) {
         PLAYER -= 1; // Convert to 0-based index
     }
     fprintf(stderr, "Starting game as Player %d\n", PLAYER + 1);
-    log("Game started as Player %d", PLAYER + 1);
+    _log("Game started as Player %d", PLAYER + 1);
     init_board(&board);
-    sim_end_game(&board); // For testing end game scenarios
+    // sim_end_game(&board); // For testing end game scenarios
     print_board(&board);
     while (run) {
         // Game loop
@@ -141,11 +141,11 @@ int main(int argc, char* argv[]) {
         end = check_end_game(&board, &winner);
         if (end) {
             if (winner == -1) {
-                log("Game ends in a draw!");
+                _log("Game ends in a draw!");
                 // DEBUG_PRINT("Game ends in a draw!\n");
                 fprintf(stderr, "Game ends in a draw!\n");
             } else {
-                log("Player %d wins!", winner + 1);
+                _log("Player %d wins!", winner + 1);
                 // DEBUG_PRINT("Player %d wins!\n", winner + 1);
                 fprintf(stderr, "Player %d wins!\n", winner + 1);
             }
@@ -153,11 +153,11 @@ int main(int argc, char* argv[]) {
         }
         // if (check_winner(&board, &winner)) {
         //     DEBUG_PRINT("Player %d wins!\n", winner);
-        //     log("Player %d wins!", winner);
+        //     _log("Player %d wins!", winner);
         //     run = 0;
         // } if (check_draw(&board)) {
         //     DEBUG_PRINT("Game ends in a draw!\n");
-        //     log("Game ends in a draw!");
+        //     _log("Game ends in a draw!");
         //     run = 0;
         // } else {
         //     // Continue game
