@@ -14,14 +14,15 @@
 #define VAL_MAX 100000
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
-#define HEURISTIC evaluate
-// #define HEURISTIC heuristic_evaluation
+// #define HEURISTIC evaluate
+// #define HEURISTIC h
+#define HEURISTIC heuristic_evaluation
 
 int check_winning_position(Board* board, int player) {
     int winner;
     if (check_winner(board, &winner)) {
-        //printf("nb : %d", board->j1_score);
-        //printf("nb : %d", board->j2_score);
+        // fprintf(stderr, "nb : %d", board->j1_score);
+        // fprintf(stderr, "nb : %d", board->j2_score);
         return (winner == player); // gagnant ?
     }
     return 0; 

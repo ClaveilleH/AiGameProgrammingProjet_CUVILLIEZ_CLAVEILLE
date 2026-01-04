@@ -67,7 +67,7 @@ void print_board(const Board* board) {
         if (i < 10) {
             printf(" ");
         }
-        printf("%d: R=", i);
+        printf("%d (%d): R=", i, i+1);
         if (board->holes[i].R < 10) {
             printf(" ");
         }

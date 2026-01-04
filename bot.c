@@ -54,7 +54,7 @@ void bot_play(Board* board) {
     gettimeofday(&debut, NULL);
     // exit(0);
 
-    int profondeur = 5;
+    int profondeur = 6;
     // bestMove = decisionMinMax(board, PLAYER, profondeur);
     // fprintf(stderr, "---------------------------------------\n");
     bestMove = decisionAlphaBeta(board, PLAYER, profondeur);
