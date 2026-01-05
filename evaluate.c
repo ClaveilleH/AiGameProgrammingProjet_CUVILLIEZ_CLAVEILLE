@@ -367,14 +367,16 @@ int minMaxValue (Board* board, int player, int isMax, int pmax) {
 
 
 Move decisionAlphaBeta ( Board* board, int player, int pmax ){
-    player = player % 2;
-
+    player = player % 2; 
+    // on ajoute de l'aléatoire pour les moves avec la même valeur
+    Move bestMoves[MAX_HOLES/2*4];
+    int cptBestMoves = 0;
     // Decide the best move to play for player with the board
     Move moves[MAX_HOLES/2*4];
     int n_moves = get_move_list(board, moves, player);
     int alpha = -VAL_MAX;
     int beta = VAL_MAX;
-    Move bestMove = moves[0];
+    Move bestMove;// = moves[0];
     MoveList* bestMoveList = NULL;
     MoveList* moveList = NULL;
     for (int i = 0; i < n_moves; i++) {
@@ -397,7 +399,9 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
         // int val = alphaBetaValue(&new_board, player, alpha, beta, 0, pmax-1, moveList->next);
         if (val>alpha) {
             alpha = val  ;   
-            bestMove = moves[i];
+            cptBestMoves = 0;
+            bestMoves[cptBestMoves++] = moves[i];
+
             /* Free the previous bestMoveList if it exists (replaced by new best) */
             if (bestMoveList != NULL) {
                 MoveList* temp = bestMoveList;
@@ -412,7 +416,12 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
                 }
             }
             bestMoveList = moveList; /* Keep this moveList as the best */
-        } else {
+        
+        } 
+        else if (val == alpha ){
+            bestMoves[cptBestMoves++] = moves[i];
+        }
+        else {
             /* This moveList is not the best, free the entire chain */
             MoveList* temp = moveList;
             while (temp != NULL) {
@@ -465,7 +474,12 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
             temp = next;
         }
     }
-    
+    if (board->seed_count > 80) { //début de partie après on retire l'aléatoire
+        bestMove = bestMoves[rand() % cptBestMoves];
+    }
+    else{
+        bestMove=bestMoves[0];
+    }
     return bestMove;
 }
 
