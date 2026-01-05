@@ -63,12 +63,12 @@ int compute_depth(Board* board) {
     if (moves > 8)  return 4;
 
     if (total_seeds > 30) return 4;
-    if (total_seeds > 20) return 6;
+    if (total_seeds > 20) return 8;
 
-    if (total_seeds > 12) return 8;
-    if (total_seeds > 8)  return 10;
+    if (total_seeds > 12) return 10;
+    if (total_seeds > 8)  return 12;
 
-    return 12;
+    return 14;
 }
 
 void bot_play(Board* board) {

@@ -474,7 +474,7 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
             temp = next;
         }
     }
-    if (board->seed_count > 80) { //début de partie après on retire l'aléatoire
+    if (board->seed_count > 80) { //début de partie après on retire l'aléatoire ou coups < 4 par exemple
         bestMove = bestMoves[rand() % cptBestMoves];
     }
     else{
@@ -490,8 +490,8 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
     // Compute the value e for the player J depending on e.pmax is the maximal depth
     // pmax is the maximal depth
     if (check_winning_position(board, player)) return VAL_MAX -depth; //éviter l'effet d'horizon on minimise la distance au gain
-    if (check_loosing_position (board, player)) return(-VAL_MAX +depth); // on mximise la distance à la défaite
-    if (check_draw_position(board)) return(0+depth);
+    if (check_loosing_position (board, player)) return(-VAL_MAX +depth); // on maximise la distance à la défaite
+    if (check_draw_position(board)) return(-1000 + depth);
     if (pmax==0)  return HEURISTIC(board, player);
 
     Move moves[MAX_HOLES/2*4];
