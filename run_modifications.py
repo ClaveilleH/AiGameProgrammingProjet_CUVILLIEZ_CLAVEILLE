@@ -11,16 +11,16 @@ import re
 # -------------------------------
 BINARY = "./aigame"  # exécutable
 BASE_WEIGHTS = {
-    "H1_W": 5.85,
-    "H2_W": 26.65,
-    "H3_W": 18.1,
-    "H4_W": 82.22,
-    "H5_W": 18.37,
-    "H6_W": 0.16,
-    "H7_W": 25.27,
-    "H8_W": 10.95,
-    "H9_W": 4.81,
-    "H10_W": 14.29,
+    "H1_W": 0,
+    "H2_W": 1,
+    "H3_W": 25,
+    "H4_W": 700,
+    "H5_W": 20,
+    "H6_W": 0.0,
+    "H7_W": 4,
+    "H8_W": 3,
+    "H9_W": 21,
+    "H10_W": 23,
     "H11_W": 4.34,
     "H12_W": 9.34,
 }
@@ -28,7 +28,7 @@ BASE_WEIGHTS = {
 N_COMBOS = 20    # nombre de combinaisons aléatoires à tester
 N_MATCHES = 2    # nombre de matchs par paire
 VARIATION = 1  # ±20% autour du poids de base
-TIMEOUT = 10     # secondes max par match
+TIMEOUT = 120     # secondes max par match
 
 OUT_CSV = "tournament_results.csv"
 OUT_PNG = "scores.png"

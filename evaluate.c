@@ -246,6 +246,7 @@ int h10(Board* board, int player) {
 }
 
 
+
 int evaluate(Board* board, int player) {
     int value = 0;
 
@@ -338,8 +339,8 @@ int minMaxValue (Board* board, int player, int isMax, int pmax) {
 
     // Compute the value of  for the player depending whether e IsMax or not
     // pmax is the maximal depth
-    if (check_winning_position(board, player)) return VAL_MAX;
-    if (check_loosing_position (board, player)) return(-VAL_MAX);
+    if (check_winning_position(board, player)) return VAL_MAX ; 
+    if (check_loosing_position (board, player)) return(-VAL_MAX) ; 
     if (check_draw_position(board)) return(0);
     if (pmax==0)  return HEURISTIC(board, player);
     // if (pmax==0)  return evaluate(board, player);
@@ -392,7 +393,7 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
         }
         
         make_move(&new_board, moves[i].hole_index, moves[i].type, player);
-        int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 0, pmax-1, moveList->next);
+        int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1, 0, pmax-1, moveList->next);
         // int val = alphaBetaValue(&new_board, player, alpha, beta, 0, pmax-1, moveList->next);
         if (val>alpha) {
             alpha = val  ;   
@@ -469,14 +470,14 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
 }
 
 
-int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax, MoveList* moveList) {
+int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int depth, int pmax, MoveList* moveList) {
     player = player % 2;
 
     // Compute the value e for the player J depending on e.pmax is the maximal depth
     // pmax is the maximal depth
-    if (check_winning_position(board, player)) return VAL_MAX;
-    if (check_loosing_position (board, player)) return(-VAL_MAX);
-    if (check_draw_position(board)) return(0);
+    if (check_winning_position(board, player)) return VAL_MAX -depth; //éviter l'effet d'horizon on minimise la distance au gain
+    if (check_loosing_position (board, player)) return(-VAL_MAX +depth); // on mximise la distance à la défaite
+    if (check_draw_position(board)) return(0+depth);
     if (pmax==0)  return HEURISTIC(board, player);
 
     Move moves[MAX_HOLES/2*4];
@@ -490,7 +491,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
             make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             // fprintf(stderr, "      max(%d/%d): hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
             /* Pass next element only if currentMoveList is non-NULL */
-            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList ? currentMoveList->next : NULL);
+            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, depth + 1,pmax - 1, currentMoveList ? currentMoveList->next : NULL);
             if (val > alpha) {
                 alpha = val;
                 /* Only record move if we have a MoveList node to write into */
@@ -519,7 +520,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
             Board new_board = *board;
             make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             /* Pass next element only if currentMoveList is non-NULL */
-            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, currentMoveList ? currentMoveList->next : NULL);
+            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, depth +1, pmax - 1, currentMoveList ? currentMoveList->next : NULL);
             // fprintf(stderr, "      min(%d/%d): %d, %s -> %d\n", i+1, n_moves, moves[i].hole_index, 
             //     (moves[i].type == R) ? "R" : 
             //     (moves[i].type == B) ? "B" : 

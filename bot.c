@@ -11,21 +11,8 @@
 
 int coups = 0;
 
-int compute_depth(Board* board) {
-    int total_seeds = 0;
-    for (int i = 0; i < MAX_HOLES; i++) {
-        Hole* h = &board->holes[i];
-        total_seeds += h->R + h->B + h->T;
-    }
 
-    if (total_seeds > 30) return 2;
-    else if (total_seeds > 20) return 3;
-    else if (total_seeds > 15) return 4;
-    else if (total_seeds > 12) return 5;
-    else if (total_seeds > 10) return 7;
-    else if (total_seeds > 8) return 8;
-    else return 9;
-}
+
 
 
 int get_move_list(Board* board, Move* move_list, int player) { 
@@ -64,6 +51,24 @@ int estimation_nb_moves(Board* board) {
     int count = 0;
     count += board->seed_count / 2 * 4; // Rough estimate based on seed count
     return count;
+}
+
+int compute_depth(Board* board) {
+    int total_seeds = board->seed_count;
+    Move movesL[MAX_HOLES/2 * 4];
+    int moves = estimation_nb_moves(board);
+
+    if (moves > 16) return 2;
+    if (moves > 12) return 3;
+    if (moves > 8)  return 4;
+
+    if (total_seeds > 30) return 4;
+    if (total_seeds > 20) return 6;
+
+    if (total_seeds > 12) return 8;
+    if (total_seeds > 8)  return 10;
+
+    return 12;
 }
 
 void bot_play(Board* board) {
