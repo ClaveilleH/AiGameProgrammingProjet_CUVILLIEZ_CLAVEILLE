@@ -45,6 +45,56 @@ int get_move_list(Board* board, Move* move_list, int player) {
     return index;
 }
 
+
+int get_sorted_move_list(Board* board, Move* move_list, int player, Move previousBestMove) { 
+    if (previousBestMove.hole_index == 255) {
+        return get_move_list(board, move_list, player);
+    }
+
+    int index = 0;
+
+    // Placer le meilleur coup précédent en premier
+    move_list[index++] = previousBestMove;
+    
+    // DEBUG_PRINT("Possible moves : \n"); 
+    // Function to get possible moves
+    for (int i = player ; i < MAX_HOLES; i+=2) { 
+        // Check each hole for possible moves 
+        Hole* hole = get_hole(board, i); 
+        int nb_graines_R = hole->R; 
+        int nb_graines_B = hole->B; 
+        int nb_graines_T = hole->T; 
+        
+        // Ajouter les coups, en évitant de dupliquer previousBestMove
+        if(nb_graines_B>0) {
+            Move move = (Move){i, B};
+            if (!(move.hole_index == previousBestMove.hole_index && move.type == previousBestMove.type)) {
+                move_list[index++] = move;
+            }
+        }
+        if(nb_graines_R>0) {
+            Move move = (Move){i, R};
+            if (!(move.hole_index == previousBestMove.hole_index && move.type == previousBestMove.type)) {
+                move_list[index++] = move;
+            }
+        }
+        if(nb_graines_T>0) { 
+            Move move_tb = (Move){i, TB};
+            if (!(move_tb.hole_index == previousBestMove.hole_index && move_tb.type == previousBestMove.type)) {
+                move_list[index++] = move_tb;
+            }
+            Move move_tr = (Move){i, TR};
+            if (!(move_tr.hole_index == previousBestMove.hole_index && move_tr.type == previousBestMove.type)) {
+                move_list[index++] = move_tr;
+            }
+        }
+
+    } 
+    // DEBUG_PRINT("Nb total de moves : %d\n", index);
+    return index;
+}
+
+
 int estimation_nb_moves(Board* board) {
     // Estimate the number of possible moves for player
     // int count = 0;
@@ -102,10 +152,15 @@ void bot_play(Board* board) {
     // exit(0);
 
     // int profondeur = 6;
-    int profondeur = eval_profondeur(board);
+    // int profondeur = eval_profondeur(board);
     // bestMove = decisionMinMax(board, PLAYER, profondeur);
     // fprintf(stderr, "---------------------------------------\n");
-    bestMove = decisionAlphaBeta(board, PLAYER, profondeur);
+    // bestMove = decisionAlphaBeta(board, PLAYER, profondeur);
+    int min_depth = eval_profondeur(board) - 2;
+    if (min_depth < 1) min_depth = 1;
+    int max_depth = MAX_DEPTH;
+    fprintf(stderr, "[BOT PLAY] Chosen depth range: %d to %d\n", min_depth, max_depth);
+    bestMove = iterativeDeepeningAlphaBeta(board, PLAYER, min_depth, max_depth); // 100 ms de marge
     // fprintf(stderr, "Hole index: %d, Seed type: %s\n", bestMove.hole_index, 
     //     (bestMove.type == R) ? "R" : 
     //     (bestMove.type == B) ? "B" : 

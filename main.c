@@ -113,7 +113,7 @@ int main(int argc, char* argv[]) {
     fprintf(stderr, "Starting game as Player %d\n", PLAYER + 1);
     _log("Game started as Player %d", PLAYER + 1);
     init_board(&board);
-    // sim_end_game(&board); // For testing end game scenarios
+    sim_end_game(&board); // For testing end game scenarios
     print_board(&board);
     while (run) {
         // Game loop

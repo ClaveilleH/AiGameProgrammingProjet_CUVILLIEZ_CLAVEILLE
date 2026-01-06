@@ -60,6 +60,19 @@ typedef struct {
     SeedType type;
 } Move;
 
+// Constante pour représenter un coup invalide
+#define INVALID_MOVE ((Move){.hole_index = 255, .type = R})
+
+// Fonction inline pour vérifier si un Move est valide
+static inline int is_move_valid(Move move) {
+    return move.hole_index != 255;
+}
+
+// Fonction inline pour créer un Move invalide
+static inline Move make_invalid_move(void) {
+    return INVALID_MOVE;
+}
+
 typedef struct MoveList {
     Move* moves;
     struct MoveList* next;
@@ -70,7 +83,7 @@ void print_board(const Board* board);
 
 static inline Hole* get_hole(Board* board, int index) {
     if (index < 0 || index >= 16) {
-        fprintf(stderr, "Invalid hole index\n");
+        fprintf(stderr, "Invalid hole index : %d\n", index);
         exit(EXIT_FAILURE);
     }
     return &board->holes[index];

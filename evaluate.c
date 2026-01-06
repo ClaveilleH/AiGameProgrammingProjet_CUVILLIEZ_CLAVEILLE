@@ -9,15 +9,24 @@
 #include "weights.h"
 
 #include <stdlib.h>
-#include <time.h> 
+#include <time.h>
+#include <sys/time.h>
+#include <math.h>
+
 
 #define VAL_MAX 100000
+#define DISPO_TIME 2000.0 // Temps disponible en ms pour le bot
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
 // #define HEURISTIC evaluate
 // #define HEURISTIC heuristic_evaluation
 // #define HEURISTIC h
 #define HEURISTIC ma_fct_deval
+
+
+
+double g_start_time;
+int g_timeout;
 
 int check_winning_position(Board* board, int player) {
     int winner;
@@ -474,12 +483,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
     // if (pmax==0)  return HEURISTIC(board, player);
     if (pmax==0)  {
         // on mesure le temps d'évaluation (en ms reel)
-        time_t start_time = clock();
         int eval = HEURISTIC(board, player);
-        time_t end_time = clock();
-        double time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC * 1000.0;
-        // _log("Heuristic evaluation took %.3f ms", time_taken);
-        // fprintf(stderr, "[EVAL] evaluation took %f ms\n", time_taken);
         return eval;
 
     }
@@ -550,3 +554,149 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
         return beta;
     }
 }
+
+
+
+// =============== ITERATIVE DEEPENING ALPHA BETA =============== //
+
+
+
+double now_ms() {
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return ts.tv_sec * 1000.0 + ts.tv_nsec / 1e6;
+}
+
+Move deepeningDecisionAlphaBeta ( Board* board, int player, int pmax, Move previousBestMove){
+    // Decide the best move to play for player with the board
+    Move moves[MAX_HOLES/2*4];
+    int n_moves = get_sorted_move_list(board, moves, player, previousBestMove);
+
+    fprintf(stderr, "[ID] Starting depth %d with %d moves\n", pmax, n_moves);
+    int alpha = -VAL_MAX;
+    int beta = VAL_MAX;
+    Move bestMove = moves[0];
+    // MoveList* moveList = NULL;
+    for (int i = 0; i < n_moves && !g_timeout; i++) {
+        Board new_board = *board;
+        make_move(&new_board, moves[i].hole_index, moves[i].type, player);
+        int val = deepeningAlphaBetaValue(&new_board, (1 - player), alpha, beta, 0, pmax-1);
+        if (val>alpha) {
+            alpha = val;
+            bestMove = moves[i];
+        } 
+    }
+    return bestMove;
+}
+
+
+int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax) {
+    // Compute the value e for the player J depending on e.pmax is the maximal depth
+    // pmax is the maximal depth
+    // if (check_winning_position(board, player)) return VAL_MAX;
+    // if (check_loosing_position (board, player)) return(-VAL_MAX);
+    // if (check_draw_position(board)) return(0);
+    // on utilise check_end_game, car plus complet
+    if (g_timeout) {
+        fprintf(stderr, "[ID] Timeout detected in deepeningAlphaBetaValue\n");
+        return 0; // Return a neutral value on timeout
+    }
+    if (now_ms() - g_start_time > DISPO_TIME) {
+        fprintf(stderr, "[ID] Timeout reached in deepeningAlphaBetaValue with %d steps remaining \n", pmax);
+        // fprintf(stderr, "[ID] Time taken: %.2f ms, limit was %.2f ms\n", now_ms() - g_start_time, DISPO_TIME);
+        g_timeout = 1;
+        return 0; // Return a neutral value on timeout
+    }
+    // a partir de la j'ai rien changé
+    int winner;
+    int end = check_end_game(board, &winner);
+    if (end) {
+        if (winner == -1) {
+            return 0; // Draw
+        } else if (winner == player) {
+            return VAL_MAX; // Win
+        } else {
+            return -VAL_MAX; // Lose
+        }
+    }
+    if (pmax==0) return HEURISTIC(board, player);
+    Move moves[MAX_HOLES/2*4];
+    int n_moves = get_move_list(board, moves, player);
+    if (isMax){
+        for (int i = 0; i < n_moves && !g_timeout; i++){
+            Board new_board = *board;// copie par valeur
+            make_move(&new_board, moves[i].hole_index, moves[i].type, player);
+            // fprintf(stderr, "      max(%d/%d): hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
+            /* Pass next element only if currentMoveList is non-NULL */
+            int val = deepeningAlphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1);
+            if (val > alpha) alpha = val; // Update alpha
+            if (alpha >= beta) break; // Beta cut
+        }
+        return alpha;
+    }
+    // Min 
+    else{
+        for (int i = 0; i < n_moves && !g_timeout; i++){
+            Board new_board = *board;
+            make_move(&new_board, moves[i].hole_index, moves[i].type, player);
+            /* Pass next element only if currentMoveList is non-NULL */
+            int val = deepeningAlphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1);
+            if (0) _log( "      min(%d/%d): %d, %s -> %d\n", i+1, n_moves, moves[i].hole_index, 
+                (moves[i].type == R) ? "R" : 
+                (moves[i].type == B) ? "B" : 
+                (moves[i].type == TR) ? "TR" : "TB", val);
+            if (val < beta) {
+                beta = val;
+            }
+            if (alpha >= beta) break; // Alpha cut
+        }
+        return beta;
+    }
+}
+
+
+
+Move iterativeDeepeningAlphaBeta ( Board* board, int player, int min_depth, int max_depth ){
+    g_start_time = now_ms();
+    g_timeout = 0;
+    fprintf(stderr, "[ID] Starting iterative deepening with time limit %.2f ms\n", DISPO_TIME);
+    fprintf(stderr, "[ID] Start time: %.2f ms\n", now_ms() - g_start_time);
+    Move bestMove = INVALID_MOVE;
+
+    for (int depth = min_depth; depth <= max_depth; depth++) {
+        g_timeout = 0;
+        Move currentBestMove = deepeningDecisionAlphaBeta(board, player, depth, bestMove);
+        if (g_timeout) {
+            fprintf(stderr, "[ID] Timeout at depth %d\n", depth);
+            break;
+        }
+        bestMove = currentBestMove;
+        fprintf(stderr, "[ID] depth %d OK\n", depth);
+    }
+
+    return bestMove;
+}
+
+
+
+
+
+
+/*
+
+
+
+    if (pmax==0)  {
+        // on mesure le temps d'évaluation (en ms reel)
+        time_t start_time = clock();
+        int eval = HEURISTIC(board, player);
+        time_t end_time = clock();
+        double time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC * 1000.0;
+        // _log("Heuristic evaluation took %.3f ms", time_taken);
+        // fprintf(stderr, "[EVAL] evaluation took %f ms\n", time_taken);
+        return eval;
+
+    }
+
+
+*/
