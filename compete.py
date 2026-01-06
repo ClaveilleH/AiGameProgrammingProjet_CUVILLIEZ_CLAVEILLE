@@ -115,9 +115,9 @@ def play_match(agent1_path, agent2_path):
 
         last_move_p1, last_move_p2 = move1, move2
 
-    if turn > MAX_TURNS - 1:
-        print("Max turns reached, ending match.")  # debug
-        result = 0  # match nul si max turns atteint
+    # Si on sort de la boucle, c'est que MAX_TURNS est atteint
+    print("Max turns reached, ending match as draw.")  # debug
+    result = 0  # match nul si max turns atteint
 
     # # --- fin de partie fictive (à remplacer par ta vraie logique) ---
     # result = random.choice([1, 0, -1])

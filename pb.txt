@@ -1,0 +1,373 @@
+V2 en essayant de simuler une fin de partie.
+le bot choisi un coup moins intéressant ?
+
+Score - Player 1: 47, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 0, T= 0
+Hole  2 (3): R= 0, B= 0, T= 1
+Hole  3 (4): R= 0, B= 0, T= 0
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 1
+Hole  9 (10): R= 0, B= 1, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 0, B= 0, T= 0
+Hole 12 (13): R= 1, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 11
+DEBUG: Bot's turn.
+DEBUG: Best move chosen: hole 2, type TB with value 169
+Nexts bests moves : [2,TB] 
+3 TB
+Bot move took 0.52 ms
+Score - Player 1: 47, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 0, T= 0
+Hole  2 (3): R= 0, B= 0, T= 0
+Hole  3 (4): R= 0, B= 0, T= 1
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 1
+Hole  9 (10): R= 0, B= 1, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 0, B= 0, T= 0
+Hole 12 (13): R= 1, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 11
+DEBUG: Player's turn.
+
+-----------------------------------------------------------------------
+======================HISTORIQUE DE LA PARTIE=========================
+-----------------------------------------------------------------------
+
+└─(hugo)$ make MODE=debug rebuild run
+rm -f aigame try_aigame *.o
+Compiling in debug mode...
+gcc -Wall -g -O3 -march=native -DDEBUG=1 -o aigame main.c data.c game.c bot.c logger.c evaluate.c
+./aigame
+Enter bot ID (1 or 2): 1
+Starting game as Player 1
+Score - Player 1: 45, Player 2: 46
+Board state:
+Hole  0 (1): R= 2, B= 0, T= 0
+Hole  1 (2): R= 0, B= 1, T= 3
+Hole  2 (3): R= 0, B= 0, T= 2
+Hole  3 (4): R= 0, B= 0, T= 0
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 0
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 0
+Hole  9 (10): R= 0, B= 0, T= 0
+Hole 10 (11): R= 1, B= 0, T= 0
+Hole 11 (12): R= 0, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 1, T= 0
+Hole 14 (15): R= 0, B= 0, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 15
+DEBUG: Bot's turn.
+DEBUG: Best move chosen: hole 2, type TB with value 121
+Nexts bests moves : [2,TB] 
+3 TB
+Bot move took 0.64 ms
+Score - Player 1: 45, Player 2: 46
+Board state:
+Hole  0 (1): R= 2, B= 0, T= 0
+Hole  1 (2): R= 0, B= 1, T= 3
+Hole  2 (3): R= 0, B= 0, T= 0
+Hole  3 (4): R= 0, B= 0, T= 1
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 0
+Hole  9 (10): R= 0, B= 0, T= 0
+Hole 10 (11): R= 1, B= 0, T= 0
+Hole 11 (12): R= 0, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 1, T= 0
+Hole 14 (15): R= 0, B= 0, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 15
+DEBUG: Player's turn.
+Enter your move (hole index and seed type): 14B
+Score - Player 1: 45, Player 2: 46
+Board state:
+Hole  0 (1): R= 2, B= 0, T= 0
+Hole  1 (2): R= 0, B= 1, T= 3
+Hole  2 (3): R= 0, B= 0, T= 0
+Hole  3 (4): R= 0, B= 0, T= 1
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 0
+Hole  9 (10): R= 0, B= 0, T= 0
+Hole 10 (11): R= 1, B= 0, T= 0
+Hole 11 (12): R= 0, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 15
+DEBUG: Bot's turn.
+DEBUG: Best move chosen: hole 0, type R with value -100000
+Nexts bests moves : 
+1 R
+Bot move took 0.31 ms
+Score - Player 1: 45, Player 2: 46
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 1, B= 1, T= 3
+Hole  2 (3): R= 1, B= 0, T= 0
+Hole  3 (4): R= 0, B= 0, T= 1
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 0
+Hole  9 (10): R= 0, B= 0, T= 0
+Hole 10 (11): R= 1, B= 0, T= 0
+Hole 11 (12): R= 0, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 15
+DEBUG: Player's turn.
+Enter your move (hole index and seed type): 2R
+Score - Player 1: 45, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 1, T= 3
+Hole  2 (3): R= 0, B= 0, T= 0
+Hole  3 (4): R= 0, B= 0, T= 1
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 0
+Hole  9 (10): R= 0, B= 0, T= 0
+Hole 10 (11): R= 1, B= 0, T= 0
+Hole 11 (12): R= 0, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 13
+DEBUG: Bot's turn.
+DEBUG: Best move chosen: hole 10, type R with value -100000
+Nexts bests moves : 
+11 R
+Bot move took 0.37 ms
+Score - Player 1: 45, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 1, T= 3
+Hole  2 (3): R= 0, B= 0, T= 0
+Hole  3 (4): R= 0, B= 0, T= 1
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 0
+Hole  9 (10): R= 0, B= 0, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 1, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 13
+DEBUG: Player's turn.
+Enter your move (hole index and seed type): 2TB
+Score - Player 1: 45, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 0, T= 0
+Hole  2 (3): R= 0, B= 0, T= 1
+Hole  3 (4): R= 0, B= 0, T= 1
+Hole  4 (5): R= 0, B= 0, T= 1
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 1
+Hole  7 (8): R= 0, B= 1, T= 0
+Hole  8 (9): R= 0, B= 0, T= 0
+Hole  9 (10): R= 0, B= 0, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 1, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 13
+DEBUG: Bot's turn.
+DEBUG: Best move chosen: hole 4, type TR with value 127
+Nexts bests moves : [4,TR] 
+5 TR
+Bot move took 0.36 ms
+Score - Player 1: 47, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 0, T= 0
+Hole  2 (3): R= 0, B= 0, T= 1
+Hole  3 (4): R= 0, B= 0, T= 1
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 0
+Hole  6 (7): R= 0, B= 0, T= 1
+Hole  7 (8): R= 0, B= 1, T= 0
+Hole  8 (9): R= 0, B= 0, T= 0
+Hole  9 (10): R= 0, B= 0, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 1, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 11
+DEBUG: Player's turn.
+Enter your move (hole index and seed type): 4TR
+Score - Player 1: 47, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 0, T= 0
+Hole  2 (3): R= 0, B= 0, T= 1
+Hole  3 (4): R= 0, B= 0, T= 0
+Hole  4 (5): R= 0, B= 0, T= 1
+Hole  5 (6): R= 0, B= 0, T= 0
+Hole  6 (7): R= 0, B= 0, T= 1
+Hole  7 (8): R= 0, B= 1, T= 0
+Hole  8 (9): R= 0, B= 0, T= 0
+Hole  9 (10): R= 0, B= 0, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 1, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 11
+DEBUG: Bot's turn.
+DEBUG: Best move chosen: hole 6, type TB with value 127
+Nexts bests moves : [6,TB] 
+7 TB
+Bot move took 0.24 ms
+Score - Player 1: 47, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 0, T= 0
+Hole  2 (3): R= 0, B= 0, T= 1
+Hole  3 (4): R= 0, B= 0, T= 0
+Hole  4 (5): R= 0, B= 0, T= 1
+Hole  5 (6): R= 0, B= 0, T= 0
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 1, T= 1
+Hole  8 (9): R= 0, B= 0, T= 0
+Hole  9 (10): R= 0, B= 0, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 1, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 11
+DEBUG: Player's turn.
+Enter your move (hole index and seed type): 8TB
+Score - Player 1: 47, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 0, T= 0
+Hole  2 (3): R= 0, B= 0, T= 1
+Hole  3 (4): R= 0, B= 0, T= 0
+Hole  4 (5): R= 0, B= 0, T= 1
+Hole  5 (6): R= 0, B= 0, T= 0
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 1
+Hole  9 (10): R= 0, B= 1, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 1, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 11
+DEBUG: Bot's turn.
+DEBUG: Best move chosen: hole 4, type TB with value 169
+Nexts bests moves : [4,TB] 
+5 TB
+Bot move took 0.29 ms
+Score - Player 1: 47, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 0, T= 0
+Hole  2 (3): R= 0, B= 0, T= 1
+Hole  3 (4): R= 0, B= 0, T= 0
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 1
+Hole  9 (10): R= 0, B= 1, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 1, B= 0, T= 0
+Hole 12 (13): R= 0, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 11
+DEBUG: Player's turn.
+Enter your move (hole index and seed type): 12R
+Score - Player 1: 47, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 0, T= 0
+Hole  2 (3): R= 0, B= 0, T= 1
+Hole  3 (4): R= 0, B= 0, T= 0
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 1
+Hole  9 (10): R= 0, B= 1, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 0, B= 0, T= 0
+Hole 12 (13): R= 1, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 11
+DEBUG: Bot's turn.
+DEBUG: Best move chosen: hole 2, type TB with value 169
+Nexts bests moves : [2,TB] 
+3 TB
+Bot move took 0.52 ms
+Score - Player 1: 47, Player 2: 48
+Board state:
+Hole  0 (1): R= 0, B= 0, T= 0
+Hole  1 (2): R= 0, B= 0, T= 0
+Hole  2 (3): R= 0, B= 0, T= 0
+Hole  3 (4): R= 0, B= 0, T= 1
+Hole  4 (5): R= 0, B= 0, T= 0
+Hole  5 (6): R= 0, B= 0, T= 1
+Hole  6 (7): R= 0, B= 0, T= 0
+Hole  7 (8): R= 0, B= 0, T= 0
+Hole  8 (9): R= 0, B= 0, T= 1
+Hole  9 (10): R= 0, B= 1, T= 0
+Hole 10 (11): R= 0, B= 0, T= 0
+Hole 11 (12): R= 0, B= 0, T= 0
+Hole 12 (13): R= 1, B= 0, T= 0
+Hole 13 (14): R= 0, B= 0, T= 0
+Hole 14 (15): R= 0, B= 1, T= 0
+Hole 15 (16): R= 0, B= 0, T= 0
+Total seed count: 11
+DEBUG: Player's turn.

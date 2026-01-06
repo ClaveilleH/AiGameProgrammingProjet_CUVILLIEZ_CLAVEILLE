@@ -3,7 +3,6 @@
 
 #include "data.h"
 
-
 int check_winning_position(Board* board, int player);
 int check_loosing_position(Board* board, int player);
 int check_draw_position(Board* board);
@@ -21,4 +20,7 @@ int minMaxValue (Board* board, int player, int isMax, int pmax);
 Move decisionAlphaBeta ( Board* board, int player, int pmax );
 int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int depth, int pmax, MoveList* moveList);
 
+Move iterativeDeepeningAlphaBeta(Board* board, int player, int min_depth, int max_depth);
+int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax);
+Move deepeningDecisionAlphaBeta ( Board* board, int player, int pmax, Move previousBestMove);
 #endif // EVALUATE_H

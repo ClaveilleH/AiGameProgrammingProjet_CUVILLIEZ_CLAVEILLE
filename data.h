@@ -47,16 +47,31 @@ typedef struct {
 } Hole;
 
 typedef struct {
-    Hole holes[MAX_HOLES];
-    int seed_count;
-    int j1_score;
-    int j2_score;
+    Hole holes[MAX_HOLES]; 
+    int seed_count;     // total number of seeds on the board
+    int j1_score;       // score of player 1
+    int j2_score;       // score of player 2
+    int nb_coups_player1; // number of moves made by player 1
+    int nb_coups_player2; // number of moves made by player 2 (+- 1)
 } Board;
 
 typedef struct {
     __uint8_t hole_index;
     SeedType type;
 } Move;
+
+// Constante pour représenter un coup invalide
+#define INVALID_MOVE ((Move){.hole_index = 255, .type = R})
+
+// Fonction inline pour vérifier si un Move est valide
+static inline int is_move_valid(Move move) {
+    return move.hole_index != 255;
+}
+
+// Fonction inline pour créer un Move invalide
+static inline Move make_invalid_move(void) {
+    return INVALID_MOVE;
+}
 
 typedef struct MoveList {
     Move* moves;
@@ -68,7 +83,7 @@ void print_board(const Board* board);
 
 static inline Hole* get_hole(Board* board, int index) {
     if (index < 0 || index >= 16) {
-        fprintf(stderr, "Invalid hole index\n");
+        fprintf(stderr, "Invalid hole index : %d\n", index);
         exit(EXIT_FAILURE);
     }
     return &board->holes[index];
@@ -81,5 +96,6 @@ int free_board(Board* board);
 
 int get_total_seeds(Hole* hole);
 int get_score(Board* board, int playerId);
+int get_nb_coups(Board* board, int playerId);
 
 #endif // DATA_H

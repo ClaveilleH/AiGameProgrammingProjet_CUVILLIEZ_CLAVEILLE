@@ -93,6 +93,30 @@ int main(int argc, char* argv[]) {
         } else {
             int hole_index;
             SeedType type;
+            if (get_human_move(&hole_index, &type)) {
+                DEBUG_PRINT("not a valid input\n");
+                continue; // Invalid input, ask again
+            } else {
+                if (!is_valid_move(&board, hole_index, type, 1 - PLAYER)) {
+                    fprintf(stderr, "Invalid move. Try again.\n");
+                    continue; // Invalid move, ask again
+                }
+                make_move(&board, hole_index, type, 1 - PLAYER);
+                // print_board(&board);
+            }
+        }
+        int end ;
+        end = check_end_game(&board, &winner);
+        if (end) {
+            if (winner == -1) {
+                _log("Game ends in a draw!");
+                // DEBUG_PRINT("Game ends in a draw!\n");
+                fprintf(stderr, "Game ends in a draw!\n");
+            } else {
+                _log("Player %d wins!", winner + 1);
+                // DEBUG_PRINT("Player %d wins!\n", winner + 1);
+                fprintf(stderr, "Player %d wins!\n", winner + 1);
+            }
             // Lire le coup du joueur humain
             COMPETE_PRINT("Enter your move (hole index and seed type): ");
             if (scanf("%d%s", &hole_index, &type) != 2) {
