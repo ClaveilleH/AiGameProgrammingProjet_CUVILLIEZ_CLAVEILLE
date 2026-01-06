@@ -20,5 +20,6 @@ Move decisionMinMax ( Board* board, int player, int pmax );
 int minMaxValue (Board* board, int player, int isMax, int pmax);
 Move decisionAlphaBeta ( Board* board, int player, int pmax );
 int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax, MoveList* moveList);
+Move iterative_deepening_search(Board* board, int player, double time_limit_ms, int max_depth);
 
 #endif // EVALUATE_H

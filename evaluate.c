@@ -9,7 +9,8 @@
 #include "weights.h"
 
 #include <stdlib.h>
-#include <time.h> 
+#include <time.h>
+#include <sys/time.h>
 
 #define VAL_MAX 100000
 //On adapte le code du prof pour avoir une esquisse d'évaluation
@@ -448,6 +449,102 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax ){
             temp = next;
         }
     }
+    
+    return bestMove;
+}
+
+Move iterative_deepening_search(Board* board, int player, double time_limit_ms, int max_depth) {
+    /*
+    Iterative Deepening Search avec Alpha-Beta pruning
+    Augmente progressivement la profondeur jusqu'à épuisement du temps
+    */
+    Move bestMove;
+    Move moves[MAX_HOLES/2*4];
+    int n_moves = get_move_list(board, moves, player);
+    
+    if (n_moves == 0) {
+        return (Move){-1, 0}; // Pas de coup possible
+    }
+    
+    bestMove = moves[0]; // Coup par défaut
+    int bestValue = -VAL_MAX;
+    
+    struct timeval start_time, current_time;
+    gettimeofday(&start_time, NULL);
+    
+    // Boucle d'approfondissement itératif
+    for (int depth = 1; depth <= max_depth; depth++) {
+        // Vérifier le temps écoulé
+        gettimeofday(&current_time, NULL);
+        double elapsed_ms = (current_time.tv_sec - start_time.tv_sec) * 1000.0 +
+                           (current_time.tv_usec - start_time.tv_usec) / 1000.0;
+        
+        if (elapsed_ms >= time_limit_ms * 0.9) {
+            fprintf(stderr, "[ITER_DEEP] Time limit reached at depth %d (%.2f ms)\n", depth - 1, elapsed_ms);
+            break;
+        }
+        
+        fprintf(stderr, "[ITER_DEEP] Searching at depth %d...\n", depth);
+        
+        int alpha = -VAL_MAX;
+        int beta = VAL_MAX;
+        Move currentBestMove = bestMove;
+        int currentBestValue = -VAL_MAX;
+        
+        // Recherche Alpha-Beta à cette profondeur
+        for (int i = 0; i < n_moves; i++) {
+            // Vérifier le temps à chaque coup
+            gettimeofday(&current_time, NULL);
+            elapsed_ms = (current_time.tv_sec - start_time.tv_sec) * 1000.0 +
+                        (current_time.tv_usec - start_time.tv_usec) / 1000.0;
+            
+            if (elapsed_ms >= time_limit_ms * 0.9) {
+                fprintf(stderr, "[ITER_DEEP] Time limit during depth %d exploration (%.2f ms)\n", depth, elapsed_ms);
+                goto finish_search;
+            }
+            
+            Board new_board = *board;
+            make_move(&new_board, moves[i].hole_index, moves[i].type, player);
+            
+            int val = alphaBetaValue(&new_board, (1 - player), alpha, beta, 0, depth - 1, NULL);
+            
+            if (val > alpha) {
+                alpha = val;
+                currentBestMove = moves[i];
+                currentBestValue = val;
+            }
+        }
+        
+        // Si on a terminé cette profondeur, on met à jour le meilleur coup
+        bestMove = currentBestMove;
+        bestValue = currentBestValue;
+        
+        fprintf(stderr, "[ITER_DEEP] Depth %d completed - Best move: hole %d, type %s, value %d\n", 
+            depth, bestMove.hole_index + 1,
+            (bestMove.type == R) ? "R" : 
+            (bestMove.type == B) ? "B" : 
+            (bestMove.type == TR) ? "TR" : "TB",
+            bestValue);
+    }
+    
+finish_search:
+    gettimeofday(&current_time, NULL);
+    double total_time = (current_time.tv_sec - start_time.tv_sec) * 1000.0 +
+                       (current_time.tv_usec - start_time.tv_usec) / 1000.0;
+    
+    fprintf(stderr, "[ITER_DEEP] Search completed in %.2f ms - Final move: hole %d, type %s, value %d\n",
+        total_time, bestMove.hole_index + 1,
+        (bestMove.type == R) ? "R" : 
+        (bestMove.type == B) ? "B" : 
+        (bestMove.type == TR) ? "TR" : "TB",
+        bestValue);
+    
+    _log("Iterative Deepening: [%d,%s] value=%d time=%.2fms", 
+        bestMove.hole_index + 1,
+        (bestMove.type == R) ? "R" : 
+        (bestMove.type == B) ? "B" : 
+        (bestMove.type == TR) ? "TR" : "TB",
+        bestValue, total_time);
     
     return bestMove;
 }

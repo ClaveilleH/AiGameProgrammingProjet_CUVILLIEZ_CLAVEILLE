@@ -103,9 +103,17 @@ void bot_play(Board* board) {
 
     // int profondeur = 6;
     int profondeur = eval_profondeur(board);
+    profondeur = 8; // Valeur fixe pour tests
+    
+    // Utilisation de l'Iterative Deepening
+    fprintf(stderr, "[BOT] Using Iterative Deepening Search with max depth %d\n", profondeur);
+    bestMove = iterative_deepening_search(board, PLAYER, DISPO_TIME, profondeur);
+    
+    // Ancienne méthode (commentée)
     // bestMove = decisionMinMax(board, PLAYER, profondeur);
     // fprintf(stderr, "---------------------------------------\n");
-    bestMove = decisionAlphaBeta(board, PLAYER, profondeur);
+    // bestMove = decisionAlphaBeta(board, PLAYER, profondeur);
+    
     // fprintf(stderr, "Hole index: %d, Seed type: %s\n", bestMove.hole_index, 
     //     (bestMove.type == R) ? "R" : 
     //     (bestMove.type == B) ? "B" : 
