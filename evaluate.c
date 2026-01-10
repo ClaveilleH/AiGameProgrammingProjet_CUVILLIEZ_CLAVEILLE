@@ -245,6 +245,12 @@ int h10(Board* board, int player) {
     return -n_moves;
 }
 
+// keep transparent seeds and give blue to the oponent
+int h11(Board* board, int player) {
+    int score = 0;
+    for (int i = player; i < MAX_HOLES; i += 2) score += board->holes[i].T;
+    return score;
+}
 
 
 int evaluate(Board* board, int player) {
@@ -261,7 +267,7 @@ int evaluate(Board* board, int player) {
     value += h8(board, player) * weights.H8_W;
     value += h9(board, player) * weights.H9_W;
     value += h10(board, player) * weights.H10_W;
-    //value += h11(board, player) * weights.H11_W;
+    value += h11(board, player) * weights.H11_W;
     //value += h12(board, player) * weights.H12_W;
 
     return value;

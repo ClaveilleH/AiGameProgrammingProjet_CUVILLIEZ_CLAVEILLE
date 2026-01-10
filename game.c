@@ -165,9 +165,9 @@ int check_end_game(Board* board, int *winner) {
     int score1 = board->j1_score;
     int score2 = board->j2_score;
     if (player1_moves == 0) { // A VERIFIER
-    printf("J1 affamé");
-        score1 += board->seed_count;
-        board->j1_score = score1;
+    //printf("J1 affamé");
+        score2 += board->seed_count;
+        board->j2_score = score2;
         // board->seed_count = 0;
         if (score1 > score2) {
             *winner = 1;
@@ -179,9 +179,9 @@ int check_end_game(Board* board, int *winner) {
         return 1;
     }
     if (player2_moves == 0) {
-    printf("J2 affamé");
-        score2 += board->seed_count;
-        board->j2_score = score2;
+    //printf("J2 affamé");
+        score1 += board->seed_count;
+        board->j1_score = score1;
         // board->seed_count = 0;
         if (score1 > score2) {
             *winner = 1;
