@@ -14,6 +14,17 @@
 #define DISPO_TIME 2000.0 // Temps disponible en ms pour le bot
 #define EVAL_TIME  0.002 // Temps estimé pour l'évaluation en ms
 
+void send_move(int hole_index, SeedType type) {
+    const char *type_str =
+        (type == R)  ? "R"  :
+        (type == B)  ? "B"  :
+        (type == TR) ? "TR" : "TB";
+
+    printf("%d %s\n", hole_index + 1, type_str);
+    fflush(stdout);
+}
+
+
 int get_move_list(Board* board, Move* move_list, int player) { 
  
     int index = 0;
@@ -109,12 +120,12 @@ int estimation_nb_moves(Board* board) {
 
 int eval_profondeur(Board* board) {
     // Estimation du branching factor
-    fprintf(stderr, "[DEPTH ESTIMATION] Estimating branching factor...\n");
+    //fprintf(stderr, "[DEPTH ESTIMATION] Estimating branching factor...\n");
     int b_estime = estimation_nb_moves(board);
-    fprintf(stderr, "[DEPTH ESTIMATION] Estimated branching factor: %d\n", b_estime);
+    //fprintf(stderr, "[DEPTH ESTIMATION] Estimated branching factor: %d\n", b_estime);
     // double b_effective = sqrt((double)b_estime);
     double b_effective = b_estime/3;
-    fprintf(stderr, "[DEPTH ESTIMATION] Effective branching factor (sqrt): %.2f\n", b_effective);
+    //fprintf(stderr, "[DEPTH ESTIMATION] Effective branching factor (sqrt): %.2f\n", b_effective);
     // Sécurité minimale
     if (b_effective <= 1) {
         return 1;
@@ -122,7 +133,7 @@ int eval_profondeur(Board* board) {
 
     // Temps total disponible en nombre d'évaluations
     double max_evals = DISPO_TIME / EVAL_TIME;
-    fprintf(stderr, "[DEPTH ESTIMATION] Estimated max evaluations: %.2f\n", max_evals);
+    //fprintf(stderr, "[DEPTH ESTIMATION] Estimated max evaluations: %.2f\n", max_evals);
     if (max_evals < 1.0) {
         return 0;
     }
@@ -130,7 +141,7 @@ int eval_profondeur(Board* board) {
 
     // Calcul théorique de la profondeur
     int depth = (int)(log2(max_evals) / log2((double)b_effective));
-    fprintf(stderr, "[DEPTH ESTIMATION] Theoretical depth: %d\n", depth);
+    //fprintf(stderr, "[DEPTH ESTIMATION] Theoretical depth: %d\n", depth);
 
     // Bornes de sécurité
     if (depth < 1) depth = 1;
@@ -159,7 +170,7 @@ void bot_play(Board* board) {
     int min_depth = eval_profondeur(board) - 2;
     if (min_depth < 1) min_depth = 1;
     int max_depth = MAX_DEPTH;
-    fprintf(stderr, "[BOT PLAY] Chosen depth range: %d to %d\n", min_depth, max_depth);
+    //fprintf(stderr, "[BOT PLAY] Chosen depth range: %d to %d\n", min_depth, max_depth);
     bestMove = iterativeDeepeningAlphaBeta(board, PLAYER, min_depth, max_depth); // 100 ms de marge
     // fprintf(stderr, "Hole index: %d, Seed type: %s\n", bestMove.hole_index, 
     //     (bestMove.type == R) ? "R" : 
@@ -181,6 +192,7 @@ void bot_play(Board* board) {
         // (bestMove.type == TR) ? "TR" : "TB");
         
     make_move(board, bestMove.hole_index, bestMove.type, PLAYER);
+    //send_move(bestMove.hole_index, bestMove.type);
 
     printf("%d %s\n", bestMove.hole_index + 1, 
         (bestMove.type == R) ? "R" : 
@@ -192,5 +204,5 @@ void bot_play(Board* board) {
     double temps_ms = (fin.tv_sec - debut.tv_sec) * 1000.0 +
                       (fin.tv_usec - debut.tv_usec) / 1000.0;
     // DEBUG_PRINT("Bot move took %.2f ms\n", temps_ms);
-    fprintf(stderr, "Bot move took %.2f ms\n", temps_ms);
+    //fprintf(stderr, "Bot move took %.2f ms\n", temps_ms);
 }

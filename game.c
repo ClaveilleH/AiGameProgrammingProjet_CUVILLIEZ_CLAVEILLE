@@ -156,7 +156,8 @@ int check_end_game(Board* board, int *winner) {
     int score1 = board->j1_score;
     int score2 = board->j2_score;
     if (player1_moves == 0) {
-        score1 += board->seed_count;
+        score2 += board->seed_count;
+        board->j2_score += score2;
         // board->seed_count = 0;
         if (score1 > score2) {
             *winner = 0;
@@ -167,7 +168,8 @@ int check_end_game(Board* board, int *winner) {
         }
     }
     if (player2_moves == 0) {
-        score2 += board->seed_count;
+        score1 += board->seed_count;
+        board->j1_score += score1;
         // board->seed_count = 0;
         if (score1 > score2) {
             *winner = 0;
@@ -177,7 +179,7 @@ int check_end_game(Board* board, int *winner) {
             *winner = -1; // Draw
         }
     }
-    // si on a attein la limite de coups
+    // si on a atteind la limite de coups
     if (get_nb_coups(board, 0) + get_nb_coups(board, 1) >= MAX_MOVES_TOTAL) {
         if (score1 > score2) {
             *winner = 0;

@@ -85,6 +85,25 @@ int sim_end_game(Board* board) {
     return 0;
 }
 
+int get_opponent_move(int *hole_index, SeedType *type) {
+    int idx;
+    char type_str[8];
+
+    if (scanf("%d %7s", &idx, type_str) != 2)
+        return 1;
+
+    *hole_index = idx - 1;
+
+    if (strcmp(type_str, "R") == 0) *type = R;
+    else if (strcmp(type_str, "B") == 0) *type = B;
+    else if (strcmp(type_str, "TR") == 0) *type = TR;
+    else if (strcmp(type_str, "TB") == 0) *type = TB;
+    else return 1;
+
+    return 0;
+}
+
+
 int main(int argc, char* argv[]) {
     run = 1;
     int turn = 0; // 0 for player 1, 1 for player 2
@@ -92,29 +111,39 @@ int main(int argc, char* argv[]) {
     srand(time(NULL));
 
     init_logger();
-
-    // le player id est passé en argument
-    if (argc >= 2) {
-        PLAYER = atoi(argv[1]);
-        if (PLAYER != 1 && PLAYER != 2) {
-            fprintf(stderr, "Invalid player ID. Must be 1 or 2.\n");
-            return 1;
-        }
-        PLAYER -= 1; // Convert to 0-based index
-    } else {
-        // Sinon on demande a l'utilisateur
-        COMPETE_PRINT("Enter bot ID (1 or 2): ");
-        if (scanf("%d", &PLAYER) != 1 || (PLAYER != 1 && PLAYER != 2)) {
-            fprintf(stderr, "Invalid player ID. Must be 1 or 2.\n");
-            return 1;
-        }
-        PLAYER -= 1; // Convert to 0-based index
-    }
-    fprintf(stderr, "Starting game as Player %d\n", PLAYER + 1);
-    _log("Game started as Player %d", PLAYER + 1);
     init_board(&board);
-    sim_end_game(&board); // For testing end game scenarios
-    print_board(&board);
+
+    char line[128];
+
+    if (fgets(line, sizeof(line), stdin) == NULL) {
+        fprintf(stderr, "No input received, exiting.\n");
+        return 1;
+    }
+     line[strcspn(line, "\n")] = 0; // retirer '\n'
+
+    if (strcmp(line, "START") == 0) {
+        PLAYER = 0; // je suis joueur 1
+        turn = PLAYER; // mon tour
+    } else {
+        PLAYER = 1; // je suis joueur 2
+        turn = PLAYER;    // joueur 1 commence
+        // traiter le premier message comme coup de l’adversaire
+        int hole_index;
+        SeedType type;
+        if (sscanf(line, "%d %7s", &hole_index, line) == 2) {
+            if (strcmp(line, "R") == 0) type = R;
+            else if (strcmp(line, "B") == 0) type = B;
+            else if (strcmp(line, "TR") == 0) type = TR;
+            else if (strcmp(line, "TB") == 0) type = TB;
+            else type = R; // valeur par défaut
+            make_move(&board, hole_index - 1, type, 0); // adversaire = joueur 0
+        }
+    }
+
+    _log("Game started as Player %d", PLAYER + 1);
+    
+    //sim_end_game(&board); // For testing end game scenarios
+    //print_board(&board);
     while (run) {
         // Game loop
         if (turn == PLAYER) {
@@ -125,48 +154,29 @@ int main(int argc, char* argv[]) {
             DEBUG_PRINT("Player's turn.\n");
             int hole_index;
             SeedType type;
-            if (get_human_move(&hole_index, &type)) {
-                DEBUG_PRINT("not a valid input\n");
-                continue; // Invalid input, ask again
-            } else {
-                if (!is_valid_move(&board, hole_index, type, 1 - PLAYER)) {
-                    fprintf(stderr, "Invalid move. Try again.\n");
-                    continue; // Invalid move, ask again
-                }
-                make_move(&board, hole_index, type, 1 - PLAYER);
-                // print_board(&board);
+
+            if (get_opponent_move(&hole_index, &type)) {
+                DEBUG_PRINT("Not a valid input, skip\n");
+                continue; // si invalide, on attend le prochain tour
             }
+            make_move(&board, hole_index, type, 1 - PLAYER);
         }
         int end ;
         end = check_end_game(&board, &winner);
         if (end) {
-            if (winner == -1) {
-                _log("Game ends in a draw!");
-                // DEBUG_PRINT("Game ends in a draw!\n");
-                fprintf(stderr, "Game ends in a draw!\n");
-            } else {
-                _log("Player %d wins!", winner + 1);
-                // DEBUG_PRINT("Player %d wins!\n", winner + 1);
-                fprintf(stderr, "Player %d wins!\n", winner + 1);
+            int coups = board.nb_coups_player1 + board.nb_coups_player2;
+            int scoreJ1 = board.j1_score;
+            int scoreJ2 = board.j2_score;
+            if (coups >= 400){
+                printf("RESULT LIMIT %d %d MAX_TURNS\n", scoreJ1, scoreJ2);
             }
+            else{
+                printf("RESULT %d %d %d\n", coups, scoreJ1, scoreJ2);
+            }
+            fflush(stdout);
             run = 0;
         }
-        // if (check_winner(&board, &winner)) {
-        //     DEBUG_PRINT("Player %d wins!\n", winner);
-        //     _log("Player %d wins!", winner);
-        //     run = 0;
-        // } if (check_draw(&board)) {
-        //     DEBUG_PRINT("Game ends in a draw!\n");
-        //     _log("Game ends in a draw!");
-        //     run = 0;
-        // } else {
-        //     // Continue game
-        //     DEBUG_PRINT("Game continues...\n");
-        // }
-        print_board(&board);
         turn = 1 - turn;
-        // if (winner != -1) {
-        // break; // Placeholder to avoid infinite loop in this example
     }
     close_logger();
     return 0;

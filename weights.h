@@ -18,12 +18,18 @@
 #define W4 1
 #define W5 0.565937
 
-#define H1_W 19
-#define H2_W 19
-#define H3_W 37
-#define H4_W 100
-#define H5_W 41
-#define H6_W 56
+#define H1_W 0
+#define H2_W 1.4
+#define H3_W 1.31
+#define H4_W 1235.72
+#define H5_W 6.82
+#define H6_W 0
+#define H7_W 1.25
+#define H8_W 5.1
+#define H9_W 7.81
+#define H10_W 5.26
+#define H11_W 8.11
+#define H12_W 17.42
 
 
 #endif // WEIGHTS_H
