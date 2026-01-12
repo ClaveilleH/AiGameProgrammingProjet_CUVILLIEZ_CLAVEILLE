@@ -21,6 +21,6 @@ Move decisionAlphaBeta ( Board* board, int player, int pmax );
 int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax, MoveList* moveList);
 
 Move iterativeDeepeningAlphaBeta(Board* board, int player, int min_depth, int max_depth);
-int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax);
+int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax, int depth);
 Move deepeningDecisionAlphaBeta ( Board* board, int player, int pmax, Move previousBestMove);
 #endif // EVALUATE_H

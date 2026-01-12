@@ -15,7 +15,7 @@
 
 
 #define VAL_MAX 100000
-#define DISPO_TIME 2000.0 // Temps disponible en ms pour le bot
+#define DISPO_TIME 1000.0 // Temps disponible en ms pour le bot
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
 // #define HEURISTIC evaluate
@@ -580,7 +580,7 @@ Move deepeningDecisionAlphaBeta ( Board* board, int player, int pmax, Move previ
     for (int i = 0; i < n_moves && !g_timeout; i++) {
         Board new_board = *board;
         make_move(&new_board, moves[i].hole_index, moves[i].type, player);
-        int val = deepeningAlphaBetaValue(&new_board, (1 - player), alpha, beta, 0, pmax-1);
+        int val = deepeningAlphaBetaValue(&new_board, (1 - player), alpha, beta, 0, pmax-1, 0);
         if (val>alpha) {
             alpha = val;
             bestMove = moves[i];
@@ -590,7 +590,7 @@ Move deepeningDecisionAlphaBeta ( Board* board, int player, int pmax, Move previ
 }
 
 
-int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax) {
+int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, int pmax, int depth) {
     // Compute the value e for the player J depending on e.pmax is the maximal depth
     // pmax is the maximal depth
     // if (check_winning_position(board, player)) return VAL_MAX;
@@ -628,7 +628,7 @@ int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int 
             make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             // fprintf(stderr, "      max(%d/%d): hole %d, type %d\n", i+1, n_moves, moves[i].hole_index, moves[i].type);
             /* Pass next element only if currentMoveList is non-NULL */
-            int val = deepeningAlphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1);
+            int val = deepeningAlphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, depth + 1);
             if (val > alpha) alpha = val; // Update alpha
             if (alpha >= beta) break; // Beta cut
         }
@@ -640,7 +640,7 @@ int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int 
             Board new_board = *board;
             make_move(&new_board, moves[i].hole_index, moves[i].type, player);
             /* Pass next element only if currentMoveList is non-NULL */
-            int val = deepeningAlphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1);
+            int val = deepeningAlphaBetaValue(&new_board, (1 - player), alpha, beta, 1 - isMax, pmax - 1, depth + 1);
             if (0) _log( "      min(%d/%d): %d, %s -> %d\n", i+1, n_moves, moves[i].hole_index, 
                 (moves[i].type == R) ? "R" : 
                 (moves[i].type == B) ? "B" : 

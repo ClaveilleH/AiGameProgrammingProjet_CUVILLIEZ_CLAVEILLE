@@ -5,7 +5,7 @@ import time
 
 AGENTS_DIR = "agents"
 N_MATCHES = 2  # nombre de parties par adversaire
-MAX_TURNS = 450 # nombre max de tours (à adapter)
+MAX_TURNS = 400 # nombre max de tours (à adapter)
 TIMEOUT = 2.0   # secondes max pour répondre
 
 # --- simulation du moteur de jeu (à adapter selon tes règles) ---
