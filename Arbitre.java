@@ -8,11 +8,11 @@ public class Arbitre {
 
     public static void main(String[] args) throws Exception {
         Process A = Runtime.getRuntime().exec(
-            new String[]{"./aigame", "1"}
+            new String[]{"./aigame"}
         );
         
         Process B = Runtime.getRuntime().exec(
-            new String[]{"./aigame", "2"}
+            new String[]{"./aigame"}
         );
         
         Joueur joueurA = new Joueur("A", A);
