@@ -3,7 +3,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
+#ifdef _WiN32
+#define UINT8 uint8_t
+#else
+#define UINT8 __uint8_t
+#endif
 /*
 Idée : on cree une structure et les fonctions pour manipuler cette structure
 comme ca si on change de structure on change juste le code dans data.h et data.c
@@ -40,10 +46,10 @@ typedef enum {
 } SeedType;
 
 typedef struct {
-    __uint8_t R;
-    __uint8_t B;
-    __uint8_t T;
-    __uint8_t __pad;
+    UINT8 R;
+    UINT8 B;
+    UINT8 T;
+    UINT8 __pad;
 } Hole;
 
 typedef struct {
@@ -56,7 +62,7 @@ typedef struct {
 } Board;
 
 typedef struct {
-    __uint8_t hole_index;
+    UINT8 hole_index;
     SeedType type;
 } Move;
 

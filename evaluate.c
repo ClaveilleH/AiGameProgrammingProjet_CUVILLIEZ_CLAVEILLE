@@ -9,9 +9,14 @@
 #include "weights.h"
 
 #include <stdlib.h>
-#include <time.h>
 #include <sys/time.h>
 #include <math.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <time.h>
+#endif
 
 
 #define VAL_MAX 100000
@@ -22,6 +27,8 @@
 // #define HEURISTIC heuristic_evaluation
 // #define HEURISTIC h
 //#define HEURISTIC ma_fct_deval
+
+
 
 
 
@@ -604,12 +611,19 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
 // =============== ITERATIVE DEEPENING ALPHA BETA =============== //
 
 
-
 double now_ms() {
+#ifdef _WIN32
+    LARGE_INTEGER freq, counter;
+    QueryPerformanceFrequency(&freq);
+    QueryPerformanceCounter(&counter);
+    return (double)counter.QuadPart * 1000.0 / (double)freq.QuadPart;
+#else    
     struct timespec ts;
     clock_gettime(CLOCK_MONOTONIC, &ts);
     return ts.tv_sec * 1000.0 + ts.tv_nsec / 1e6;
+#endif
 }
+
 
 Move deepeningDecisionAlphaBeta ( Board* board, int player, int pmax, Move previousBestMove){
     // Decide the best move to play for player with the board

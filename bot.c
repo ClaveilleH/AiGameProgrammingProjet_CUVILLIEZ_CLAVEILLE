@@ -158,8 +158,8 @@ int eval_profondeur(Board* board) {
 void bot_play(Board* board) {
     // Fonction principale du bot qui choisit et joue un coup
     Move bestMove;
-    struct timeval debut, fin;
-    gettimeofday(&debut, NULL);
+    // struct timeval debut, fin;
+    // gettimeofday(&debut, NULL);
     // exit(0);
 
     // int profondeur = 6;
@@ -201,9 +201,9 @@ void bot_play(Board* board) {
         (bestMove.type == TR) ? "TR" : "TB");
     fflush(stdout);
 
-    gettimeofday(&fin, NULL);
-    double temps_ms = (fin.tv_sec - debut.tv_sec) * 1000.0 +
-                      (fin.tv_usec - debut.tv_usec) / 1000.0;
+    // gettimeofday(&fin, NULL);
+    // double temps_ms = (fin.tv_sec - debut.tv_sec) * 1000.0 +
+    //                   (fin.tv_usec - debut.tv_usec) / 1000.0;
     // DEBUG_PRINT("Bot move took %.2f ms\n", temps_ms);
     //fprintf(stderr, "Bot move took %.2f ms\n", temps_ms);
 }
