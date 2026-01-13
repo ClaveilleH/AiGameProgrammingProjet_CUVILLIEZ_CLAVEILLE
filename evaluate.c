@@ -23,10 +23,10 @@
 #define DISPO_TIME 2000.0 // Temps disponible en ms pour le bot
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
-#define HEURISTIC evaluate2
+//#define HEURISTIC evaluate2
 // #define HEURISTIC heuristic_evaluation
 // #define HEURISTIC h
-//#define HEURISTIC ma_fct_deval
+#define HEURISTIC ma_fct_deval
 
 
 
@@ -281,7 +281,7 @@ int evaluate(Board* board, int player) {
 int evaluate2(Board* board, int player) {
     int value = 0;
 
-    value += h4(board, player) * 100;   // score réel
+    value += h4(board, player) * 10;   // score réel
     value += h8(board, player) * 50;    // meilleure capture possible
     value += h10(board, player) * 10;   // gêner l’adversaire
     value += h6(board, player) * 20;    // éviter vulnérabilité
@@ -556,7 +556,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
     int end = check_end_game(board, &winner);
     if (end) {
         if (winner == -1) {
-            return 0; // Draw
+            return 0 - 10 ; // Draw
         } else if (winner == player) {
             return VAL_MAX -depth; // Win
         } else {

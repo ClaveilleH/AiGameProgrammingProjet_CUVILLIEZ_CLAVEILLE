@@ -7,12 +7,13 @@ public class Arbitre {
 
 
     public static void main(String[] args) throws Exception {
-        Process A = Runtime.getRuntime().exec(
-            new String[]{"./aigameH"}
-        );
+        Process A = new ProcessBuilder(
+            "/Users/fionacuvilliez/Desktop/AiGameProgrammingProjet/AlphawaleZero"
+        ).start();
+        
         
         Process B = Runtime.getRuntime().exec(
-            new String[]{"./aigame"}
+            new String[]{"./aigameH"}
         );
         
         Joueur joueurA = new Joueur("A", A);
