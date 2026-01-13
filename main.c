@@ -199,7 +199,7 @@ int main(int argc, char* argv[]) {
             int hole_index;
             SeedType type;
 
-            int ret = get_opponent_move(&hole_index, &type);
+            int ret = get_opponent_move2(&hole_index, &type);
             if (ret == 1) { // coup invalide
                 DEBUG_PRINT("Invalid opponent move, skip\n");
                 continue;

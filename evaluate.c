@@ -281,17 +281,17 @@ int evaluate(Board* board, int player) {
 int evaluate2(Board* board, int player) {
     int value = 0;
 
-    value += h4(board, player) * 100;   // score réel
-    value += h8(board, player) * 40;    // meilleure capture possible
-    value += h10(board, player) * 10;   // gêner l’adversaire
-    value += h6(board, player) * 15;    // éviter vulnérabilité
+    value += h4(board, player) * 1000;   // score réel
+    value += h8(board, player) * 50;    // meilleure capture possible
+    //value += h10(board, player) * 10;   // gêner l’adversaire
+    //value += h6(board, player) * 15;    // éviter vulnérabilité
 
     if (board->seed_count < 30) {
-        value += h7(board, player) * 5; // affamement en fin de partie
+        value += h7(board, player) * 10; // affamement en fin de partie
     }
 
-    value += h11(board, player) * 2;    // conserver transparentes
-    value += h1(board, player) * 2;
+    value += h11(board, player) * 6;    // conserver transparentes
+    //value += h1(board, player) * 2; /   / maximum seeds in a single hole
 
     return value;
 }

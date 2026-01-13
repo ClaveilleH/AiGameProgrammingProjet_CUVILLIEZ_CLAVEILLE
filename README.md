@@ -2,12 +2,12 @@
 
 Projet réalisé dans le cadre de l’UE **AI Game Programming** (Master 1 Informatique).
 
-Il s’agit d’une intelligence artificielle en **C++** capable de jouer à une variante du jeu de l’Oware, en utilisant des algorithmes de recherche adversariale (Minimax / Alpha-Bêta) et des heuristiques.
+Il s’agit d’une intelligence artificielle en **C++** capable de jouer à une variante du jeu de l’Oware, en utilisant un algorithmes de recherche Alpha-Bêta et des heuristiques.
 ---
 
 ## Règles du jeu
 
-- Plateau circulaire de **16 trous**, numérotés de 1 à 16.
+- Plateau de **16 trous**, numérotés de 1 à 16.
 - Le joueur 1 contrôle les trous impairs, le joueur 2 les trous pairs.
 - Chaque trou contient initialement :
   - 2 graines rouges
@@ -26,10 +26,10 @@ Capturer plus de graines que l’adversaire (49 pour une victoire directe).
 ### Fin de partie
 - Un joueur atteint **49 graines ou plus**
 - Ou il reste **moins de 10 graines sur le plateau**
-
+- Ou affamement d'un joueur
 ---
 
-##Intelligence artificielle
+###Intelligence artificielle
 
 ### Choix techniques
 - **Langage** : C++
@@ -39,7 +39,6 @@ Capturer plus de graines que l’adversaire (49 pour une victoire directe).
   - adapté aux algorithmes récursifs profonds
 
 ### Algorithmes utilisés
-- **Minimax**
 - **Alpha-Bêta pruning**
 - **Itérative Deepening** pour exploiter pleinement la limite de temps (2 secondes par coup)
 
@@ -60,7 +59,6 @@ Une part d’aléatoire est introduite sur les premiers coups afin d’éviter d
 
 - **400 coups maximum par partie**
 - **2 secondes par coup**
-- Recherche à profondeur dynamique selon la complexité de la position
 
 ---
 ## Exécution du projet pour la compétition
