@@ -36,7 +36,7 @@ int get_human_move(int *hole_index, SeedType *type) {
         return 1;
     }
 
-    if (idx <= 0 || idx > MAX_HOLES) {
+    if (idx < 0 || idx > MAX_HOLES) {
         fprintf(stderr, "Invalid hole index. Must be between 0 and %d.\n", MAX_HOLES - 1);
         return 1;
     }
@@ -173,8 +173,7 @@ int main(int argc, char* argv[]) {
     //sim_end_game(&board); // For testing end game scenarios
     //print_board(&board);
     while (run) {
-        
-
+    
         if (turn == PLAYER) {
             int end ;
             end = check_end_game(&board, &winner);
@@ -190,6 +189,7 @@ int main(int argc, char* argv[]) {
                 }
                 fflush(stdout);
                 run = 0;
+                break;
             }
             DEBUG_PRINT("Bot's turn.\n");
             bot_play(&board);
@@ -208,7 +208,6 @@ int main(int argc, char* argv[]) {
             }
 
             make_move(&board, hole_index, type, 1 - PLAYER);
-
         }
         
         turn = 1 - turn;

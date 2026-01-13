@@ -692,7 +692,7 @@ int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int 
         // fprintf(stderr, "[ID] Timeout detected in deepeningAlphaBetaValue\n");
         return 0; // Return a neutral value on timeout
     }
-    if (now_ms() - g_start_time > DISPO_TIME) {
+    if (now_ms() - g_start_time > DISPO_TIME*0.8) {
         // fprintf(stderr, "[ID] Timeout reached in deepeningAlphaBetaValue with %d steps remaining \n", pmax);
         // fprintf(stderr, "[ID] Time taken: %.2f ms, limit was %.2f ms\n", now_ms() - g_start_time, DISPO_TIME);
         g_timeout = 1;

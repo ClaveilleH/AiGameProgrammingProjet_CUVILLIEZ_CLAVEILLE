@@ -7,10 +7,9 @@ public class Arbitre {
 
 
     public static void main(String[] args) throws Exception {
-        Process A = new ProcessBuilder(
-            "/Users/fionacuvilliez/Desktop/AiGameProgrammingProjet/AlphawaleZero"
-        ).start();
-        
+        Process A = Runtime.getRuntime().exec(
+            new String[]{"./aigame"}
+        );
         
         Process B = Runtime.getRuntime().exec(
             new String[]{"./aigameH"}
