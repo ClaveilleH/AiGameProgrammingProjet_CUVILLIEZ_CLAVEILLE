@@ -1,140 +1,133 @@
-Joueur : A -> 1R
-Joueur : B -> 4R
-Joueur : A -> 15R
-Joueur : B -> 8R
-Joueur : A -> 13R
-Joueur : B -> 6R
-Joueur : A -> 11R
-Joueur : B -> 8R
-Joueur : A -> 13R
-Joueur : B -> 2R
-Joueur : A -> 3TB
-Joueur : B -> 4B
-Joueur : A -> 7TB
-Joueur : B -> 14R
-Joueur : A -> 1R
-Joueur : B -> 6TR
-Joueur : A -> 15TR
-Joueur : B -> 12R
-Joueur : A -> 1B
-Joueur : B -> 14B
-Joueur : A -> 15R
-Joueur : B -> 10B
-Joueur : A -> 1B
-Joueur : B -> 6B
-Joueur : A -> 11TR
-Joueur : B -> 4R
-Joueur : A -> 7TB
-Joueur : B -> 2R
-Joueur : A -> 13R
-Joueur : B -> 14R
-Joueur : A -> 9R
-Joueur : B -> 14R
-Joueur : A -> 11R
-Joueur : B -> 16R
-Joueur : A -> 1TB
-Joueur : B -> 12B
-Joueur : A -> 1R
-Joueur : B -> 4R
-Joueur : A -> 13TR
-Joueur : B -> 2TB
-Joueur : A -> 1R
-Joueur : B -> 12R
-Joueur : A -> 15TR
-Joueur : B -> 10R
-Joueur : A -> 13R
-Joueur : B -> 16TB
-Joueur : A -> 3TB
-Joueur : B -> 8B
-Joueur : A -> 9TR
-Joueur : B -> 10B
-Joueur : A -> 13TR
-Joueur : B -> 10TB
-Joueur : A -> 15R
-Joueur : B -> 6TR
-Joueur : A -> 15TR
-Joueur : B -> 16TR
-Joueur : A -> 13TR
-Joueur : B -> 14TR
-Joueur : A -> 11TR
-Joueur : B -> 14R
-Joueur : A -> 15R
-Joueur : B -> 4B
-Joueur : A -> 15TR
-Joueur : B -> 12R
-Joueur : A -> 13R
-Joueur : B -> 14R
-Joueur : A -> 15R
-Joueur : B -> 16R
-Joueur : A -> 1R
-Joueur : B -> 8TB
-Joueur : A -> 1TB
-Joueur : B -> 2TR
-Joueur : A -> 11TR
-Joueur : B -> 4TR
-Joueur : A -> 9TR
-Joueur : B -> 10TR
-Joueur : A -> 11TR
-Joueur : B -> 8TR
-Joueur : A -> 9TR
-Joueur : B -> 10TR
-Joueur : A -> 11TR
-Joueur : B -> 6TR
-Joueur : A -> 15TR
-Joueur : B -> 16TR
-Joueur : A -> 1TB
-Joueur : B -> 2TR
-Joueur : A -> 3TB
-Joueur : B -> 6TR
-Joueur : A -> 5TR
-Joueur : B -> 14R
-Joueur : A -> 15R
-Joueur : B -> 16R
-Joueur : A -> 7R
-Joueur : B -> 8TB
-Joueur : A -> 9R
-Joueur : B -> 12R
-Joueur : A -> 9TR
-Joueur : B -> 6TR
-Joueur : A -> 11TR
-Joueur : B -> 10TR
-Joueur : A -> 13R
-Joueur : B -> 14R
-Joueur : A -> 13TR
-Joueur : B -> 14TR
-Joueur : A -> 11TB
-Joueur : B -> 8B
-Joueur : A -> 3B
-Joueur : B -> 4B
-Joueur : A -> 1B
-Joueur : B -> 10B
-Joueur : A -> 7B
-Joueur : B -> 8R
-Joueur : A -> 3R
-Joueur : B -> 4TR
-Joueur : A -> 9R
-Joueur : B -> 2B
-Joueur : A -> 7R
-Joueur : B -> 16B
-Joueur : A -> 11R
-Joueur : B -> 12R
-Joueur : A -> 13R
-Joueur : B -> 14R
-Joueur : A -> 5R
-Joueur : B -> 6R
-Joueur : A -> 7R
-Joueur : B -> 10R
-Joueur : A -> 9R
-Joueur : B -> 12R
-Joueur : A -> 7TR
-Joueur : B -> 10TR
-Joueur : A -> 11TR
-Joueur : B -> 14TR
-Joueur : A -> 15R
-Joueur : B -> 8TR
-Joueur : A -> 15TR
-Joueur : B -> 16TR
-Joueur : A -> 11R
-Joueur : B -> 12TB
-Joueur : A -> 11TB
-RESULT Joueur B disqualifi▒ (timeout)
+|A -> 1R
+2|B -> 4R
+3|A -> 15R
+4|B -> 14R
+5|A -> 7R
+6|B -> 12R
+7|A -> 1R
+8|B -> 2R
+9|A -> 5R
+10|B -> 4R
+11|A -> 5R
+12|B -> 10B
+13|A -> 11R
+14|B -> 12R
+15|A -> 3TB
+16|B -> 10R
+17|A -> 7TR
+18|B -> 4B
+19|A -> 15R
+20|B -> 12R
+21|A -> 5TR
+22|B -> 16TB
+23|A -> 7TR
+24|B -> 10R
+25|A -> 3R
+26|B -> 12TB
+27|A -> 5R
+28|B -> 14R
+29|A -> 7R
+30|B -> 10B
+31|A -> 11R
+32|B -> 10TR
+33|A -> 13R
+34|B -> 2R
+35|A -> 15R
+36|B -> 6R
+37|A -> 11R
+38|B -> 6TR
+39|A -> 1R
+40|B -> 16R
+41|A -> 13R
+42|B -> 2R
+43|A -> 9TB
+44|B -> 12TR
+45|A -> 7TR
+46|B -> 14B
+47|A -> 9R
+48|B -> 10TR
+49|A -> 15R
+50|B -> 16TR
+51|A -> 1R
+52|B -> 8B
+53|A -> 1TR
+54|B -> 4B
+55|A -> 3B
+56|B -> 14TB
+57|A -> 13R
+58|B -> 4TB
+59|A -> 5TR
+60|B -> 6TR
+61|A -> 1TR
+62|B -> 2R
+63|A -> 11R
+64|B -> 12R
+65|A -> 7TR
+66|B -> 2B
+67|A -> 3B
+68|B -> 4B
+69|A -> 13R
+70|B -> 14R
+71|A -> 1R
+72|B -> 4R
+73|A -> 5R
+74|B -> 16R
+75|A -> 7R
+76|B -> 2R
+77|A -> 15B
+78|B -> 16B
+79|A -> 13B
+80|B -> 4B
+81|A -> 11TR
+82|B -> 12TR
+83|A -> 1R
+84|B -> 14B
+85|A -> 15R
+86|B -> 16R
+87|A -> 3TB
+88|B -> 6TR
+89|A -> 1R
+90|B -> 2R
+91|A -> 9B
+92|B -> 2B
+93|A -> 3R
+94|B -> 6R
+95|A -> 3B
+96|B -> 10R
+97|A -> 7R
+98|B -> 2TB
+99|A -> 5R
+100|B -> 6R
+101|A -> 7R
+102|B -> 14TR
+103|A -> 3TB
+104|B -> 4TR
+105|A -> 7TR
+106|B -> 8TB
+107|A -> 11TB
+108|B -> 16B
+109|A -> 11R
+110|B -> 4B
+111|A -> 1TR
+112|B -> 2B
+113|A -> 15TR
+114|B -> 2TR
+115|A -> 15B
+116|B -> 14B
+117|A -> 13B
+118|B -> 4TR
+119|A -> 9TB
+120|B -> 10TR
+121|A -> 11TB
+122|B -> 12TR
+123|A -> 1B
+124|B -> 8R
+125|A -> 15R
+126|B -> 8B
+127|A -> 11R
+128|B -> 14R
+129|A -> 1TR
+130|B -> 10R
+131|A -> 11R
+132|B -> 12R
+RESULT Joueur A disqualifi (timeout)

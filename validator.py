@@ -158,7 +158,7 @@ class GameValidator:
             
             print(f"Coup {self.move_count}: {player}->{move} | Capturé: {info} | A={self.score_A}, B={self.score_B}")
             # on affiche l'état du plateau si besoin
-            # self.afficher_plateau()
+            self.afficher_plateau()
 
 if __name__ == "__main__":
     import sys

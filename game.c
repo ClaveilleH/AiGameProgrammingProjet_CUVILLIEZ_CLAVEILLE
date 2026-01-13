@@ -20,7 +20,7 @@ static inline __attribute__((always_inline)) int distribute_red(Board *restrict 
     int idx = hole_index;
     for (int s = 0, cnt = hole->R; s < cnt; ++s) {
         idx = (idx + 1) & MASK;
-        idx = (idx + (idx == hole_index)) & MASK;
+        // idx = (idx + (idx == hole_index)) & MASK;
         harr[idx].R += 1;
     }
     hole->R = 0;
@@ -50,7 +50,7 @@ static inline __attribute__((always_inline)) int distribute_transparent_red(Boar
     int idx = hole_index;
     for (int s = 0, cnt = hole->T; s < cnt; ++s) {
         idx = (idx + 1) & MASK;
-        idx = (idx + (idx == hole_index)) & MASK;
+        // idx = (idx + (idx == hole_index)) & MASK;
         harr[idx].T += 1;
     }
     hole->T = 0;
@@ -101,6 +101,8 @@ int make_move(Board* board, int hole_index, SeedType type, int playerId) {
             last = distribute_transparent_blue(board, hole_index, hole);
             // break; /* fallthrough */ 
             //on enchaine avec les bleu
+            // il faut rajouter 1 pour que ca tombe sur le bon trou
+            last = (last + 1) & MASK;
         case B:
             /* code for blue */
             last = distribute_blue(board, last, hole);
