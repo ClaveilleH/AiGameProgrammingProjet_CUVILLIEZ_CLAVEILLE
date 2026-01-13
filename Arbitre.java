@@ -1,8 +1,10 @@
 import java.io.*;
 import java.util.concurrent.*;
 
+
 public class Arbitre {
     private static final int TIMEOUT_SECONDS = 3;
+
 
     public static void main(String[] args) throws Exception {
         Process A = Runtime.getRuntime().exec(
@@ -16,8 +18,10 @@ public class Arbitre {
         Joueur joueurA = new Joueur("A", A);
         Joueur joueurB = new Joueur("B", B); 
 
+
         Joueur courant = joueurA;
         Joueur autre = joueurB;
+
 
         String coup = "START";
         int nbCoups = 0;
@@ -40,6 +44,7 @@ public class Arbitre {
 //                break;
 //            }
 
+
             System.out.println(courant.nom + " -> " + coup);
             // Fin de partie
             if (coup.contains("RESULT")) {
@@ -56,6 +61,7 @@ public class Arbitre {
         System.out.println("Fin.");
     }
 
+
     // ===============================
     // Validation du coup (À ADAPTER)
     // ===============================
@@ -68,9 +74,11 @@ public class Arbitre {
         }
     }
 
+
     private static void disqualifier(Joueur j, String raison) {
         System.out.println("RESULT Joueur " + j.nom + " disqualifié (" + raison + ")");
     }
+
 
     // ===============================
     // Classe Joueur
@@ -80,20 +88,42 @@ public class Arbitre {
         Process process;
         BufferedWriter in;
         BufferedReader out;
+        BufferedReader err;
         ExecutorService executor = Executors.newSingleThreadExecutor();
+        ExecutorService stderrExecutor = Executors.newSingleThreadExecutor();
+
 
         Joueur(String nom, Process p) {
             this.nom = nom;
             this.process = p;
             this.in = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
             this.out = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            this.err = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+            
+            // Démarrer le thread de lecture stderr
+            startStderrReader();
         }
+        
+        private void startStderrReader() {
+            stderrExecutor.submit(() -> {
+                try {
+                    String line;
+                    while ((line = err.readLine()) != null) {
+                        System.err.println("[" + nom + " stderr] " + line);
+                    }
+                } catch (IOException e) {
+                    // Le processus s'est terminé
+                }
+            });
+        }
+
 
         void receive(String msg) throws IOException {
             in.write(msg);
             in.newLine();
             in.flush();
         }
+        
         String response(int timeoutSeconds) throws IOException {
             Future<String> future = executor.submit(() -> out.readLine());
             try {
@@ -106,8 +136,10 @@ public class Arbitre {
             }
         }
 
+
         void destroy() {
             executor.shutdownNow();
+            stderrExecutor.shutdownNow();
             process.destroy();
         }
     }

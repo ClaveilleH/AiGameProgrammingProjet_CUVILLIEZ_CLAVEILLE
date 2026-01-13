@@ -170,6 +170,7 @@ void bot_play(Board* board) {
     int min_depth = eval_profondeur(board) - 2;
     if (min_depth < 1) min_depth = 1;
     int max_depth = MAX_DEPTH;
+    min_depth = 4;
     //fprintf(stderr, "[BOT PLAY] Chosen depth range: %d to %d\n", min_depth, max_depth);
     bestMove = iterativeDeepeningAlphaBeta(board, PLAYER, min_depth, max_depth); // 100 ms de marge
     // fprintf(stderr, "Hole index: %d, Seed type: %s\n", bestMove.hole_index, 
