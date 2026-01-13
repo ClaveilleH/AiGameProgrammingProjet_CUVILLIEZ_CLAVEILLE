@@ -7,10 +7,9 @@ public class Arbitre {
 
 
     public static void main(String[] args) throws Exception {
-        Process A = new ProcessBuilder(
-            "/Users/fionacuvilliez/Desktop/AiGameProgrammingProjet/AlphawaleZero"
-        ).start();
-        
+        Process A = Runtime.getRuntime().exec(
+            new String[]{"./awale1"}
+        );
         
         Process B = Runtime.getRuntime().exec(
             new String[]{"./aigameH"}
@@ -46,7 +45,8 @@ public class Arbitre {
 //            }
 
 
-            System.out.println("nombre de coups : " + nbCoups + "\nJoueur : "+courant.nom + " -> " + coup);
+            // System.out.println("nombre de coups : " + nbCoups + "\nJoueur : "+courant.nom + " -> " + coup);
+            System.out.println(nbCoups + "|" + courant.nom + " -> " + coup);
             // Fin de partie
             if (coup.contains("RESULT")) {
                 System.out.println(coup);

@@ -173,7 +173,7 @@ int main(int argc, char* argv[]) {
     //sim_end_game(&board); // For testing end game scenarios
     //print_board(&board);
     while (run) {
-        
+        // force_print_board(&board);
 
         if (turn == PLAYER) {
             int end ;

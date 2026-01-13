@@ -215,8 +215,9 @@ void bot_play(Board* board) {
                       (fin.tv_usec - debut.tv_usec) / 1000.0;
     // DEBUG_PRINT("Bot move took %.2f ms\n", temps_ms);
     // fprintf(stderr, "Bot move took %.2f ms\n", temps_ms);
-    fprintf(stderr, ">>> %.2fms | %s %d | %d | J1:%d J2:%d\n", temps_ms,
+    fprintf(stderr, ">>> %.2fms | %d %s | %d | J1:%d J2:%d\n", temps_ms,
+        bestMove.hole_index + 1,
         (bestMove.type == R) ? "R" : 
         (bestMove.type == B) ? "B" : 
-        (bestMove.type == TR) ? "TR" : "TB", bestMove.hole_index + 1, bestValue, get_score(board, 0), get_score(board, 1));
+        (bestMove.type == TR) ? "TR" : "TB", bestValue, get_score(board, 0), get_score(board, 1));
 }

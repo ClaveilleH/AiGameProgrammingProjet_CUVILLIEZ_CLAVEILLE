@@ -8,6 +8,18 @@
 #define COLOR_GREEN "\033[32m"
 #define RESET_COLOR "\033[0m"
 
+#define DESACTIVATED_LOGGING
+
+#ifdef DESACTIVATED_LOGGING
+    // #define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
+    // #define COMPETE_PRINT(fmt, args...) /* Don't do anything in compete builds */
+    #define INFO_PRINT(fmt, args...) /* Don't do anything in release builds */
+    #define WARN_PRINT(fmt, args...) /* Don't do anything in release builds */
+    #define _log(fmt, ...) /* Don't do anything in release builds */
+    void init_logger();
+    void close_logger();
+#else
+
 // #ifdef DEBUG
 // #define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, ##__VA_ARGS__)
 // #else
@@ -46,6 +58,6 @@ void init_logger();
 void close_logger();
 void log_print(const char* message);
 
-
+#endif //DESACTIVATED_LOGGING
 
 #endif // LOGGER_H

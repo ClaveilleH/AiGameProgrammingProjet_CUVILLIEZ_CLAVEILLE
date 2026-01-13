@@ -14,6 +14,9 @@ static inline __attribute__((always_inline)) int distribute_red(Board *restrict 
     // Distribute red seeds
     /* __attribute__((always_inline)) pour forcer l'inlining */
     Hole *harr = board->holes;
+    if (hole->R == 0) {
+        return hole_index;
+    }
     int idx = hole_index;
     for (int s = 0, cnt = hole->R; s < cnt; ++s) {
         idx = (idx + 1) & MASK;
@@ -26,6 +29,9 @@ static inline __attribute__((always_inline)) int distribute_red(Board *restrict 
 
 static inline __attribute__((always_inline)) int distribute_blue(Board *restrict board, int hole_index, Hole *restrict hole) {
     Hole *harr = board->holes;
+    if (hole->B == 0) {
+        return hole_index;
+    }
     int idx = (hole_index + 1) & MASK;
     for (int s = 0, cnt = hole->B; s < cnt; ++s) {
         harr[idx].B += 1;

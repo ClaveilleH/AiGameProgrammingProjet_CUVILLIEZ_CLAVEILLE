@@ -23,7 +23,7 @@
 #define DISPO_TIME 2000.0 // Temps disponible en ms pour le bot
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
-//#define HEURISTIC evaluate2
+// #define HEURISTIC evaluate2
 // #define HEURISTIC heuristic_evaluation
 // #define HEURISTIC h
 #define HEURISTIC ma_fct_deval

@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-#ifdef _WiN32
+#ifdef _WIN32
 #define UINT8 uint8_t
 #else
 #define UINT8 __uint8_t
@@ -86,6 +86,7 @@ typedef struct MoveList {
 
 void init_board(Board* board);
 void print_board(const Board* board);
+void force_print_board(const Board* board);
 
 static inline Hole* get_hole(Board* board, int index) {
     if (index < 0 || index >= 16) {

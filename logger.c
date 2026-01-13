@@ -5,6 +5,15 @@
 #include <sys/time.h>
 #include <string.h>
 
+
+#define DESACTIVATED_LOGGING
+
+#ifdef DESACTIVATED_LOGGING
+void init_logger() {}
+void close_logger() {}
+void log_print(const char* message) {}
+#else
+
 const char* LOG_DIR = "logs/";
 FILE* LOGFILE = NULL;
 
@@ -52,3 +61,5 @@ void log_print(const char* message) {
         fflush(LOGFILE);
     }
 }
+
+#endif
