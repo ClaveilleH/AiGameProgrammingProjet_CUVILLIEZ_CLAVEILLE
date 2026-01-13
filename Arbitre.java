@@ -12,7 +12,7 @@ public class Arbitre {
         );
         
         Process B = Runtime.getRuntime().exec(
-            new String[]{"./aigame"}
+            new String[]{"./awale1"}
         );
         
         Joueur joueurA = new Joueur("A", A);

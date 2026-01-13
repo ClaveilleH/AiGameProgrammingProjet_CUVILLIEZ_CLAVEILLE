@@ -158,8 +158,9 @@ int eval_profondeur(Board* board) {
 void bot_play(Board* board) {
     // Fonction principale du bot qui choisit et joue un coup
     Move bestMove;
-    // struct timeval debut, fin;
-    // gettimeofday(&debut, NULL);
+    int bestValue;
+    struct timeval debut, fin;
+    gettimeofday(&debut, NULL);
     // exit(0);
 
     // int profondeur = 6;
@@ -172,21 +173,29 @@ void bot_play(Board* board) {
     int max_depth = MAX_DEPTH;
     min_depth = 4;
     //fprintf(stderr, "[BOT PLAY] Chosen depth range: %d to %d\n", min_depth, max_depth);
-    bestMove = iterativeDeepeningAlphaBeta(board, PLAYER, min_depth, max_depth); // 100 ms de marge
+    bestMove = iterativeDeepeningAlphaBeta(board, PLAYER, min_depth, max_depth, &bestValue); // 100 ms de marge
     // fprintf(stderr, "Hole index: %d, Seed type: %s\n", bestMove.hole_index, 
     //     (bestMove.type == R) ? "R" : 
     //     (bestMove.type == B) ? "B" : 
     //     (bestMove.type == TR) ? "TR" : "TB");
     if (!is_valid_move(board, bestMove.hole_index, bestMove.type, PLAYER)) {
-        fprintf(stderr, "Bot selected an invalid move. Skipping turn.\n"); // Debug message
+        fprintf(stderr, "Bot selected an invalid move. Skipping turn.\n====\n====\n====\n====\n"); // Debug message
         _log("Bot selected an invalid move: hole %d, type %s", bestMove.hole_index, 
             (bestMove.type == R) ? "R" : 
             (bestMove.type == B) ? "B" : 
             (bestMove.type == TR) ? "TR" : "TB");
         exit(EXIT_FAILURE);
-        return;
+        //dans ce cas on retourne un coup aléatoire valide
+        Move moves[MAX_HOLES/2*4];
+        int n_moves = get_move_list(board, moves, PLAYER);
+        if (n_moves > 0) {
+            bestMove = moves[rand() % n_moves];
+        } else {
+            fprintf(stderr, "No valid moves available for the bot. Skipping turn.\n");
+            return; 
+        }
     }
-    // fprintf(stderr, "Bot selected move: hole %d, type %d\n", bestMove.hole_index, bestMove.type); // Debug message
+    // fprintf(stderr, "Bot selected: hole %d, type %d :: %d \n", bestMove.hole_index, bestMove.type, bestValue); // Debug message
     // _log("Bot selected move: hole %d, type %s", bestMove.hole_index, 
         // (bestMove.type == R) ? "R" : 
         // (bestMove.type == B) ? "B" : 
@@ -195,15 +204,19 @@ void bot_play(Board* board) {
     make_move(board, bestMove.hole_index, bestMove.type, PLAYER);
     //send_move(bestMove.hole_index, bestMove.type);
 
-    printf("%d %s\n", bestMove.hole_index + 1, 
+    printf("%d%s\n", bestMove.hole_index + 1, 
         (bestMove.type == R) ? "R" : 
         (bestMove.type == B) ? "B" : 
         (bestMove.type == TR) ? "TR" : "TB");
     fflush(stdout);
 
-    // gettimeofday(&fin, NULL);
-    // double temps_ms = (fin.tv_sec - debut.tv_sec) * 1000.0 +
-    //                   (fin.tv_usec - debut.tv_usec) / 1000.0;
+    gettimeofday(&fin, NULL);
+    double temps_ms = (fin.tv_sec - debut.tv_sec) * 1000.0 +
+                      (fin.tv_usec - debut.tv_usec) / 1000.0;
     // DEBUG_PRINT("Bot move took %.2f ms\n", temps_ms);
-    //fprintf(stderr, "Bot move took %.2f ms\n", temps_ms);
+    // fprintf(stderr, "Bot move took %.2f ms\n", temps_ms);
+    fprintf(stderr, ">>> %.2fms | %s %d | %d | J1:%d J2:%d\n", temps_ms,
+        (bestMove.type == R) ? "R" : 
+        (bestMove.type == B) ? "B" : 
+        (bestMove.type == TR) ? "TR" : "TB", bestMove.hole_index + 1, bestValue, get_score(board, 0), get_score(board, 1));
 }
