@@ -9,3 +9,5 @@ logs/*.txt
 logs/*.log
 .DS_Store
 .vscode/
+*.png
+*.class

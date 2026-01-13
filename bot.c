@@ -28,7 +28,7 @@ void send_move(int hole_index, SeedType type) {
 int get_move_list(Board* board, Move* move_list, int player) { 
  
     int index = 0;
-    // DEBUG_PRINT("Possible moves : \n"); 
+    DEBUG_PRINT("Possible moves : \n"); 
     // Function to get possible moves
     for (int i = player ; i < MAX_HOLES; i+=2) { 
         // Check each hole for possible moves 
@@ -38,21 +38,21 @@ int get_move_list(Board* board, Move* move_list, int player) {
         int nb_graines_T = hole->T; 
         if(nb_graines_B>0) {
             move_list[index++] = (Move){i, B};
-            // DEBUG_PRINT("Move B, hole %d\n", i ); 
+            DEBUG_PRINT("Move B, hole %d\n", i ); 
         }
         if(nb_graines_R>0) {
             move_list[index++] = (Move){i, R};
-            // DEBUG_PRINT("Move R, hole %d\n", i ); 
+            DEBUG_PRINT("Move R, hole %d\n", i ); 
         }
         if(nb_graines_T>0) { 
             move_list[index++] =  (Move){i, TB};
-            // DEBUG_PRINT("Move TB, hole %d\n", i ); 
+            DEBUG_PRINT("Move TB, hole %d\n", i ); 
             move_list[index++] =  (Move){i, TR};
-            // DEBUG_PRINT("Move TR, hole %d\n", i ); 
+            DEBUG_PRINT("Move TR, hole %d\n", i ); 
         }
 
     } 
-    // DEBUG_PRINT("Nb total de moves : %d\n", index);
+    DEBUG_PRINT("Nb total de moves : %d\n", index);
     return index;
 }
 

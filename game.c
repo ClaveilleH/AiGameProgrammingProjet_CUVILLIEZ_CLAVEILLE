@@ -75,7 +75,6 @@ int make_move(Board* board, int hole_index, SeedType type, int playerId) {
                 TB 
     */
 
-
     Hole* hole = get_hole(board, hole_index);
     int last = hole_index;
     // ! ATTENTION: & MASK pour faire le modulo 16, si MAX_HOLES change, il faut changer le MASK
@@ -157,7 +156,11 @@ int check_end_game(Board* board, int *winner) {
     int score2 = board->j2_score;
     if (player1_moves == 0) {
         score2 += board->seed_count;
-        board->j2_score += score2;
+        //fprintf(stderr, "J2 :%d\n", board->j2_score);
+        //fprintf(stderr, "%d\n", board->seed_count);
+        board->j2_score += board->seed_count;
+        //fprintf(stderr, "%d\n", board->j2_score);
+        
         // board->seed_count = 0;
         if (score1 > score2) {
             *winner = 0;
@@ -166,10 +169,15 @@ int check_end_game(Board* board, int *winner) {
         } else {
             *winner = -1; // Draw
         }
+        return 1;
     }
     if (player2_moves == 0) {
+        
         score1 += board->seed_count;
-        board->j1_score += score1;
+        //fprintf(stderr, "J1 : %d\n", board->j1_score);
+        //fprintf(stderr, "%d\n", board->seed_count);
+        board->j1_score += board->seed_count;
+        //fprintf(stderr, "%d\n", board->j1_score);
         // board->seed_count = 0;
         if (score1 > score2) {
             *winner = 0;
@@ -178,6 +186,8 @@ int check_end_game(Board* board, int *winner) {
         } else {
             *winner = -1; // Draw
         }
+        return 1;
+
     }
     // si on a atteind la limite de coups
     if (get_nb_coups(board, 0) + get_nb_coups(board, 1) >= MAX_MOVES_TOTAL) {
@@ -188,6 +198,8 @@ int check_end_game(Board* board, int *winner) {
         } else {
             *winner = -1; // Draw
         }
+        return 1;
+
     }
     return 0;
 }

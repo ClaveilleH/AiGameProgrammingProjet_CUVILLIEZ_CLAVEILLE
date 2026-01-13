@@ -23,7 +23,7 @@
 #define DISPO_TIME 2000.0 // Temps disponible en ms pour le bot
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
-#define HEURISTIC evaluate
+#define HEURISTIC evaluate2
 // #define HEURISTIC heuristic_evaluation
 // #define HEURISTIC h
 //#define HEURISTIC ma_fct_deval
@@ -165,8 +165,10 @@ int h2(Board* board, int player) {
 // number of available moves
 int h3(Board* board, int player) {
     Move moves[MAX_HOLES / 2 * 4];
-    return get_move_list(board, moves, player);
+    int n = get_move_list(board, moves, player);
+    return n > 0 ? n : -5;
 }
+
 
 // score advantage (player vs opponent)
 int h4(Board* board, int player) {
@@ -175,47 +177,59 @@ int h4(Board* board, int player) {
 
 // opponent's score to minimize
 int h5(Board* board, int player) {
-    return get_score(board, 1 - player);
+    return -get_score(board, 1 - player);
 }
+
 
 // avoid leaving 1 or 2 seeds in holes  = vulnerable holes
 int h6(Board* board, int player) {
+    int penalty = 0;
     for (int i = player; i < MAX_HOLES; i += 2) {
         int total = board->holes[i].R + board->holes[i].B + board->holes[i].T;
-        if (total == 1 || total == 2) return 0; // vulnerable
+        if (total == 1) penalty += 2;
+        else if (total == 2) penalty += 1;
     }
-    return 1; // safe
+    return -penalty;
 }
+
 
 // starve the opponent 
 int h7(Board* board, int player) {
     int total = 0;
     for (int i = 1 - player; i < MAX_HOLES; i += 2)
         total += board->holes[i].R + board->holes[i].B + board->holes[i].T;
-    return -total;
+    return -total / 2;
 }
+
 
 // possibility to capture
 int h8(Board* board, int player) {
-    int potential = 0;
     Move moves[MAX_HOLES / 2 * 4];
     int n_moves = get_move_list(board, moves, player);
+    int best = 0;
 
     for (int i = 0; i < n_moves; i++) {
         Board tmp = *board;
         make_move(&tmp, moves[i].hole_index, moves[i].type, player);
-        potential += get_score(&tmp, player) - get_score(board, player);
+        int gain = get_score(&tmp, player) - get_score(board, player);
+        if (gain > best) best = gain;
     }
-    return potential;
+    return best;
 }
+
 
 // keep red seeds and give blue to the oponent
 int h9(Board* board, int player) {
     int score = 0;
-    for (int i = player; i < MAX_HOLES; i += 2) score += board->holes[i].R;
-    for (int i = 1 - player; i < MAX_HOLES; i += 2) score += board->holes[i].B;
+    for (int i = player; i < MAX_HOLES; i += 2)
+        score += board->holes[i].R;
+
+    for (int i = 1 - player; i < MAX_HOLES; i += 2)
+        score -= board->holes[i].B;
+
     return score;
 }
+
 
 // fewer moves for the opponent
 int h10(Board* board, int player) {
@@ -261,6 +275,24 @@ int evaluate(Board* board, int player) {
     value += h9(board, player) * H9_W;
     value += h10(board, player) * H10_W;
     value += h11(board, player) * H11_W;
+    return value;
+}
+
+int evaluate2(Board* board, int player) {
+    int value = 0;
+
+    value += h4(board, player) * 100;   // score réel
+    value += h8(board, player) * 40;    // meilleure capture possible
+    value += h10(board, player) * 10;   // gêner l’adversaire
+    value += h6(board, player) * 15;    // éviter vulnérabilité
+
+    if (board->seed_count < 30) {
+        value += h7(board, player) * 5; // affamement en fin de partie
+    }
+
+    value += h11(board, player) * 2;    // conserver transparentes
+    value += h1(board, player) * 2;
+
     return value;
 }
 
@@ -524,7 +556,7 @@ int alphaBetaValue (Board* board, int player, int alpha, int beta, int isMax, in
     int end = check_end_game(board, &winner);
     if (end) {
         if (winner == -1) {
-            return 0 - 1000; // Draw
+            return 0; // Draw
         } else if (winner == player) {
             return VAL_MAX -depth; // Win
         } else {

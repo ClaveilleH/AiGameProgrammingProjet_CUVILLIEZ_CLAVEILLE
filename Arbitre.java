@@ -8,11 +8,11 @@ public class Arbitre {
 
     public static void main(String[] args) throws Exception {
         Process A = Runtime.getRuntime().exec(
-            new String[]{"./aigame"}
+            new String[]{"./aigameH"}
         );
         
         Process B = Runtime.getRuntime().exec(
-            new String[]{"./awale1"}
+            new String[]{"./aigame"}
         );
         
         Joueur joueurA = new Joueur("A", A);
@@ -45,7 +45,7 @@ public class Arbitre {
 //            }
 
 
-            System.out.println(courant.nom + " -> " + coup);
+            System.out.println("nombre de coups : " + nbCoups + "\nJoueur : "+courant.nom + " -> " + coup);
             // Fin de partie
             if (coup.contains("RESULT")) {
                 System.out.println(coup);

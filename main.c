@@ -103,6 +103,34 @@ int get_opponent_move(int *hole_index, SeedType *type) {
     return 0;
 }
 
+int get_opponent_move2(int *hole_index, SeedType *type) {
+    char line[128];
+    if (fgets(line, sizeof(line), stdin) == NULL) return 1;
+
+    line[strcspn(line, "\n")] = 0;
+
+    // Si c'est RESULT, on ne tente pas de parser un coup
+    if (strncmp(line, "RESULT", 6) == 0) {
+        fprintf(stderr, "Game finished: %s\n", line);
+        run = 0;
+        return 2; // fin de partie
+    }
+
+    int idx;
+    char type_str[8];
+    if (sscanf(line, "%d %7s", &idx, type_str) != 2) return 1;
+
+    *hole_index = idx - 1;
+    if (strcmp(type_str, "R") == 0) *type = R;
+    else if (strcmp(type_str, "B") == 0) *type = B;
+    else if (strcmp(type_str, "TR") == 0) *type = TR;
+    else if (strcmp(type_str, "TB") == 0) *type = TB;
+    else return 1;
+
+    return 0;
+}
+
+
 
 int main(int argc, char* argv[]) {
     run = 1;
@@ -145,8 +173,24 @@ int main(int argc, char* argv[]) {
     //sim_end_game(&board); // For testing end game scenarios
     //print_board(&board);
     while (run) {
-        // Game loop
+        
+
         if (turn == PLAYER) {
+            int end ;
+            end = check_end_game(&board, &winner);
+            if (end) {
+                int coups = board.nb_coups_player1 + board.nb_coups_player2;
+                int scoreJ1 = board.j1_score;
+                int scoreJ2 = board.j2_score;
+                if (coups >= 400){
+                    printf("RESULT LIMIT %d %d MAX_TURNS\n", scoreJ1, scoreJ2);
+                }
+                else{
+                    printf("RESULT %d %d %d\n", coups, scoreJ1, scoreJ2);
+                }
+                fflush(stdout);
+                run = 0;
+            }
             DEBUG_PRINT("Bot's turn.\n");
             bot_play(&board);
             // print_board(&board);
@@ -155,28 +199,20 @@ int main(int argc, char* argv[]) {
             int hole_index;
             SeedType type;
 
-            if (get_opponent_move(&hole_index, &type)) {
-                DEBUG_PRINT("Not a valid input, skip\n");
-                continue; // si invalide, on attend le prochain tour
+            int ret = get_opponent_move(&hole_index, &type);
+            if (ret == 1) { // coup invalide
+                DEBUG_PRINT("Invalid opponent move, skip\n");
+                continue;
+            } else if (ret == 2) { // RESULT
+                break;
             }
+
             make_move(&board, hole_index, type, 1 - PLAYER);
+
         }
-        int end ;
-        end = check_end_game(&board, &winner);
-        if (end) {
-            int coups = board.nb_coups_player1 + board.nb_coups_player2;
-            int scoreJ1 = board.j1_score;
-            int scoreJ2 = board.j2_score;
-            if (coups >= 400){
-                printf("RESULT LIMIT %d %d MAX_TURNS\n", scoreJ1, scoreJ2);
-            }
-            else{
-                printf("RESULT %d %d %d\n", coups, scoreJ1, scoreJ2);
-            }
-            fflush(stdout);
-            run = 0;
-        }
+        
         turn = 1 - turn;
+        
     }
     close_logger();
     return 0;
