@@ -89,7 +89,10 @@ int make_move(Board* board, int hole_index, SeedType type, int playerId) {
         case TR:
             /* code for transparent red */
             last = distribute_transparent_red(board, hole_index, hole);
-            // break; /* fallthrough */
+            if (hole->R > 0) {
+                last = distribute_red(board, last, hole);
+            }
+             break; /* fallthrough */
             //on enchaine avec les rouge
         case R:
             /* code for red */
@@ -99,7 +102,10 @@ int make_move(Board* board, int hole_index, SeedType type, int playerId) {
         case TB:
             /* code for transparent blue */
             last = distribute_transparent_blue(board, hole_index, hole);
-            // break; /* fallthrough */ 
+            if (hole->B > 0) {
+                last = distribute_blue(board, last, hole);
+            }
+            break; /* fallthrough */ 
             //on enchaine avec les bleu
             // il faut rajouter 1 pour que ca tombe sur le bon trou
             last = (last + 1) & MASK;

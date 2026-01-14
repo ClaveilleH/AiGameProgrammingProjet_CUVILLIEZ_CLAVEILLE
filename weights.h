@@ -26,8 +26,8 @@
 #define H6_W 0
 #define H7_W 1.57
 #define H8_W 10
-#define H9_W 200
-#define H10_W 200
+#define H9_W 20
+#define H10_W 20
 #define H11_W 3.89
 #define H12_W 17.42
 
