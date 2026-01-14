@@ -23,10 +23,10 @@
 #define DISPO_TIME 2000.0 // Temps disponible en ms pour le bot
 //On adapte le code du prof pour avoir une esquisse d'évaluation
 
-//#define HEURISTIC evaluate2
+#define HEURISTIC evaluate
 // #define HEURISTIC heuristic_evaluation
 // #define HEURISTIC h
-#define HEURISTIC ma_fct_deval
+//#define HEURISTIC ma_fct_deval
 
 
 
@@ -690,13 +690,15 @@ int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int 
     // on utilise check_end_game, car plus complet
     if (g_timeout) {
         // fprintf(stderr, "[ID] Timeout detected in deepeningAlphaBetaValue\n");
-        return 0; // Return a neutral value on timeout
+        //return 0; // Return a neutral value on timeout
+        return isMax ? alpha : beta;
     }
     if (now_ms() - g_start_time > DISPO_TIME*0.8) {
         // fprintf(stderr, "[ID] Timeout reached in deepeningAlphaBetaValue with %d steps remaining \n", pmax);
         // fprintf(stderr, "[ID] Time taken: %.2f ms, limit was %.2f ms\n", now_ms() - g_start_time, DISPO_TIME);
         g_timeout = 1;
-        return 0; // Return a neutral value on timeout
+        //return 0; // Return a neutral value on timeout
+        return isMax ? alpha : beta; //try
     }
     // a partir de la j'ai rien changé
     int winner;
@@ -713,6 +715,9 @@ int deepeningAlphaBetaValue (Board* board, int player, int alpha, int beta, int 
     if (pmax==0) return HEURISTIC(board, player);
     Move moves[MAX_HOLES/2*4];
     int n_moves = get_move_list(board, moves, player);
+    if (n_moves == 0) {
+    return HEURISTIC(board, player);
+    }
     if (isMax){
         for (int i = 0; i < n_moves && !g_timeout; i++){
             Board new_board = *board;// copie par valeur
@@ -756,7 +761,7 @@ Move iterativeDeepeningAlphaBeta ( Board* board, int player, int min_depth, int 
     int bestValue = 0;
 
     for (int depth = min_depth; depth <= max_depth; depth++) {
-        g_timeout = 0;
+        //g_timeout = 0; //try
         int currentValue = 0;
         Move currentBestMove = deepeningDecisionAlphaBeta(board, player, depth, bestMove, &currentValue);
         if (g_timeout) {

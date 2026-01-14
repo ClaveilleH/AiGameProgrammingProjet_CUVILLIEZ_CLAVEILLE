@@ -8,7 +8,7 @@ public class Arbitre {
 
     public static void main(String[] args) throws Exception {
         Process A = Runtime.getRuntime().exec(
-            new String[]{"./aigame"}
+            new String[]{"./aigameH"}
         );
         
         Process B = Runtime.getRuntime().exec(
